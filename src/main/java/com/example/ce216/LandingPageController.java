@@ -74,11 +74,15 @@ public class LandingPageController  {
     public void nextPage(){
         pane1.setVisible(false);
         pane2.setVisible(true);
+     button.setStyle("-fx-background-radius: 100; -fx-background-color: white; -fx-border-color: black;-fx-border-radius:100; -fx-border-width:3");
+     button2.setStyle("-fx-background-radius: 100; -fx-background-color: black; -fx-border-color: black;-fx-border-radius:100; -fx-border-width:3");
  }
 
  @FXML
     public void previousPage(){
         pane2.setVisible(false);
         pane1.setVisible(true);
+     button.setStyle("-fx-background-radius: 100; -fx-background-color: black; -fx-border-color: black;-fx-border-radius:100; -fx-border-width:3");
+     button2.setStyle("-fx-background-radius: 100; -fx-background-color: white; -fx-border-color: black;-fx-border-radius:100; -fx-border-width:3");
  }
 }
