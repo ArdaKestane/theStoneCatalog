@@ -85,7 +85,7 @@
                         <Font name="Arial Black" size="16.0" />
                      </font>
                   </Button>
-                  <Button mnemonicParsing="false" prefHeight="34.0" prefWidth="170.0" style="-fx-background-color: transparent;" text="LANDING PAGE" textAlignment="JUSTIFY">
+                  <Button mnemonicParsing="false" onAction="#setLandingPage" prefHeight="34.0" prefWidth="170.0" style="-fx-background-color: transparent;" text="LANDING PAGE" textAlignment="JUSTIFY">
                      <font>
                         <Font name="Arial Black" size="16.0" />
                      </font>
