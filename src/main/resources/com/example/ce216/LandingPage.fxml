@@ -1,0 +1,299 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="784.0" prefWidth="1243.0" style="-fx-border-color: black;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <HBox prefHeight="100.0" prefWidth="200.0" style="-fx-border-color: black; -fx-border-width: 2;">
+         <children>
+            <HBox prefHeight="156.0" prefWidth="653.0">
+               <children>
+                  <VBox alignment="TOP_CENTER" prefHeight="150.0" prefWidth="160.0" style="-fx-spacing: 10;">
+                     <children>
+                        <ImageView fitHeight="109.0" fitWidth="108.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../../Images/head.png" />
+                           </image>
+                        </ImageView>
+                        <Text fontSmoothingType="LCD" nodeOrientation="LEFT_TO_RIGHT" strokeType="OUTSIDE" strokeWidth="0.0" text="Arda Kestane">
+                           <font>
+                              <Font name="Consolas" size="18.0" />
+                           </font>
+                        </Text>
+                     </children>
+                     <HBox.margin>
+                        <Insets top="5.0" />
+                     </HBox.margin>
+                  </VBox>
+               </children>
+            </HBox>
+            <HBox alignment="CENTER" prefHeight="156.0" prefWidth="626.0" style="-fx-spacing: 30;">
+               <children>
+                  <Button mnemonicParsing="false" style="-fx-background-color: transparent;" text="ABOUT US">
+                     <HBox.margin>
+                        <Insets />
+                     </HBox.margin>
+                     <font>
+                        <Font name="Arial Black" size="16.0" />
+                     </font>
+                  </Button>
+                  <Button mnemonicParsing="false" style="-fx-background-color: transparent;" text="F. A. Q.">
+                     <font>
+                        <Font name="Arial Black" size="16.0" />
+                     </font>
+                     <HBox.margin>
+                        <Insets />
+                     </HBox.margin>
+                  </Button>
+                  <Button mnemonicParsing="false" style="-fx-background-color: transparent;" text="CONTACT">
+                     <font>
+                        <Font name="Arial Black" size="16.0" />
+                     </font>
+                     <HBox.margin>
+                        <Insets />
+                     </HBox.margin>
+                  </Button>
+               </children>
+            </HBox>
+         </children>
+      </HBox>
+      <StackPane prefHeight="660.0" prefWidth="1241.0">
+         <children>
+            <ImageView fitHeight="622.0" fitWidth="1237.0" opacity="0.2" pickOnBounds="true">
+               <image>
+                  <Image url="@../../../Images/dots.jpg" />
+               </image>
+            </ImageView>
+            <HBox prefHeight="643.0" prefWidth="1241.0" style="-fx-border-color: black; -fx-border-width: 2;">
+               <children>
+                  <StackPane alignment="TOP_LEFT" prefHeight="150.0" prefWidth="708.0">
+                     <children>
+                        <VBox prefHeight="200.0" prefWidth="717.0">
+                           <children>
+                              <HBox prefHeight="222.0" prefWidth="655.0">
+                                 <children>
+                                    <Text strokeType="OUTSIDE" strokeWidth="0.0" text="THE CATALOG PROJECT" wrappingWidth="655.0">
+                                       <font>
+                                          <Font name="Arial Black" size="72.0" />
+                                       </font>
+                                    </Text>
+                                 </children>
+                                 <padding>
+                                    <Insets left="50.0" top="30.0" />
+                                 </padding>
+                              </HBox>
+                           </children>
+                        </VBox>
+                        <HBox prefHeight="389.0" prefWidth="699.0">
+                           <children>
+                              <Text strokeType="OUTSIDE" strokeWidth="0.0" text="This is the most modern looking catalog application that you can find on this planet. Yes, it can have some deal braker errors and bugs but who cares as long as it looks sharp and nice." textAlignment="JUSTIFY" wrappingWidth="681.224365234375">
+                                 <font>
+                                    <Font name="Andale Mono" size="20.0" />
+                                 </font>
+                                 <HBox.margin>
+                                    <Insets />
+                                 </HBox.margin>
+                              </Text>
+                           </children>
+                           <padding>
+                              <Insets top="20.0" />
+                           </padding>
+                           <StackPane.margin>
+                              <Insets left="40.0" right="10.0" top="250.0" />
+                           </StackPane.margin>
+                        </HBox>
+                        <HBox prefHeight="290.0" prefWidth="511.0">
+                           <StackPane.margin>
+                              <Insets bottom="10.0" left="10.0" right="10.0" top="350.0" />
+                           </StackPane.margin>
+                           <children>
+                              <StackPane>
+                                 <children>
+                                    <Rectangle arcHeight="5.0" arcWidth="5.0" height="40.0" stroke="BLACK" strokeType="INSIDE" width="150.0">
+                                       <StackPane.margin>
+                                          <Insets left="15.0" top="20.0" />
+                                       </StackPane.margin>
+                                    </Rectangle>
+                                    <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="44.0" stroke="BLACK" strokeType="INSIDE" width="151.0" />
+                                    <Text strokeType="OUTSIDE" strokeWidth="0.0" text="GET STARTED!">
+                                       <font>
+                                          <Font name="Arial Black" size="13.0" />
+                                       </font>
+                                    </Text>
+                                    <Button mnemonicParsing="false" prefHeight="46.0" prefWidth="154.0" style="-fx-background-color: transparent; -fx-border-color: black; -fx-border-width: 2;">
+                                       <font>
+                                          <Font name="Arial Black" size="15.0" />
+                                       </font>
+                                       <opaqueInsets>
+                                          <Insets />
+                                       </opaqueInsets>
+                                    </Button>
+                                 </children>
+                                 <HBox.margin>
+                                    <Insets bottom="160.0" left="80.0" top="10.0" />
+                                 </HBox.margin>
+                              </StackPane>
+                           </children>
+                        </HBox>
+                     </children>
+                  </StackPane>
+                  <VBox prefHeight="639.0" prefWidth="521.0" HBox.hgrow="ALWAYS">
+                     <children>
+                        <HBox alignment="CENTER_RIGHT" prefHeight="551.0" prefWidth="600.0">
+                           <children>
+                              <StackPane prefHeight="493.0" prefWidth="482.0">
+                                 <children>
+                                    <Region prefHeight="493.0" prefWidth="460.0" style="-fx-background-color: black; -fx-background-radius: 10;">
+                                       <StackPane.margin>
+                                          <Insets />
+                                       </StackPane.margin>
+                                    </Region>
+                                    <StackPane prefHeight="150.0" prefWidth="200.0">
+                                       <children>
+                                          <Pane prefHeight="568.0" prefWidth="544.0" style="-fx-border-width: 2; -fx-border-color: black; -fx-border-radius: 8;">
+                                             <children>
+                                                <Region layoutX="-26.0" layoutY="-22.0" prefHeight="491.0" prefWidth="475.0" style="-fx-background-color: #e6e1d5; -fx-background-radius: 10; -fx-border-color: black; -fx-border-width: 2; -fx-border-radius: 8;" />
+                                                <VBox alignment="TOP_CENTER" prefHeight="255.0" prefWidth="444.0">
+                                                   <children>
+                                                      <Text strokeType="OUTSIDE" strokeWidth="0.0" text="CATALOG" wrappingWidth="189.26544189453125">
+                                                         <font>
+                                                            <Font name="Arial Black" size="35.0" />
+                                                         </font>
+                                                      </Text>
+                                                      <Text strokeType="OUTSIDE" strokeWidth="0.0" text="TextTextTextTextTextTextTextTextTextTextTextTextTextTextTextTextTextTextTextTextTextTextTextTextTextTextTextTextTextTextTextTextTextTextTextTextTextTextTextTextTextTextTextTextTextTextTextTextTextTextTextTextTextTextTextTextTextTextTextTextTextTextTextTextTextTextTextTextTextTextTextTextTextTextTextTextTextTextTextTextTextTextTextTextTextTextTextTextTextTextTextTextTextTextTextTextTextTextTextTextTextTextTextTextTextTextTextTextTextText" wrappingWidth="400.0">
+                                                         <font>
+                                                            <Font size="17.0" />
+                                                         </font>
+                                                      </Text>
+                                                   </children>
+                                                </VBox>
+                                                <VBox alignment="BOTTOM_CENTER" layoutX="2.0" layoutY="260.0" prefHeight="205.0" prefWidth="444.0">
+                                                   <children>
+                                                      <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" />
+                                                   </children>
+                                                </VBox>
+                                             </children>
+                                             <StackPane.margin>
+                                                <Insets />
+                                             </StackPane.margin>
+                                          </Pane>
+                                          <Pane fx:id="howToUse" prefHeight="568.0" prefWidth="544.0" style="-fx-border-width: 2; -fx-border-color: black; -fx-border-radius: 8;">
+                                             <children>
+                                                <Region layoutX="-26.0" layoutY="-22.0" prefHeight="491.0" prefWidth="475.0" style="-fx-background-color: #e6e1d5; -fx-background-radius: 10; -fx-border-color: black; -fx-border-width: 2; -fx-border-radius: 8;" />
+                                                <VBox alignment="TOP_CENTER" prefHeight="59.0" prefWidth="449.0">
+                                                   <children>
+                                                      <Text disable="true" strokeType="OUTSIDE" strokeWidth="0.0" text="HOW TO USE">
+                                                         <font>
+                                                            <Font name="MS Gothic" size="38.0" />
+                                                         </font>
+                                                         <VBox.margin>
+                                                            <Insets top="10.0" />
+                                                         </VBox.margin>
+                                                      </Text>
+                                                   </children>
+                                                </VBox>
+                                                <VBox alignment="CENTER_RIGHT" layoutX="192.0" layoutY="80.0" prefHeight="234.0" prefWidth="249.0">
+                                                   <children>
+                                                      <Text strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-line-spacing: 5;" text="This application allows you to store types and items. You can also give tags to the items to identify them. You can search and filter every type, item or even tags! You can use the dots below to check the next card out." textAlignment="RIGHT" wrappingWidth="242.6171875">
+                                                         <font>
+                                                            <Font name="Consolas" size="15.0" />
+                                                         </font>
+                                                      </Text>
+                                                   </children>
+                                                </VBox>
+                                                <VBox layoutX="10.0" layoutY="69.0" prefHeight="371.0" prefWidth="154.0">
+                                                   <children>
+                                                      <ImageView fitHeight="371.0" fitWidth="173.0" pickOnBounds="true" preserveRatio="true">
+                                                         <image>
+                                                            <Image url="@../../../Images/retro.png" />
+                                                         </image>
+                                                      </ImageView>
+                                                   </children>
+                                                </VBox>
+                                                <VBox alignment="CENTER_LEFT" layoutX="-1.0" layoutY="419.0" prefHeight="46.0" prefWidth="223.0">
+                                                   <children>
+                                                      <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="55.0" style="-fx-background-color: transparent;">
+                                                         <graphic>
+                                                            <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+                                                               <image>
+                                                                  <Image url="@../../../Images/prev.png" />
+                                                               </image>
+                                                            </ImageView>
+                                                         </graphic>
+                                                         <padding>
+                                                            <Insets bottom="-10.0" left="-10.0" right="-10.0" top="-10.0" />
+                                                         </padding>
+                                                      </Button>
+                                                   </children>
+                                                </VBox>
+                                                <VBox alignment="CENTER_RIGHT" layoutX="222.0" layoutY="419.0" prefHeight="46.0" prefWidth="223.0">
+                                                   <children>
+                                                      <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="55.0" style="-fx-background-color: transperant;">
+                                                         <graphic>
+                                                            <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+                                                               <image>
+                                                                  <Image url="@../../../Images/next.png" />
+                                                               </image>
+                                                            </ImageView>
+                                                         </graphic>
+                                                         <padding>
+                                                            <Insets bottom="-10.0" left="-10.0" right="-10.0" top="-10.0" />
+                                                         </padding>
+                                                      </Button>
+                                                   </children>
+                                                </VBox>
+                                             </children>
+                                          </Pane>
+                                       </children>
+                                    </StackPane>
+                                 </children>
+                                 <HBox.margin>
+                                    <Insets left="10.0" right="5.0" top="8.0" />
+                                 </HBox.margin>
+                                 <padding>
+                                    <Insets left="7.0" right="7.0" top="7.0" />
+                                 </padding>
+                              </StackPane>
+                           </children>
+                           <VBox.margin>
+                              <Insets />
+                           </VBox.margin>
+                           <padding>
+                              <Insets bottom="15.0" left="15.0" top="15.0" />
+                           </padding>
+                        </HBox>
+                        <HBox alignment="TOP_CENTER" prefHeight="129.0" prefWidth="495.0" style="-fx-spacing: 10;">
+                           <children>
+                              <Button minHeight="0.0" minWidth="0.0" mnemonicParsing="false" prefHeight="20.0" prefWidth="20.0" style="-fx-background-radius: 100; -fx-background-color: white; -fx-border-color: black; -fx-border-radius: 100; -fx-border-width: 3;" />
+                              <Button minHeight="0.0" minWidth="0.0" mnemonicParsing="false" prefHeight="20.0" prefWidth="20.0" style="-fx-background-radius: 100; -fx-background-color: white; -fx-border-color: black; -fx-border-radius: 100; -fx-border-width: 3;" />
+                              <Button minHeight="0.0" minWidth="0.0" mnemonicParsing="false" prefHeight="20.0" prefWidth="20.0" style="-fx-background-radius: 100; -fx-background-color: white; -fx-border-color: black; -fx-border-radius: 100; -fx-border-width: 3;" />
+                           </children>
+                           <padding>
+                              <Insets top="15.0" />
+                           </padding>
+                        </HBox>
+                     </children>
+                     <padding>
+                        <Insets top="10.0" />
+                     </padding>
+                     <HBox.margin>
+                        <Insets />
+                     </HBox.margin>
+                  </VBox>
+               </children>
+            </HBox>
+         </children>
+      </StackPane>
+   </children>
+</VBox>
