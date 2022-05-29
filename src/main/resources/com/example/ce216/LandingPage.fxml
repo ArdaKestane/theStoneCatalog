@@ -343,8 +343,8 @@
                         </HBox>
                         <HBox alignment="TOP_CENTER" prefHeight="129.0" prefWidth="495.0" style="-fx-spacing: 10;">
                            <children>
-                              <Button fx:id="button" minHeight="0.0" minWidth="0.0" mnemonicParsing="false" prefHeight="20.0" prefWidth="20.0" style="-fx-background-radius: 100; -fx-background-color: black; -fx-border-color: black; -fx-border-radius: 100; -fx-border-width: 3;" />
-                              <Button fx:id="button2" minHeight="0.0" minWidth="0.0" mnemonicParsing="false" prefHeight="20.0" prefWidth="20.0" style="-fx-background-radius: 100; -fx-background-color: white; -fx-border-color: black; -fx-border-radius: 100; -fx-border-width: 3;" />
+                              <Button fx:id="button" minHeight="0.0" minWidth="0.0" mnemonicParsing="false" onAction="#previousPage" prefHeight="20.0" prefWidth="20.0" style="-fx-background-radius: 100; -fx-background-color: black; -fx-border-color: black; -fx-border-radius: 100; -fx-border-width: 3;" />
+                              <Button fx:id="button2" minHeight="0.0" minWidth="0.0" mnemonicParsing="false" onAction="#nextPage" prefHeight="20.0" prefWidth="20.0" style="-fx-background-radius: 100; -fx-background-color: white; -fx-border-color: black; -fx-border-radius: 100; -fx-border-width: 3;" />
                            </children>
                            <padding>
                               <Insets top="15.0" />
