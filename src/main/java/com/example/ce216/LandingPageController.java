@@ -8,11 +8,14 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.*;
 import javafx.scene.paint.Paint;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 
+import java.io.File;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -60,9 +63,27 @@ public class LandingPageController {
     private Region region;
 
     @FXML
+    private Button nextPage;
+
+    @FXML
+    private Button nextPage2;
+
+    @FXML
+    private Button prevPage;
+
+    @FXML
+    private Button prevPage2;
+
+    @FXML
+    private ImageView next;
+
+    @FXML
+    private ImageView prev;
+
+    @FXML
     public void starter() {
         TranslateTransition translateTransition = new TranslateTransition(Duration.seconds(2), vBox);
-        translateTransition.setToX(-root.getPrefWidth() / 2 + vBox.getPrefWidth() / 2);
+        translateTransition.setToX(-root.getPrefWidth() / 2 + vBox.getWidth() / 2);
         translateTransition.play();
 
         FadeTransition fadeTransition = new FadeTransition(Duration.seconds(1.5), stackPane);
@@ -151,5 +172,26 @@ public class LandingPageController {
         }
         stage.setScene(scene);
         stage.show();
+    }
+
+    public void onHoverColor(){
+       nextPage.setVisible(false);
+       nextPage2.setVisible(true);
+    }
+
+    public void onHoverColorExit(){
+        nextPage.setVisible(true);
+        nextPage2.setVisible(false);
+    }
+
+
+    public void onHoverColor2(){
+        prevPage.setVisible(false);
+        prevPage2.setVisible(true);
+    }
+
+    public void onHoverColorExit2(){
+        prevPage.setVisible(true);
+        prevPage2.setVisible(false);
     }
 }
