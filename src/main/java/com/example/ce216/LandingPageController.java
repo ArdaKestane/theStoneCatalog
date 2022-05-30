@@ -42,6 +42,9 @@ public class LandingPageController {
     private Pane pane2;
 
     @FXML
+    private Pane pane3;
+
+    @FXML
     private Button add;
 
     @FXML
@@ -67,6 +70,25 @@ public class LandingPageController {
         fadeTransition.setToValue(0);
         fadeTransition.play();
 
+
+        FadeTransition fadeTransition2 = new FadeTransition(Duration.seconds(0.6), pane1);
+        fadeTransition2.setFromValue(1);
+        fadeTransition2.setToValue(0);
+        fadeTransition2.play();
+
+        FadeTransition fadeTransition3 = new FadeTransition(Duration.seconds(0.6), pane2);
+        fadeTransition3.setFromValue(1);
+        fadeTransition3.setToValue(0);
+        fadeTransition3.play();
+
+        FadeTransition fadeTransition4 = new FadeTransition(Duration.seconds(0.6), pane3);
+        fadeTransition4.setFromValue(0);
+        fadeTransition4.setToValue(1);
+        fadeTransition4.play();
+
+
+
+
         button.setVisible(false);
         button2.setVisible(false);
 
@@ -83,7 +105,6 @@ public class LandingPageController {
         FadeTransition fadeTransition = new FadeTransition(Duration.seconds(0.6), pane1);
         fadeTransition.setFromValue(1);
         fadeTransition.setToValue(0);
-
         fadeTransition.play();
 
         FadeTransition fadeTransition2 = new FadeTransition(Duration.seconds(0.6), pane2);

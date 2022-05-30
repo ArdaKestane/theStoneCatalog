@@ -2,6 +2,7 @@
 
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.HBox?>
@@ -13,7 +14,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<VBox fx:id="root" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="784.0" prefWidth="1243.0" style="-fx-border-color: black;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.ce216.LandingPageController">
+<VBox fx:id="root" minHeight="-Infinity" minWidth="-Infinity" prefHeight="784.0" prefWidth="1243.0" style="-fx-border-color: black;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.ce216.LandingPageController">
    <children>
       <HBox prefHeight="100.0" prefWidth="200.0" style="-fx-border-color: black; -fx-border-width: 2;">
          <children>
@@ -121,13 +122,21 @@
             </HBox>
          </children>
       </HBox>
-      <StackPane prefHeight="660.0" prefWidth="1241.0">
+      <StackPane prefHeight="660.0" prefWidth="1241.0" VBox.vgrow="ALWAYS">
          <children>
-            <ImageView fitHeight="622.0" fitWidth="1237.0" opacity="0.2" pickOnBounds="true">
-               <image>
-                  <Image url="@../../../Images/dots.jpg" />
-               </image>
-            </ImageView>
+            <VBox>
+               <children>
+                  <HBox VBox.vgrow="ALWAYS">
+                     <children>
+                        <ImageView fitHeight="622.0" fitWidth="1237.0" opacity="0.2" pickOnBounds="true">
+                           <image>
+                              <Image url="@../../../Images/dots.jpg" />
+                           </image>
+                        </ImageView>
+                     </children>
+                  </HBox>
+               </children>
+            </VBox>
             <HBox prefHeight="643.0" prefWidth="1241.0" style="-fx-border-color: black; -fx-border-width: 2;">
                <children>
                   <StackPane fx:id="stackPane" alignment="TOP_LEFT" prefHeight="150.0" prefWidth="708.0">
@@ -201,20 +210,80 @@
                         </HBox>
                      </children>
                   </StackPane>
-                  <VBox fx:id="vBox" prefHeight="639.0" prefWidth="521.0" HBox.hgrow="ALWAYS">
+                  <VBox fx:id="vBox" prefHeight="639.0" prefWidth="521.0">
                      <children>
                         <HBox alignment="CENTER_RIGHT" prefHeight="551.0" prefWidth="600.0">
                            <children>
                               <StackPane prefHeight="493.0" prefWidth="482.0">
                                  <children>
-                                    <Region fx:id="region" prefHeight="493.0" prefWidth="460.0" style="-fx-background-color: black; -fx-background-radius: 10;">
+                                    <Region fx:id="region" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="485.0" prefWidth="465.0" style="-fx-background-color: black; -fx-background-radius: 10;">
                                        <StackPane.margin>
                                           <Insets />
                                        </StackPane.margin>
                                     </Region>
                                     <StackPane prefHeight="150.0" prefWidth="200.0">
                                        <children>
-                                          <Pane fx:id="pane2" prefHeight="568.0" prefWidth="544.0" style="-fx-border-width: 2; -fx-border-color: black; -fx-border-radius: 8;">
+                                          <Pane fx:id="pane3" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="485.0" prefWidth="465.0" style="-fx-border-width: 2; -fx-border-color: black; -fx-border-radius: 8;">
+                                             <children>
+                                                <Region layoutX="-26.0" layoutY="-22.0" prefHeight="491.0" prefWidth="475.0" style="-fx-background-color: #e6e1d5; -fx-background-radius: 10; -fx-border-color: black; -fx-border-width: 2; -fx-border-radius: 8;" />
+                                                <VBox prefHeight="464.0" prefWidth="449.0" spacing="20.0">
+                                                   <children>
+                                                      <HBox alignment="CENTER">
+                                                         <VBox.margin>
+                                                            <Insets top="10.0" />
+                                                         </VBox.margin>
+                                                         <children>
+                                                            <Text disable="true" strokeType="OUTSIDE" strokeWidth="0.0" text="INFORMATION TAB">
+                                                               <font>
+                                                                  <Font name="MS Gothic" size="38.0" />
+                                                               </font>
+                                                            </Text>
+                                                         </children>
+                                                      </HBox>
+                                                      <HBox alignment="CENTER">
+                                                         <children>
+                                                            <Label text="ITEM NAME">
+                                                               <font>
+                                                                  <Font size="24.0" />
+                                                               </font>
+                                                            </Label>
+                                                         </children>
+                                                      </HBox>
+                                                      <HBox>
+                                                         <children>
+                                                            <Label text="TYPE:">
+                                                               <font>
+                                                                  <Font size="24.0" />
+                                                               </font>
+                                                               <HBox.margin>
+                                                                  <Insets />
+                                                               </HBox.margin>
+                                                            </Label>
+                                                         </children>
+                                                      </HBox>
+                                                      <HBox>
+                                                         <children>
+                                                            <Label text="TAGS:" wrapText="true">
+                                                               <font>
+                                                                  <Font size="24.0" />
+                                                               </font>
+                                                            </Label>
+                                                         </children>
+                                                      </HBox>
+                                                      <HBox>
+                                                         <children>
+                                                            <Label text="ATTRIBUTES:">
+                                                               <font>
+                                                                  <Font size="24.0" />
+                                                               </font>
+                                                            </Label>
+                                                         </children>
+                                                      </HBox>
+                                                   </children>
+                                                </VBox>
+                                             </children>
+                                          </Pane>
+                                          <Pane fx:id="pane2" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="485.0" prefWidth="465.0" style="-fx-border-width: 2; -fx-border-color: black; -fx-border-radius: 8;">
                                              <children>
                                                 <Region layoutX="-26.0" layoutY="-22.0" prefHeight="491.0" prefWidth="475.0" style="-fx-background-color: #e6e1d5; -fx-background-radius: 10; -fx-border-color: black; -fx-border-width: 2; -fx-border-radius: 8;" />
                                                 <VBox alignment="TOP_CENTER" prefHeight="255.0" prefWidth="444.0">
@@ -271,7 +340,7 @@
                                                 <Insets />
                                              </StackPane.margin>
                                           </Pane>
-                                          <Pane fx:id="pane1" prefHeight="568.0" prefWidth="544.0" style="-fx-border-width: 2; -fx-border-color: black; -fx-border-radius: 8;">
+                                          <Pane fx:id="pane1" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="485.0" prefWidth="465.0" style="-fx-border-width: 2; -fx-border-color: black; -fx-border-radius: 8;">
                                              <children>
                                                 <Region layoutX="-26.0" layoutY="-22.0" prefHeight="491.0" prefWidth="475.0" style="-fx-background-color: #e6e1d5; -fx-background-radius: 10; -fx-border-color: black; -fx-border-width: 2; -fx-border-radius: 8;" />
                                                 <VBox alignment="TOP_CENTER" prefHeight="59.0" prefWidth="449.0">
