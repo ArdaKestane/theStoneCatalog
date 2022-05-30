@@ -75,9 +75,9 @@
                   </HBox>
                </children>
             </HBox>
-            <HBox alignment="CENTER" prefHeight="141.0" prefWidth="774.0" style="-fx-spacing: 30;">
+            <HBox alignment="CENTER" prefHeight="145.0" prefWidth="642.0" style="-fx-spacing: 30;">
                <children>
-                  <Button mnemonicParsing="false" prefHeight="66.0" prefWidth="198.0" style="-fx-background-color: transparent;" text="ABOUT ME" textAlignment="JUSTIFY">
+                  <Button mnemonicParsing="false" prefHeight="41.0" prefWidth="135.0" style="-fx-background-color: transparent;" text="HELP" textAlignment="JUSTIFY">
                      <HBox.margin>
                         <Insets />
                      </HBox.margin>
