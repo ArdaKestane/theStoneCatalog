@@ -207,7 +207,7 @@
                            <children>
                               <StackPane prefHeight="493.0" prefWidth="482.0">
                                  <children>
-                                    <Region prefHeight="493.0" prefWidth="460.0" style="-fx-background-color: black; -fx-background-radius: 10;">
+                                    <Region fx:id="region" prefHeight="493.0" prefWidth="460.0" style="-fx-background-color: black; -fx-background-radius: 10;">
                                        <StackPane.margin>
                                           <Insets />
                                        </StackPane.margin>
@@ -247,7 +247,7 @@
                                                 </VBox>
                                                 <VBox alignment="CENTER_LEFT" layoutX="9.0" layoutY="429.0" prefHeight="46.0" prefWidth="223.0">
                                                    <children>
-                                                      <Button fx:id="PreviousPage" mnemonicParsing="false" onAction="#previousPage" prefHeight="25.0" prefWidth="55.0" style="-fx-background-color: transparent;">
+                                                      <Button mnemonicParsing="false" onAction="#previousPage" prefHeight="25.0" prefWidth="55.0" style="-fx-background-color: transparent;">
                                                          <graphic>
                                                             <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
                                                                <image>

@@ -8,9 +8,8 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.scene.layout.Pane;
-import javafx.scene.layout.StackPane;
-import javafx.scene.layout.VBox;
+import javafx.scene.layout.*;
+import javafx.scene.paint.Paint;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 
@@ -18,7 +17,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class LandingPageController  {
+public class LandingPageController {
 
     @FXML
     private VBox root;
@@ -55,12 +54,15 @@ public class LandingPageController  {
     private Button search;
 
     @FXML
-    public void starter(){
-        TranslateTransition translateTransition = new TranslateTransition(Duration.seconds(2),vBox);
-        translateTransition.setToX(-root.getPrefWidth()/2+vBox.getPrefWidth()/2);
+    private Region region;
+
+    @FXML
+    public void starter() {
+        TranslateTransition translateTransition = new TranslateTransition(Duration.seconds(2), vBox);
+        translateTransition.setToX(-root.getPrefWidth() / 2 + vBox.getPrefWidth() / 2);
         translateTransition.play();
 
-        FadeTransition fadeTransition = new FadeTransition(Duration.seconds(1.5),stackPane);
+        FadeTransition fadeTransition = new FadeTransition(Duration.seconds(1.5), stackPane);
         fadeTransition.setFromValue(1);
         fadeTransition.setToValue(0);
         fadeTransition.play();
@@ -73,26 +75,52 @@ public class LandingPageController  {
         delete.setVisible(true);
         search.setVisible(true);
 
- }
+    }
 
- @FXML
-    public void nextPage(){
-        pane1.setVisible(false);
-        pane2.setVisible(true);
-     button.setStyle("-fx-background-radius: 100; -fx-background-color: white; -fx-border-color: black;-fx-border-radius:100; -fx-border-width:3");
-     button2.setStyle("-fx-background-radius: 100; -fx-background-color: black; -fx-border-color: black;-fx-border-radius:100; -fx-border-width:3");
- }
+    @FXML
+    public void nextPage() {
 
- @FXML
-    public void previousPage(){
-        pane2.setVisible(false);
-        pane1.setVisible(true);
-     button.setStyle("-fx-background-radius: 100; -fx-background-color: black; -fx-border-color: black;-fx-border-radius:100; -fx-border-width:3");
-     button2.setStyle("-fx-background-radius: 100; -fx-background-color: white; -fx-border-color: black;-fx-border-radius:100; -fx-border-width:3");
- }
+        FadeTransition fadeTransition = new FadeTransition(Duration.seconds(0.6), pane1);
+        fadeTransition.setFromValue(1);
+        fadeTransition.setToValue(0);
+
+        fadeTransition.play();
+
+        FadeTransition fadeTransition2 = new FadeTransition(Duration.seconds(0.6), pane2);
+        fadeTransition2.setFromValue(0);
+        fadeTransition2.setToValue(1);
+
+        fadeTransition2.play();
+
+        button.setStyle("-fx-background-radius: 100; -fx-background-color: white; -fx-border-color: black;-fx-border-radius:100; -fx-border-width:3");
+        button2.setStyle("-fx-background-radius: 100; -fx-background-color: black; -fx-border-color: black;-fx-border-radius:100; -fx-border-width:3");
+
+
+        pane2.toFront();
+    }
+
+    @FXML
+    public void previousPage() {
+
+
+        FadeTransition fadeTransition = new FadeTransition(Duration.seconds(0.6), pane2);
+        fadeTransition.setFromValue(1);
+        fadeTransition.setToValue(0);
+        fadeTransition.play();
+
+        FadeTransition fadeTransition2 = new FadeTransition(Duration.seconds(0.6), pane1);
+        fadeTransition2.setFromValue(0);
+        fadeTransition2.setToValue(1);
+        fadeTransition2.play();
+
+        pane1.toFront();
+
+        button.setStyle("-fx-background-radius: 100; -fx-background-color: black; -fx-border-color: black;-fx-border-radius:100; -fx-border-width:3");
+        button2.setStyle("-fx-background-radius: 100; -fx-background-color: white; -fx-border-color: black;-fx-border-radius:100; -fx-border-width:3");
+    }
 
     public void setLandingPage(ActionEvent actionEvent) {
-        Stage stage = new Stage();
+        Stage stage = (Stage) pane1.getScene().getWindow();
         FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("LandingPage.fxml"));
         Scene scene = null;
         try {
