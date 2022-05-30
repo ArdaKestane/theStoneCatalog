@@ -2,23 +2,14 @@ package com.example.ce216;
 
 import javafx.animation.FadeTransition;
 import javafx.animation.TranslateTransition;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.fxml.Initializable;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
 import javafx.scene.layout.*;
-import javafx.scene.paint.Paint;
 import javafx.stage.Stage;
 import javafx.util.Duration;
-
-import java.io.File;
 import java.io.IOException;
-import java.net.URL;
-import java.util.ResourceBundle;
 
 public class LandingPageController {
 
@@ -60,9 +51,6 @@ public class LandingPageController {
     private Button search;
 
     @FXML
-    private Region region;
-
-    @FXML
     private Button nextPage;
 
     @FXML
@@ -74,11 +62,6 @@ public class LandingPageController {
     @FXML
     private Button prevPage2;
 
-    @FXML
-    private ImageView next;
-
-    @FXML
-    private ImageView prev;
 
     @FXML
     public void starter() {
@@ -161,7 +144,7 @@ public class LandingPageController {
         button2.setStyle("-fx-background-radius: 100; -fx-background-color: white; -fx-border-color: black;-fx-border-radius:100; -fx-border-width:3");
     }
 
-    public void setLandingPage(ActionEvent actionEvent) {
+    public void setLandingPage() {
         Stage stage = (Stage) pane1.getScene().getWindow();
         FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("LandingPage.fxml"));
         Scene scene = null;
