@@ -76,9 +76,9 @@
                   </HBox>
                </children>
             </HBox>
-            <HBox alignment="CENTER" prefHeight="141.0" prefWidth="649.0" style="-fx-spacing: 30;">
+            <HBox alignment="CENTER" prefHeight="145.0" prefWidth="830.0" style="-fx-spacing: 30;">
                <children>
-                  <Button mnemonicParsing="false" prefHeight="41.0" prefWidth="135.0" style="-fx-background-color: transparent;" text="HELP" textAlignment="JUSTIFY">
+                  <Button mnemonicParsing="false" onAction="#help" prefHeight="41.0" prefWidth="135.0" style="-fx-background-color: transparent;" text="HELP" textAlignment="JUSTIFY">
                      <HBox.margin>
                         <Insets />
                      </HBox.margin>
@@ -94,14 +94,20 @@
                         <Insets />
                      </HBox.margin>
                   </Button>
-                  <Button mnemonicParsing="false" prefHeight="34.0" prefWidth="145.0" style="-fx-background-color: transparent;" text="CONTACT">
-                     <font>
-                        <Font name="Arial Black" size="16.0" />
-                     </font>
-                     <HBox.margin>
-                        <Insets />
-                     </HBox.margin>
-                  </Button>
+                  <StackPane onMouseEntered="#contact" onMouseExited="#contact2" prefHeight="80.0" prefWidth="188.0">
+                     <children>
+                        <Label fx:id="mailLabel" prefHeight="24.0" prefWidth="189.0" text="ardakestane@hotmail.com" visible="false">
+                           <font>
+                              <Font name="Arial Black" size="13.0" />
+                           </font>
+                        </Label>
+                        <Button fx:id="contact" mnemonicParsing="false" prefHeight="34.0" prefWidth="145.0" style="-fx-background-color: transparent;" text="CONTACT">
+                           <font>
+                              <Font name="Arial Black" size="16.0" />
+                           </font>
+                        </Button>
+                     </children>
+                  </StackPane>
                   <HBox alignment="BOTTOM_RIGHT" prefHeight="141.0" prefWidth="125.0">
                      <padding>
                         <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
@@ -137,7 +143,7 @@
                   </HBox>
                </children>
             </VBox>
-            <HBox prefHeight="643.0" prefWidth="1241.0" style="-fx-border-color: black; -fx-border-width: 2;">
+            <HBox fx:id="hBoxClose" prefHeight="643.0" prefWidth="1241.0" style="-fx-border-color: black; -fx-border-width: 2;">
                <children>
                   <StackPane fx:id="stackPane" alignment="TOP_LEFT" prefHeight="150.0" prefWidth="708.0">
                      <children>
@@ -461,6 +467,77 @@
                   </VBox>
                </children>
             </HBox>
+            <Pane fx:id="helpPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="485.0" prefWidth="465.0" style="-fx-border-width: 2; -fx-border-color: black; -fx-border-radius: 8; -fx-background-color: black; -fx-background-radius: 8;" visible="false">
+               <children>
+                  <Region layoutX="-26.0" layoutY="-22.0" prefHeight="491.0" prefWidth="475.0" style="-fx-background-color: #e6e1d5; -fx-background-radius: 10; -fx-border-color: black; -fx-border-width: 2; -fx-border-radius: 8;" />
+                  <VBox alignment="TOP_CENTER" prefHeight="59.0" prefWidth="449.0">
+                     <children>
+                        <Text disable="true" strokeType="OUTSIDE" strokeWidth="0.0" text="HELP!">
+                           <font>
+                              <Font name="MS Gothic" size="38.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets top="10.0" />
+                           </VBox.margin>
+                        </Text>
+                     </children>
+                  </VBox>
+                  <VBox alignment="CENTER_RIGHT" layoutX="192.0" layoutY="80.0" prefHeight="234.0" prefWidth="249.0">
+                     <children>
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-line-spacing: 5;" text="Help information..." textAlignment="RIGHT" wrappingWidth="242.6171875">
+                           <font>
+                              <Font name="Consolas" size="15.0" />
+                           </font>
+                        </Text>
+                     </children>
+                     <padding>
+                        <Insets right="10.0" />
+                     </padding>
+                  </VBox>
+                  <VBox layoutX="10.0" layoutY="69.0" prefHeight="371.0" prefWidth="154.0">
+                     <children>
+                        <ImageView fitHeight="371.0" fitWidth="173.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../../Images/retro.png" />
+                           </image>
+                        </ImageView>
+                     </children>
+                  </VBox>
+                  <VBox alignment="CENTER_LEFT" layoutX="-1.0" layoutY="419.0" prefHeight="46.0" prefWidth="223.0" />
+                  <VBox alignment="CENTER_RIGHT" layoutX="222.0" layoutY="419.0" prefHeight="46.0" prefWidth="223.0">
+                     <children>
+                        <StackPane alignment="CENTER_RIGHT" prefHeight="150.0" prefWidth="200.0">
+                           <children>
+                              <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="55.0" style="-fx-background-color: transparent;" visible="false">
+                                 <graphic>
+                                    <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../../../Images/next2.png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                                 <padding>
+                                    <Insets bottom="-10.0" left="-10.0" right="-10.0" top="-10.0" />
+                                 </padding>
+                              </Button>
+                              <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="55.0" style="-fx-background-color: transparent;">
+                                 <graphic>
+                                    <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../../../Images/next.png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                                 <padding>
+                                    <Insets bottom="-10.0" left="-10.0" right="-10.0" top="-10.0" />
+                                 </padding>
+                              </Button>
+                           </children>
+                        </StackPane>
+                     </children>
+                  </VBox>
+               </children>
+            </Pane>
          </children>
       </StackPane>
    </children>
