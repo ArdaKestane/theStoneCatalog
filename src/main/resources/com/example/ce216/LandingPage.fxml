@@ -467,12 +467,81 @@
                   </VBox>
                </children>
             </HBox>
-            <Pane fx:id="helpPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="485.0" prefWidth="465.0" style="-fx-border-width: 2; -fx-border-color: black; -fx-border-radius: 8; -fx-background-color: black; -fx-background-radius: 8;" visible="false" StackPane.alignment="CENTER">
+            <Pane fx:id="helpPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="485.0" prefWidth="465.0" style="-fx-border-width: 2; -fx-border-color: black; -fx-border-radius: 8; -fx-background-color: black; -fx-background-radius: 8;" StackPane.alignment="CENTER">
                <children>
                   <Region layoutX="-26.0" layoutY="-22.0" prefHeight="491.0" prefWidth="475.0" style="-fx-background-color: #e6e1d5; -fx-background-radius: 10; -fx-border-color: black; -fx-border-width: 2; -fx-border-radius: 8;" />
                   <VBox alignment="TOP_CENTER" prefHeight="59.0" prefWidth="449.0">
                      <children>
                         <Text disable="true" strokeType="OUTSIDE" strokeWidth="0.0" text="HELP!">
+                           <font>
+                              <Font name="MS Gothic" size="38.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets top="10.0" />
+                           </VBox.margin>
+                        </Text>
+                     </children>
+                  </VBox>
+                  <VBox layoutX="-6.0" layoutY="80.0" prefHeight="339.0" prefWidth="451.0" spacing="70.0">
+                     <children>
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-line-spacing: 5;" text="Help!Help!Help!Help!Help!Help!Help!Help!Help!Help!Help!Help!Help!Help!Help!Help!Help!Help!Help!Help!Help!Help!Help!Help!Help!Help!Help!Help!" textAlignment="RIGHT" wrappingWidth="242.6171875">
+                           <font>
+                              <Font name="Consolas" size="15.0" />
+                           </font>
+                        </Text>
+                        <ImageView fitHeight="215.0" fitWidth="289.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../../Images/help.png" />
+                           </image>
+                           <VBox.margin>
+                              <Insets left="-20.0" />
+                           </VBox.margin>
+                        </ImageView>
+                     </children>
+                     <padding>
+                        <Insets right="10.0" />
+                     </padding>
+                  </VBox>
+                  <VBox alignment="CENTER_RIGHT" layoutX="222.0" layoutY="419.0" prefHeight="46.0" prefWidth="223.0">
+                     <children>
+                        <StackPane alignment="CENTER_RIGHT" prefHeight="150.0" prefWidth="200.0">
+                           <children>
+                              <Button fx:id="nextPage4" mnemonicParsing="false" prefHeight="25.0" prefWidth="55.0" style="-fx-background-color: transparent;" visible="false">
+                                 <graphic>
+                                    <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../../../Images/next2.png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                                 <padding>
+                                    <Insets bottom="-10.0" left="-10.0" right="-10.0" top="-10.0" />
+                                 </padding>
+                              </Button>
+                              <Button fx:id="nextPage3" mnemonicParsing="false" onAction="#helpSecondPage" onMouseEntered="#onHoverColor3" onMouseExited="#onHoverColorExit3" prefHeight="25.0" prefWidth="55.0" style="-fx-background-color: transparent;">
+                                 <graphic>
+                                    <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../../../Images/next.png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                                 <padding>
+                                    <Insets bottom="-10.0" left="-10.0" right="-10.0" top="-10.0" />
+                                 </padding>
+                              </Button>
+                           </children>
+                        </StackPane>
+                     </children>
+                  </VBox>
+               </children>
+            </Pane>
+            <Pane fx:id="helpPane2" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="485.0" prefWidth="465.0" style="-fx-border-width: 2; -fx-border-color: black; -fx-border-radius: 8; -fx-background-color: black; -fx-background-radius: 8;" visible="false">
+               <children>
+                  <Region layoutX="-26.0" layoutY="-22.0" prefHeight="491.0" prefWidth="475.0" style="-fx-background-color: #e6e1d5; -fx-background-radius: 10; -fx-border-color: black; -fx-border-width: 2; -fx-border-radius: 8;" />
+                  <VBox alignment="TOP_CENTER" prefHeight="59.0" prefWidth="449.0">
+                     <children>
+                        <Text disable="true" strokeType="OUTSIDE" strokeWidth="0.0" text="HELP 2!">
                            <font>
                               <Font name="MS Gothic" size="38.0" />
                            </font>

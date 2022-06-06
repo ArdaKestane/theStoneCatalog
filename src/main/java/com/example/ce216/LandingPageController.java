@@ -72,10 +72,22 @@ public class LandingPageController {
     private Button nextPage2;
 
     @FXML
+    private Button nextPage3;
+
+    @FXML
+    private Button nextPage4;
+
+    @FXML
     private Button prevPage;
 
     @FXML
     private Button prevPage2;
+
+    @FXML
+    private Button prevPage3;
+
+    @FXML
+    private Button prevPage4;
 
     @FXML
     private ImageView next;
@@ -85,6 +97,10 @@ public class LandingPageController {
 
     @FXML
     private Pane helpPane;
+
+    @FXML
+    private Pane helpPane2;
+
 
     @FXML
     private HBox hBoxClose;
@@ -207,6 +223,19 @@ public class LandingPageController {
         prevPage2.setVisible(false);
     }
 
+    @FXML
+
+    public void onHoverColor3(){
+        nextPage3.setVisible(false);
+        nextPage4.setVisible(true);
+    }
+
+    public void onHoverColorExit3(){
+        nextPage3.setVisible(true);
+        nextPage4.setVisible(false);
+    }
+
+
     public void help(){
 
         helpPane.setVisible(true);
@@ -218,6 +247,20 @@ public class LandingPageController {
 
     }
 
+    public void helpSecondPage(){
+        FadeTransition fadeTransition = new FadeTransition(Duration.seconds(0.6), helpPane);
+        fadeTransition.setFromValue(1);
+        fadeTransition.setToValue(0);
+        fadeTransition.play();
+
+        helpPane2.setVisible(true);
+        FadeTransition fadeTransition2 = new FadeTransition(Duration.seconds(0.6), helpPane2);
+        fadeTransition2.setFromValue(0);
+        fadeTransition2.setToValue(1);
+        fadeTransition2.play();
+
+
+    }
 
     public void contact(){
         contact.setVisible(false);
