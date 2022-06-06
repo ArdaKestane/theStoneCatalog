@@ -13,6 +13,8 @@ import javafx.scene.layout.*;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 import java.io.IOException;
+import java.net.URL;
+import java.util.ResourceBundle;
 
 
 public class LandingPageController {
@@ -103,6 +105,16 @@ public class LandingPageController {
     @FXML
     private Pane deleteHelp;
 
+    @FXML
+    private Pane treeViewPane;
+
+    @FXML
+    private VBox vBox2;
+
+    @FXML
+    private Pane searchPane;
+
+
 
     @FXML
     public void starter() {
@@ -110,7 +122,7 @@ public class LandingPageController {
         translateTransition.setToX(-root.getPrefWidth() / 2 + vBox.getWidth() / 2);
         translateTransition.play();
 
-        FadeTransition fadeTransition = new FadeTransition(Duration.seconds(1.5), stackPane);
+        FadeTransition fadeTransition = new FadeTransition(Duration.seconds(1.5), vBox2);
         fadeTransition.setFromValue(1);
         fadeTransition.setToValue(0);
         fadeTransition.play();
@@ -139,6 +151,13 @@ public class LandingPageController {
         edit.setVisible(true);
         delete.setVisible(true);
         search.setVisible(true);
+
+        treeViewPane.setVisible(true);
+        FadeTransition fadeTransition5 = new FadeTransition(Duration.seconds(1.5), treeViewPane);
+        fadeTransition5.setFromValue(0);
+        fadeTransition5.setToValue(1);
+        fadeTransition5.play();
+
 
     }
 
