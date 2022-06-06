@@ -5,21 +5,15 @@ import javafx.animation.TranslateTransition;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.fxml.Initializable;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.*;
-import javafx.scene.paint.Paint;
 import javafx.stage.Stage;
 import javafx.util.Duration;
-
-import java.io.File;
 import java.io.IOException;
-import java.net.URL;
-import java.util.ResourceBundle;
+
 
 public class LandingPageController {
 
@@ -72,22 +66,11 @@ public class LandingPageController {
     private Button nextPage2;
 
     @FXML
-    private Button nextPage3;
-
-    @FXML
-    private Button nextPage4;
-
-    @FXML
     private Button prevPage;
 
     @FXML
     private Button prevPage2;
 
-    @FXML
-    private Button prevPage3;
-
-    @FXML
-    private Button prevPage4;
 
     @FXML
     private ImageView next;
@@ -107,6 +90,19 @@ public class LandingPageController {
 
     @FXML
     private Label mailLabel;
+
+    @FXML
+    private Pane generalHelp;
+
+    @FXML
+    private Pane addHelp;
+
+    @FXML
+    private Pane editHelp;
+
+    @FXML
+    private Pane deleteHelp;
+
 
     @FXML
     public void starter() {
@@ -134,8 +130,6 @@ public class LandingPageController {
         fadeTransition4.setFromValue(0);
         fadeTransition4.setToValue(1);
         fadeTransition4.play();
-
-
 
 
         button.setVisible(false);
@@ -223,18 +217,6 @@ public class LandingPageController {
         prevPage2.setVisible(false);
     }
 
-    @FXML
-
-    public void onHoverColor3(){
-        nextPage3.setVisible(false);
-        nextPage4.setVisible(true);
-    }
-
-    public void onHoverColorExit3(){
-        nextPage3.setVisible(true);
-        nextPage4.setVisible(false);
-    }
-
 
     public void help(){
 
@@ -259,7 +241,6 @@ public class LandingPageController {
         fadeTransition2.setToValue(1);
         fadeTransition2.play();
 
-
     }
 
     public void contact(){
@@ -270,5 +251,75 @@ public class LandingPageController {
     public void contact2(){
         contact.setVisible(true);
         mailLabel.setVisible(false);
+    }
+
+    public void closeAllHelp(){
+        generalHelp.setVisible(false);
+
+        FadeTransition fadeTransition2 = new FadeTransition(Duration.seconds(0.6), addHelp);
+        fadeTransition2.setFromValue(1);
+        fadeTransition2.setToValue(0);
+        fadeTransition2.play();
+
+        FadeTransition fadeTransition3 = new FadeTransition(Duration.seconds(0.6), editHelp);
+        fadeTransition3.setFromValue(1);
+        fadeTransition3.setToValue(0);
+        fadeTransition3.play();
+
+        FadeTransition fadeTransition4 = new FadeTransition(Duration.seconds(0.6), deleteHelp);
+        fadeTransition4.setFromValue(1);
+        fadeTransition4.setToValue(0);
+        fadeTransition4.play();
+    }
+
+    public void closeHelp(){
+        hBoxClose.setOpacity(1);
+        FadeTransition fadeTransition = new FadeTransition(Duration.seconds(0.6), helpPane);
+        fadeTransition.setFromValue(1);
+        fadeTransition.setToValue(0);
+        fadeTransition.play();
+    }
+    public void generalHelp(){
+        closeAllHelp();
+
+        generalHelp.setVisible(true);
+
+        FadeTransition fadeTransition = new FadeTransition(Duration.seconds(0.6), generalHelp);
+        fadeTransition.setFromValue(0);
+        fadeTransition.setToValue(1);
+        fadeTransition.play();
+    }
+
+   public void addHelp(){
+        closeAllHelp();
+
+        addHelp.setVisible(true);
+
+       FadeTransition fadeTransition = new FadeTransition(Duration.seconds(0.6), addHelp);
+       fadeTransition.setFromValue(0);
+       fadeTransition.setToValue(1);
+       fadeTransition.play();
+   }
+
+    public void editHelp(){
+        closeAllHelp();
+
+        editHelp.setVisible(true);
+
+        FadeTransition fadeTransition = new FadeTransition(Duration.seconds(0.6), editHelp);
+        fadeTransition.setFromValue(0);
+        fadeTransition.setToValue(1);
+        fadeTransition.play();
+    }
+
+    public void deleteHelp(){
+        closeAllHelp();
+
+        deleteHelp.setVisible(true);
+
+        FadeTransition fadeTransition = new FadeTransition(Duration.seconds(0.6), deleteHelp);
+        fadeTransition.setFromValue(0);
+        fadeTransition.setToValue(1);
+        fadeTransition.play();
     }
 }

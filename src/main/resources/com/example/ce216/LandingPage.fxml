@@ -379,7 +379,7 @@
                                                 </VBox>
                                                 <VBox alignment="CENTER_RIGHT" layoutX="192.0" layoutY="80.0" prefHeight="234.0" prefWidth="249.0">
                                                    <children>
-                                                      <Text strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-line-spacing: 5;" text="This application allows you to store types and items. You can also give tags to the items to identify them. You can search and filter every type, item or even tags! You can use the dots below to check the next card out." textAlignment="RIGHT" wrappingWidth="242.6171875">
+                                                      <Text strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-line-spacing: 5;" text="This application allows you to store types and items. You can also give tags to the items to identify them. You can search and filter every type, item or even tags! You can use the dots below to check the next card out." textAlignment="JUSTIFY" wrappingWidth="242.6171875">
                                                          <font>
                                                             <Font name="Consolas" size="15.0" />
                                                          </font>
@@ -467,10 +467,10 @@
                   </VBox>
                </children>
             </HBox>
-            <Pane fx:id="helpPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="485.0" prefWidth="465.0" style="-fx-border-width: 2; -fx-border-color: black; -fx-border-radius: 8; -fx-background-color: black; -fx-background-radius: 8;" StackPane.alignment="CENTER">
+            <Pane fx:id="helpPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="485.0" prefWidth="465.0" style="-fx-border-width: 2; -fx-border-color: black; -fx-border-radius: 8; -fx-background-color: black; -fx-background-radius: 8;" visible="false" StackPane.alignment="CENTER">
                <children>
                   <Region layoutX="-26.0" layoutY="-22.0" prefHeight="491.0" prefWidth="475.0" style="-fx-background-color: #e6e1d5; -fx-background-radius: 10; -fx-border-color: black; -fx-border-width: 2; -fx-border-radius: 8;" />
-                  <VBox alignment="TOP_CENTER" prefHeight="59.0" prefWidth="449.0">
+                  <VBox alignment="TOP_CENTER" prefHeight="464.0" prefWidth="449.0">
                      <children>
                         <Text disable="true" strokeType="OUTSIDE" strokeWidth="0.0" text="HELP!">
                            <font>
@@ -480,129 +480,155 @@
                               <Insets top="10.0" />
                            </VBox.margin>
                         </Text>
-                     </children>
-                  </VBox>
-                  <VBox layoutX="-6.0" layoutY="80.0" prefHeight="339.0" prefWidth="451.0" spacing="70.0">
-                     <children>
-                        <Text strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-line-spacing: 5;" text="Help!Help!Help!Help!Help!Help!Help!Help!Help!Help!Help!Help!Help!Help!Help!Help!Help!Help!Help!Help!Help!Help!Help!Help!Help!Help!Help!Help!" textAlignment="RIGHT" wrappingWidth="242.6171875">
-                           <font>
-                              <Font name="Consolas" size="15.0" />
-                           </font>
-                        </Text>
-                        <ImageView fitHeight="215.0" fitWidth="289.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../../../Images/help.png" />
-                           </image>
-                           <VBox.margin>
-                              <Insets left="-20.0" />
-                           </VBox.margin>
-                        </ImageView>
-                     </children>
-                     <padding>
-                        <Insets right="10.0" />
-                     </padding>
-                  </VBox>
-                  <VBox alignment="CENTER_RIGHT" layoutX="222.0" layoutY="419.0" prefHeight="46.0" prefWidth="223.0">
-                     <children>
-                        <StackPane alignment="CENTER_RIGHT" prefHeight="150.0" prefWidth="200.0">
+                        <HBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="34.0" prefWidth="419.0" spacing="25.0">
                            <children>
-                              <Button fx:id="nextPage4" mnemonicParsing="false" prefHeight="25.0" prefWidth="55.0" style="-fx-background-color: transparent;" visible="false">
+                              <Button alignment="CENTER" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#generalHelp" prefHeight="33.0" prefWidth="33.0" style="-fx-background-radius: 100; -fx-background-color: transparent; -fx-border-color: black; -fx-border-radius: 15;" textAlignment="CENTER">
                                  <graphic>
-                                    <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+                                    <ImageView fitHeight="33.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
                                        <image>
-                                          <Image url="@../../../Images/next2.png" />
+                                          <Image url="@../../../Images/questionMark.png" />
                                        </image>
                                     </ImageView>
                                  </graphic>
-                                 <padding>
-                                    <Insets bottom="-10.0" left="-10.0" right="-10.0" top="-10.0" />
-                                 </padding>
                               </Button>
-                              <Button fx:id="nextPage3" mnemonicParsing="false" onAction="#helpSecondPage" onMouseEntered="#onHoverColor3" onMouseExited="#onHoverColorExit3" prefHeight="25.0" prefWidth="55.0" style="-fx-background-color: transparent;">
+                              <Button alignment="CENTER" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#addHelp" prefHeight="30.0" prefWidth="29.0" style="-fx-background-radius: 100; -fx-background-color: transparent;" textAlignment="CENTER">
                                  <graphic>
-                                    <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+                                    <ImageView fitHeight="33.0" fitWidth="39.0" pickOnBounds="true" preserveRatio="true">
                                        <image>
-                                          <Image url="@../../../Images/next.png" />
+                                          <Image url="@../../../Images/add.png" />
                                        </image>
                                     </ImageView>
                                  </graphic>
-                                 <padding>
-                                    <Insets bottom="-10.0" left="-10.0" right="-10.0" top="-10.0" />
-                                 </padding>
                               </Button>
+                              <Button alignment="CENTER" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#editHelp" prefHeight="30.0" prefWidth="29.0" style="-fx-background-radius: 100; -fx-background-color: transparent;" textAlignment="CENTER">
+                                 <graphic>
+                                    <ImageView fitHeight="33.0" fitWidth="39.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../../../Images/edit.png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                              </Button>
+                              <Button alignment="CENTER" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#deleteHelp" prefHeight="30.0" prefWidth="29.0" style="-fx-background-radius: 100; -fx-background-color: transparent;" textAlignment="CENTER">
+                                 <graphic>
+                                    <ImageView fitHeight="46.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../../../Images/delete.png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                              </Button>
+                           </children>
+                           <VBox.margin>
+                              <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
+                           </VBox.margin>
+                        </HBox>
+                        <StackPane prefHeight="150.0" prefWidth="200.0">
+                           <children>
+                              <Pane fx:id="generalHelp" prefHeight="352.0" prefWidth="449.0">
+                                 <children>
+                                    <VBox layoutY="-11.0" prefHeight="355.0" prefWidth="439.0" spacing="30.0">
+                                       <children>
+                                          <Text strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-line-spacing: 5;" text="This is the main help screen. Choose one of the buttons above to access the regarding help section." textAlignment="JUSTIFY" wrappingWidth="423.6171875">
+                                             <font>
+                                                <Font name="Consolas" size="15.0" />
+                                             </font>
+                                             <VBox.margin>
+                                                <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                             </VBox.margin>
+                                          </Text>
+                                          <ImageView fitHeight="215.0" fitWidth="289.0" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@../../../Images/help.png" />
+                                             </image>
+                                          </ImageView>
+                                       </children>
+                                    </VBox>
+                                 </children>
+                              </Pane>
+                              <Pane fx:id="addHelp" prefHeight="352.0" prefWidth="449.0" visible="false">
+                                 <children>
+                                    <VBox layoutY="-11.0" prefHeight="355.0" prefWidth="439.0" spacing="30.0">
+                                       <children>
+                                          <Text strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-line-spacing: 5;" text="This is the AddHelp!" textAlignment="JUSTIFY" wrappingWidth="423.6171875">
+                                             <font>
+                                                <Font name="Consolas" size="15.0" />
+                                             </font>
+                                             <VBox.margin>
+                                                <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                             </VBox.margin>
+                                          </Text>
+                                          <ImageView fitHeight="215.0" fitWidth="289.0" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@../../../Images/help.png" />
+                                             </image>
+                                          </ImageView>
+                                       </children>
+                                    </VBox>
+                                 </children>
+                              </Pane>
+                              <Pane fx:id="editHelp" prefHeight="352.0" prefWidth="449.0" visible="false">
+                                 <children>
+                                    <VBox layoutY="-11.0" prefHeight="355.0" prefWidth="439.0" spacing="30.0">
+                                       <children>
+                                          <Text strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-line-spacing: 5;" text="This is the EditHelp!" textAlignment="JUSTIFY" wrappingWidth="423.6171875">
+                                             <font>
+                                                <Font name="Consolas" size="15.0" />
+                                             </font>
+                                             <VBox.margin>
+                                                <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                             </VBox.margin>
+                                          </Text>
+                                          <ImageView fitHeight="215.0" fitWidth="289.0" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@../../../Images/help.png" />
+                                             </image>
+                                          </ImageView>
+                                       </children>
+                                    </VBox>
+                                 </children>
+                              </Pane>
+                              <Pane fx:id="deleteHelp" prefHeight="352.0" prefWidth="449.0" visible="false">
+                                 <children>
+                                    <VBox layoutY="-11.0" prefHeight="355.0" prefWidth="439.0" spacing="30.0">
+                                       <children>
+                                          <Text strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-line-spacing: 5;" text="This is the DeleteHelp!" textAlignment="JUSTIFY" wrappingWidth="423.6171875">
+                                             <font>
+                                                <Font name="Consolas" size="15.0" />
+                                             </font>
+                                             <VBox.margin>
+                                                <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                             </VBox.margin>
+                                          </Text>
+                                          <ImageView fitHeight="215.0" fitWidth="289.0" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@../../../Images/help.png" />
+                                             </image>
+                                          </ImageView>
+                                       </children>
+                                    </VBox>
+                                 </children>
+                              </Pane>
                            </children>
                         </StackPane>
                      </children>
                   </VBox>
-               </children>
-            </Pane>
-            <Pane fx:id="helpPane2" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="485.0" prefWidth="465.0" style="-fx-border-width: 2; -fx-border-color: black; -fx-border-radius: 8; -fx-background-color: black; -fx-background-radius: 8;" visible="false">
-               <children>
-                  <Region layoutX="-26.0" layoutY="-22.0" prefHeight="491.0" prefWidth="475.0" style="-fx-background-color: #e6e1d5; -fx-background-radius: 10; -fx-border-color: black; -fx-border-width: 2; -fx-border-radius: 8;" />
-                  <VBox alignment="TOP_CENTER" prefHeight="59.0" prefWidth="449.0">
-                     <children>
-                        <Text disable="true" strokeType="OUTSIDE" strokeWidth="0.0" text="HELP 2!">
-                           <font>
-                              <Font name="MS Gothic" size="38.0" />
-                           </font>
-                           <VBox.margin>
-                              <Insets top="10.0" />
-                           </VBox.margin>
-                        </Text>
-                     </children>
-                  </VBox>
-                  <VBox layoutX="-6.0" layoutY="80.0" prefHeight="339.0" prefWidth="451.0" spacing="70.0">
-                     <children>
-                        <Text strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-line-spacing: 5;" text="Help!Help!Help!Help!Help!Help!Help!Help!Help!Help!Help!Help!Help!Help!Help!Help!Help!Help!Help!Help!Help!Help!Help!Help!Help!Help!Help!Help!" textAlignment="RIGHT" wrappingWidth="242.6171875">
-                           <font>
-                              <Font name="Consolas" size="15.0" />
-                           </font>
-                        </Text>
-                        <ImageView fitHeight="215.0" fitWidth="289.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../../../Images/help.png" />
-                           </image>
-                           <VBox.margin>
-                              <Insets left="-20.0" />
-                           </VBox.margin>
-                        </ImageView>
-                     </children>
+                  <HBox alignment="TOP_RIGHT" prefHeight="33.0" prefWidth="444.0">
                      <padding>
-                        <Insets right="10.0" />
+                        <Insets right="5.0" top="-5.0" />
                      </padding>
-                  </VBox>
-                  <VBox alignment="CENTER_RIGHT" layoutX="222.0" layoutY="419.0" prefHeight="46.0" prefWidth="223.0">
                      <children>
-                        <StackPane alignment="CENTER_RIGHT" prefHeight="150.0" prefWidth="200.0">
-                           <children>
-                              <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="55.0" style="-fx-background-color: transparent;" visible="false">
-                                 <graphic>
-                                    <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
-                                       <image>
-                                          <Image url="@../../../Images/next2.png" />
-                                       </image>
-                                    </ImageView>
-                                 </graphic>
-                                 <padding>
-                                    <Insets bottom="-10.0" left="-10.0" right="-10.0" top="-10.0" />
-                                 </padding>
-                              </Button>
-                              <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="55.0" style="-fx-background-color: transparent;">
-                                 <graphic>
-                                    <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
-                                       <image>
-                                          <Image url="@../../../Images/next.png" />
-                                       </image>
-                                    </ImageView>
-                                 </graphic>
-                                 <padding>
-                                    <Insets bottom="-10.0" left="-10.0" right="-10.0" top="-10.0" />
-                                 </padding>
-                              </Button>
-                           </children>
-                        </StackPane>
+                        <Button alignment="CENTER" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#closeHelp" prefHeight="29.0" prefWidth="33.0" style="-fx-background-radius: 100; -fx-background-color: transparent;" textAlignment="CENTER">
+                           <graphic>
+                              <ImageView fitHeight="41.0" fitWidth="43.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../../Images/close.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </Button>
                      </children>
-                  </VBox>
+                  </HBox>
                </children>
             </Pane>
          </children>
