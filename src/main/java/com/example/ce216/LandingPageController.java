@@ -114,6 +114,14 @@ public class LandingPageController {
     @FXML
     private Pane searchPane;
 
+    @FXML
+    private Pane addPane;
+
+    @FXML
+    private Pane editPane;
+
+    @FXML
+    private Pane deletePane;
 
 
     @FXML
@@ -153,10 +161,10 @@ public class LandingPageController {
         search.setVisible(true);
 
         treeViewPane.setVisible(true);
-        FadeTransition fadeTransition5 = new FadeTransition(Duration.seconds(1.5), treeViewPane);
-        fadeTransition5.setFromValue(0);
-        fadeTransition5.setToValue(1);
-        fadeTransition5.play();
+        FadeTransition fadeTransition6 = new FadeTransition(Duration.seconds(1.5), treeViewPane);
+        fadeTransition6.setFromValue(0);
+        fadeTransition6.setToValue(1);
+        fadeTransition6.play();
 
 
     }
@@ -274,21 +282,9 @@ public class LandingPageController {
 
     public void closeAllHelp(){
         generalHelp.setVisible(false);
-
-        FadeTransition fadeTransition2 = new FadeTransition(Duration.seconds(0.6), addHelp);
-        fadeTransition2.setFromValue(1);
-        fadeTransition2.setToValue(0);
-        fadeTransition2.play();
-
-        FadeTransition fadeTransition3 = new FadeTransition(Duration.seconds(0.6), editHelp);
-        fadeTransition3.setFromValue(1);
-        fadeTransition3.setToValue(0);
-        fadeTransition3.play();
-
-        FadeTransition fadeTransition4 = new FadeTransition(Duration.seconds(0.6), deleteHelp);
-        fadeTransition4.setFromValue(1);
-        fadeTransition4.setToValue(0);
-        fadeTransition4.play();
+        addHelp.setVisible(false);
+        editHelp.setVisible(false);
+        deleteHelp.setVisible(false);
     }
 
     public void closeHelp(){
@@ -303,7 +299,7 @@ public class LandingPageController {
 
         generalHelp.setVisible(true);
 
-        FadeTransition fadeTransition = new FadeTransition(Duration.seconds(0.6), generalHelp);
+        FadeTransition fadeTransition = new FadeTransition(Duration.seconds(1), generalHelp);
         fadeTransition.setFromValue(0);
         fadeTransition.setToValue(1);
         fadeTransition.play();
@@ -314,7 +310,7 @@ public class LandingPageController {
 
         addHelp.setVisible(true);
 
-       FadeTransition fadeTransition = new FadeTransition(Duration.seconds(0.6), addHelp);
+       FadeTransition fadeTransition = new FadeTransition(Duration.seconds(1), addHelp);
        fadeTransition.setFromValue(0);
        fadeTransition.setToValue(1);
        fadeTransition.play();
@@ -325,7 +321,7 @@ public class LandingPageController {
 
         editHelp.setVisible(true);
 
-        FadeTransition fadeTransition = new FadeTransition(Duration.seconds(0.6), editHelp);
+        FadeTransition fadeTransition = new FadeTransition(Duration.seconds(1), editHelp);
         fadeTransition.setFromValue(0);
         fadeTransition.setToValue(1);
         fadeTransition.play();
@@ -336,9 +332,91 @@ public class LandingPageController {
 
         deleteHelp.setVisible(true);
 
-        FadeTransition fadeTransition = new FadeTransition(Duration.seconds(0.6), deleteHelp);
+        FadeTransition fadeTransition = new FadeTransition(Duration.seconds(1), deleteHelp);
         fadeTransition.setFromValue(0);
         fadeTransition.setToValue(1);
         fadeTransition.play();
     }
+
+    public void searchPane(){
+        searchPane.setVisible(true);
+        searchPane.toFront();
+        FadeTransition fadeTransition = new FadeTransition(Duration.seconds(0.6), searchPane);
+        fadeTransition.setFromValue(0);
+        fadeTransition.setToValue(1);
+        fadeTransition.play();
+    }
+
+
+    public void addPane(){
+        vBox.setVisible(false);
+        addPane.setVisible(true);
+        addPane.toFront();
+        hBoxClose.setOpacity(0.35);
+        FadeTransition fadeTransition = new FadeTransition(Duration.seconds(0.6), addPane);
+        fadeTransition.setFromValue(0);
+        fadeTransition.setToValue(1);
+        fadeTransition.play();
+        editPane.setVisible(false);
+        deletePane.setVisible(false);
+    }
+
+    public void closeAddPane(){
+        vBox.setVisible(true);
+        addPane.setVisible(false);
+        hBoxClose.setOpacity(1);
+        FadeTransition fadeTransition = new FadeTransition(Duration.seconds(0.6), vBox);
+        fadeTransition.setFromValue(0);
+        fadeTransition.setToValue(1);
+        fadeTransition.play();
+    }
+
+
+    public void editPane(){
+        vBox.setVisible(false);
+        editPane.setVisible(true);
+        editPane.toFront();
+        hBoxClose.setOpacity(0.35);
+        FadeTransition fadeTransition = new FadeTransition(Duration.seconds(0.6), editPane);
+        fadeTransition.setFromValue(0);
+        fadeTransition.setToValue(1);
+        fadeTransition.play();
+        addPane.setVisible(false);
+        deletePane.setVisible(false);
+    }
+
+    public void closeEditPane(){
+        vBox.setVisible(true);
+        editPane.setVisible(false);
+        hBoxClose.setOpacity(1);
+        FadeTransition fadeTransition = new FadeTransition(Duration.seconds(0.6), vBox);
+        fadeTransition.setFromValue(0);
+        fadeTransition.setToValue(1);
+        fadeTransition.play();
+    }
+
+    public void deletePane(){
+        vBox.setVisible(false);
+        deletePane.setVisible(true);
+        deletePane.toFront();
+        hBoxClose.setOpacity(0.35);
+        FadeTransition fadeTransition = new FadeTransition(Duration.seconds(0.6), deletePane);
+        fadeTransition.setFromValue(0);
+        fadeTransition.setToValue(1);
+        fadeTransition.play();
+        addPane.setVisible(false);
+        editPane.setVisible(false);
+    }
+
+    public void closeDeletePane(){
+        vBox.setVisible(true);
+        deletePane.setVisible(false);
+        hBoxClose.setOpacity(1);
+        FadeTransition fadeTransition = new FadeTransition(Duration.seconds(0.6), vBox);
+        fadeTransition.setFromValue(0);
+        fadeTransition.setToValue(1);
+        fadeTransition.play();
+    }
+
+
 }
