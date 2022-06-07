@@ -692,7 +692,7 @@
                                                                   <Font name="Arial Black" size="13.0" />
                                                                </font>
                                                             </Text>
-                                                            <Button mnemonicParsing="false" onAction="#starter" prefHeight="46.0" prefWidth="154.0" style="-fx-background-color: transparent; -fx-border-color: black; -fx-border-width: 2;">
+                                                            <Button mnemonicParsing="false" prefHeight="46.0" prefWidth="154.0" style="-fx-background-color: transparent; -fx-border-color: black; -fx-border-width: 2;">
                                                                <font>
                                                                   <Font name="Arial Black" size="15.0" />
                                                                </font>
@@ -722,7 +722,7 @@
                                                                   <Font name="Arial Black" size="13.0" />
                                                                </font>
                                                             </Text>
-                                                            <Button mnemonicParsing="false" onAction="#starter" prefHeight="46.0" prefWidth="154.0" style="-fx-background-color: transparent; -fx-border-color: black; -fx-border-width: 2;">
+                                                            <Button mnemonicParsing="false" prefHeight="46.0" prefWidth="154.0" style="-fx-background-color: transparent; -fx-border-color: black; -fx-border-width: 2;">
                                                                <font>
                                                                   <Font name="Arial Black" size="15.0" />
                                                                </font>
@@ -814,7 +814,7 @@
                                                                   <Font name="Arial Black" size="13.0" />
                                                                </font>
                                                             </Text>
-                                                            <Button mnemonicParsing="false" onAction="#starter" prefHeight="46.0" prefWidth="154.0" style="-fx-background-color: transparent; -fx-border-color: black; -fx-border-width: 2;">
+                                                            <Button mnemonicParsing="false" prefHeight="46.0" prefWidth="154.0" style="-fx-background-color: transparent; -fx-border-color: black; -fx-border-width: 2;">
                                                                <font>
                                                                   <Font name="Arial Black" size="15.0" />
                                                                </font>
@@ -844,7 +844,7 @@
                                                                   <Font name="Arial Black" size="13.0" />
                                                                </font>
                                                             </Text>
-                                                            <Button mnemonicParsing="false" onAction="#starter" prefHeight="46.0" prefWidth="154.0" style="-fx-background-color: transparent; -fx-border-color: black; -fx-border-width: 2;">
+                                                            <Button mnemonicParsing="false" prefHeight="46.0" prefWidth="154.0" style="-fx-background-color: transparent; -fx-border-color: black; -fx-border-width: 2;">
                                                                <font>
                                                                   <Font name="Arial Black" size="15.0" />
                                                                </font>
@@ -936,7 +936,7 @@
                                                                   <Font name="Arial Black" size="13.0" />
                                                                </font>
                                                             </Text>
-                                                            <Button mnemonicParsing="false" onAction="#starter" prefHeight="46.0" prefWidth="154.0" style="-fx-background-color: transparent; -fx-border-color: black; -fx-border-width: 2;">
+                                                            <Button mnemonicParsing="false" prefHeight="46.0" prefWidth="154.0" style="-fx-background-color: transparent; -fx-border-color: black; -fx-border-width: 2;">
                                                                <font>
                                                                   <Font name="Arial Black" size="15.0" />
                                                                </font>
@@ -966,7 +966,7 @@
                                                                   <Font name="Arial Black" size="13.0" />
                                                                </font>
                                                             </Text>
-                                                            <Button mnemonicParsing="false" onAction="#starter" prefHeight="46.0" prefWidth="154.0" style="-fx-background-color: transparent; -fx-border-color: black; -fx-border-width: 2;">
+                                                            <Button mnemonicParsing="false" prefHeight="46.0" prefWidth="154.0" style="-fx-background-color: transparent; -fx-border-color: black; -fx-border-width: 2;">
                                                                <font>
                                                                   <Font name="Arial Black" size="15.0" />
                                                                </font>
