@@ -245,31 +245,6 @@ public class LandingPageController {
     }
 
 
-    public void help(){
-
-        helpPane.setVisible(true);
-        hBoxClose.setOpacity(0.35);
-        FadeTransition fadeTransition = new FadeTransition(Duration.seconds(0.6), helpPane);
-        fadeTransition.setFromValue(0);
-        fadeTransition.setToValue(1);
-        fadeTransition.play();
-
-    }
-
-    public void helpSecondPage(){
-        FadeTransition fadeTransition = new FadeTransition(Duration.seconds(0.6), helpPane);
-        fadeTransition.setFromValue(1);
-        fadeTransition.setToValue(0);
-        fadeTransition.play();
-
-        helpPane2.setVisible(true);
-        FadeTransition fadeTransition2 = new FadeTransition(Duration.seconds(0.6), helpPane2);
-        fadeTransition2.setFromValue(0);
-        fadeTransition2.setToValue(1);
-        fadeTransition2.play();
-
-    }
-
     public void contact(){
         contact.setVisible(false);
         mailLabel.setVisible(true);
@@ -288,6 +263,8 @@ public class LandingPageController {
     }
 
     public void closeHelp(){
+        vBox.setVisible(true);
+        hBoxClose.setOpacity(1);
         hBoxClose.setOpacity(1);
         FadeTransition fadeTransition = new FadeTransition(Duration.seconds(0.6), helpPane);
         fadeTransition.setFromValue(1);
@@ -416,6 +393,20 @@ public class LandingPageController {
         fadeTransition.setFromValue(0);
         fadeTransition.setToValue(1);
         fadeTransition.play();
+    }
+
+    public void help(){
+        addPane.setVisible(false);
+        editPane.setVisible(false);
+        deletePane.setVisible(false);
+        helpPane.setVisible(true);
+        helpPane.toFront();
+        hBoxClose.setOpacity(0.35);
+        FadeTransition fadeTransition = new FadeTransition(Duration.seconds(0.6), helpPane);
+        fadeTransition.setFromValue(0);
+        fadeTransition.setToValue(1);
+        fadeTransition.play();
+
     }
 
 

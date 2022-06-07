@@ -216,9 +216,9 @@
                               <Insets bottom="10.0" left="10.0" right="10.0" />
                            </padding>
                         </VBox>
-                        <Pane fx:id="treeViewPane" maxWidth="-Infinity" opacity="0.5" prefHeight="630.0" prefWidth="360.0" style="-fx-background-color: #e6e1d5;" visible="false">
+                        <Pane fx:id="treeViewPane" maxWidth="-Infinity" prefHeight="630.0" prefWidth="360.0" style="-fx-background-color: #e6e1d5; -fx-background-radius: 20;" visible="false">
                            <children>
-                              <TreeView opacity="0.5" prefHeight="630.0" prefWidth="360.0" />
+                              <TreeView opacity="0.35" prefHeight="630.0" prefWidth="360.0" style="-fx-background-radius: 20;" />
                            </children>
                         </Pane>
                      </children>
@@ -228,7 +228,7 @@
                         <Insets />
                      </HBox.margin>
                      <children>
-                        <Pane fx:id="searchPane" maxWidth="-Infinity" opacity="0.4" prefHeight="630.0" prefWidth="369.0" style="-fx-background-color: #e6e1d5 #e6e1d5;" visible="false" StackPane.alignment="CENTER_RIGHT" />
+                        <Pane fx:id="searchPane" maxWidth="-Infinity" prefHeight="630.0" prefWidth="369.0" style="-fx-background-color: #e6e1d5 #e6e1d5 #e6e1d5 #e6e1d5; -fx-background-radius: 20;" visible="false" StackPane.alignment="CENTER_RIGHT" />
                         <VBox fx:id="vBox" prefHeight="639.0" prefWidth="521.0">
                            <children>
                               <HBox alignment="CENTER_RIGHT" prefHeight="551.0" prefWidth="600.0">
