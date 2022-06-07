@@ -13,8 +13,6 @@ import javafx.scene.layout.*;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 import java.io.IOException;
-import java.net.URL;
-import java.util.ResourceBundle;
 
 
 public class LandingPageController {
@@ -123,6 +121,9 @@ public class LandingPageController {
     @FXML
     private Pane deletePane;
 
+    @FXML
+    private StackPane stackPane2;
+
 
     @FXML
     public void starter() {
@@ -146,6 +147,7 @@ public class LandingPageController {
         fadeTransition3.setToValue(0);
         fadeTransition3.play();
 
+        pane3.setVisible(true);
         FadeTransition fadeTransition4 = new FadeTransition(Duration.seconds(0.6), pane3);
         fadeTransition4.setFromValue(0);
         fadeTransition4.setToValue(1);
@@ -171,43 +173,47 @@ public class LandingPageController {
 
     @FXML
     public void nextPage() {
+        if(pane1.isVisible()) {
+            FadeTransition fadeTransition = new FadeTransition(Duration.seconds(0.6), pane1);
+            fadeTransition.setFromValue(1);
+            fadeTransition.setToValue(0);
+            fadeTransition.play();
+            pane1.setVisible(false);
 
-        FadeTransition fadeTransition = new FadeTransition(Duration.seconds(0.6), pane1);
-        fadeTransition.setFromValue(1);
-        fadeTransition.setToValue(0);
-        fadeTransition.play();
+            pane2.setVisible(true);
+            FadeTransition fadeTransition2 = new FadeTransition(Duration.seconds(0.6), pane2);
+            fadeTransition2.setFromValue(0);
+            fadeTransition2.setToValue(1);
+            fadeTransition2.play();
 
-        FadeTransition fadeTransition2 = new FadeTransition(Duration.seconds(0.6), pane2);
-        fadeTransition2.setFromValue(0);
-        fadeTransition2.setToValue(1);
+            button.setStyle("-fx-background-radius: 100; -fx-background-color: white; -fx-border-color: black;-fx-border-radius:100; -fx-border-width:3");
+            button2.setStyle("-fx-background-radius: 100; -fx-background-color: black; -fx-border-color: black;-fx-border-radius:100; -fx-border-width:3");
 
-        fadeTransition2.play();
-
-        button.setStyle("-fx-background-radius: 100; -fx-background-color: white; -fx-border-color: black;-fx-border-radius:100; -fx-border-width:3");
-        button2.setStyle("-fx-background-radius: 100; -fx-background-color: black; -fx-border-color: black;-fx-border-radius:100; -fx-border-width:3");
-
-
-        pane2.toFront();
+            pane2.toFront();
+        }
     }
 
     @FXML
     public void previousPage() {
+        if (pane2.isVisible()) {
+            FadeTransition fadeTransition = new FadeTransition(Duration.seconds(0.6), pane2);
+            fadeTransition.setFromValue(1);
+            fadeTransition.setToValue(0);
+            fadeTransition.play();
+            pane2.setVisible(false);
 
 
-        FadeTransition fadeTransition = new FadeTransition(Duration.seconds(0.6), pane2);
-        fadeTransition.setFromValue(1);
-        fadeTransition.setToValue(0);
-        fadeTransition.play();
+            pane1.setVisible(true);
+            FadeTransition fadeTransition2 = new FadeTransition(Duration.seconds(0.6), pane1);
+            fadeTransition2.setFromValue(0);
+            fadeTransition2.setToValue(1);
+            fadeTransition2.play();
 
-        FadeTransition fadeTransition2 = new FadeTransition(Duration.seconds(0.6), pane1);
-        fadeTransition2.setFromValue(0);
-        fadeTransition2.setToValue(1);
-        fadeTransition2.play();
+            pane1.toFront();
 
-        pane1.toFront();
-
-        button.setStyle("-fx-background-radius: 100; -fx-background-color: black; -fx-border-color: black;-fx-border-radius:100; -fx-border-width:3");
-        button2.setStyle("-fx-background-radius: 100; -fx-background-color: white; -fx-border-color: black;-fx-border-radius:100; -fx-border-width:3");
+            button.setStyle("-fx-background-radius: 100; -fx-background-color: black; -fx-border-color: black;-fx-border-radius:100; -fx-border-width:3");
+            button2.setStyle("-fx-background-radius: 100; -fx-background-color: white; -fx-border-color: black;-fx-border-radius:100; -fx-border-width:3");
+        }
     }
 
     public void setLandingPage(ActionEvent actionEvent) {

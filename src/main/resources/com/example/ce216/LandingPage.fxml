@@ -240,9 +240,9 @@
                                                 <Insets />
                                              </StackPane.margin>
                                           </Region>
-                                          <StackPane prefHeight="485.0" prefWidth="486.0">
+                                          <StackPane fx:id="stackPane2" prefHeight="485.0" prefWidth="486.0">
                                              <children>
-                                                <Pane fx:id="pane3" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="485.0" prefWidth="465.0" style="-fx-border-width: 2; -fx-border-color: black; -fx-border-radius: 8;">
+                                                <Pane fx:id="pane3" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="485.0" prefWidth="465.0" style="-fx-border-width: 2; -fx-border-color: black; -fx-border-radius: 8;" visible="false">
                                                    <children>
                                                       <Region layoutX="-26.0" layoutY="-22.0" prefHeight="491.0" prefWidth="475.0" style="-fx-background-color: #e6e1d5; -fx-background-radius: 10; -fx-border-color: black; -fx-border-width: 2; -fx-border-radius: 8;" />
                                                       <VBox prefHeight="464.0" prefWidth="449.0" spacing="20.0">
