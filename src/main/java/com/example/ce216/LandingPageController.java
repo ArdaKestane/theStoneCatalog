@@ -130,6 +130,9 @@ public class LandingPageController {
     @FXML
     private Pane typeAddPane;
 
+    @FXML
+    private Pane itemAddPane;
+
 
     @FXML
     public void starter() {
@@ -360,6 +363,7 @@ public class LandingPageController {
         fadeTransition.play();
         generalAddPane.setVisible(true);
         typeAddPane.setVisible(false);
+        itemAddPane.setVisible(false);
     }
 
 
@@ -428,5 +432,9 @@ public class LandingPageController {
         typeAddPane.setVisible(true);
     }
 
+    public void itemAdd(){
+        generalAddPane.setVisible(false);
+        itemAddPane.setVisible(true);
+    }
 
 }

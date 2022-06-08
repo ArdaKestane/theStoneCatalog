@@ -725,7 +725,7 @@
                                                                   <Font name="Arial Black" size="13.0" />
                                                                </font>
                                                             </Text>
-                                                            <Button mnemonicParsing="false" prefHeight="46.0" prefWidth="154.0" style="-fx-background-color: transparent; -fx-border-color: black; -fx-border-width: 2;">
+                                                            <Button mnemonicParsing="false" onAction="#itemAdd" prefHeight="46.0" prefWidth="154.0" style="-fx-background-color: transparent; -fx-border-color: black; -fx-border-width: 2;">
                                                                <font>
                                                                   <Font name="Arial Black" size="15.0" />
                                                                </font>
@@ -748,33 +748,60 @@
                               </Pane>
                               <Pane fx:id="typeAddPane" visible="false">
                                  <children>
-                                    <VBox alignment="TOP_CENTER" spacing="15.0">
+                                    <VBox spacing="15.0">
                                        <children>
-                                          <HBox alignment="CENTER_LEFT" prefHeight="50.0" prefWidth="449.0">
+                                          <HBox alignment="CENTER_LEFT" maxWidth="-Infinity" prefHeight="60.0" prefWidth="440.0">
                                              <children>
                                                 <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Name:" wrappingWidth="69.80380249023438">
                                                    <font>
                                                       <Font size="21.0" />
                                                    </font>
                                                 </Text>
-                                                <TextField prefHeight="26.0" prefWidth="263.0" style="-fx-background-color: #CDC2AE;">
+                                                <TextField prefHeight="30.0" prefWidth="245.0" style="-fx-background-color: #CDC2AE;">
                                                    <font>
                                                       <Font size="14.0" />
                                                    </font>
                                                 </TextField>
+                                                <StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" prefHeight="42.0" prefWidth="133.0">
+                                                   <children>
+                                                      <Rectangle arcHeight="5.0" arcWidth="5.0" height="30.0" stroke="BLACK" strokeType="INSIDE" width="105.0">
+                                                         <StackPane.margin>
+                                                            <Insets left="15.0" top="20.0" />
+                                                         </StackPane.margin>
+                                                      </Rectangle>
+                                                      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="34.0" stroke="BLACK" strokeType="INSIDE" width="107.0" />
+                                                      <Text strokeType="OUTSIDE" strokeWidth="0.0" text="CREATE!">
+                                                         <font>
+                                                            <Font name="Arial Black" size="13.0" />
+                                                         </font>
+                                                      </Text>
+                                                      <Button mnemonicParsing="false" onAction="#starter" prefHeight="34.0" prefWidth="110.0" style="-fx-background-color: transparent; -fx-border-color: black; -fx-border-width: 2;">
+                                                         <font>
+                                                            <Font name="Arial Black" size="15.0" />
+                                                         </font>
+                                                         <opaqueInsets>
+                                                            <Insets />
+                                                         </opaqueInsets>
+                                                      </Button>
+                                                   </children>
+                                                </StackPane>
                                              </children>
                                              <VBox.margin>
                                                 <Insets />
                                              </VBox.margin>
                                           </HBox>
-                                          <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Default Attributes">
-                                             <font>
-                                                <Font size="37.0" />
-                                             </font>
+                                          <VBox alignment="CENTER">
                                              <VBox.margin>
                                                 <Insets />
                                              </VBox.margin>
-                                          </Text>
+                                             <children>
+                                                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Default Attributes">
+                                                   <font>
+                                                      <Font size="37.0" />
+                                                   </font>
+                                                </Text>
+                                             </children>
+                                          </VBox>
                                           <Line endX="170.0" startX="-175.0">
                                              <VBox.margin>
                                                 <Insets bottom="20.0" />
@@ -831,7 +858,167 @@
                                                          </StackPane.margin>
                                                       </Rectangle>
                                                       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="44.0" stroke="BLACK" strokeType="INSIDE" width="151.0" />
-                                                      <Text strokeType="OUTSIDE" strokeWidth="0.0" text="CREATE!">
+                                                      <Text strokeType="OUTSIDE" strokeWidth="0.0" text="APPLY!">
+                                                         <font>
+                                                            <Font name="Arial Black" size="13.0" />
+                                                         </font>
+                                                      </Text>
+                                                      <Button mnemonicParsing="false" onAction="#starter" prefHeight="46.0" prefWidth="154.0" style="-fx-background-color: transparent; -fx-border-color: black; -fx-border-width: 2;">
+                                                         <font>
+                                                            <Font name="Arial Black" size="15.0" />
+                                                         </font>
+                                                         <opaqueInsets>
+                                                            <Insets />
+                                                         </opaqueInsets>
+                                                      </Button>
+                                                   </children>
+                                                </StackPane>
+                                             </children>
+                                             <VBox.margin>
+                                                <Insets right="15.0" />
+                                             </VBox.margin>
+                                          </HBox>
+                                       </children>
+                                    </VBox>
+                                 </children>
+                              </Pane>
+                              <Pane fx:id="itemAddPane" visible="false">
+                                 <children>
+                                    <VBox spacing="5.0">
+                                       <children>
+                                          <HBox>
+                                             <children>
+                                                <VBox>
+                                                   <children>
+                                                      <HBox alignment="CENTER_LEFT" maxWidth="-Infinity" prefHeight="60.0" prefWidth="242.0">
+                                                         <children>
+                                                            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Name:" wrappingWidth="69.80380249023438">
+                                                               <font>
+                                                                  <Font size="21.0" />
+                                                               </font>
+                                                            </Text>
+                                                            <TextField prefHeight="30.0" prefWidth="208.0" style="-fx-background-color: #CDC2AE;">
+                                                               <font>
+                                                                  <Font size="14.0" />
+                                                               </font>
+                                                            </TextField>
+                                                         </children>
+                                                      </HBox>
+                                                      <HBox alignment="CENTER_LEFT" maxWidth="-Infinity" prefHeight="60.0" prefWidth="242.0">
+                                                         <children>
+                                                            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Name:" wrappingWidth="69.80380249023438">
+                                                               <font>
+                                                                  <Font size="21.0" />
+                                                               </font>
+                                                            </Text>
+                                                            <TextField prefHeight="30.0" prefWidth="245.0" style="-fx-background-color: #CDC2AE;">
+                                                               <font>
+                                                                  <Font size="14.0" />
+                                                               </font>
+                                                            </TextField>
+                                                         </children>
+                                                      </HBox>
+                                                   </children>
+                                                </VBox>
+                                                <ImageView fitHeight="128.0" fitWidth="71.0" pickOnBounds="true">
+                                                   <image>
+                                                      <Image url="@../../../../../../../../Downloads/image-removebg-preview%20(2).png" />
+                                                   </image>
+                                                </ImageView>
+                                                <StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="128.0" prefWidth="128.0">
+                                                   <children>
+                                                      <Rectangle arcHeight="5.0" arcWidth="5.0" height="41.0" stroke="BLACK" strokeType="INSIDE" width="104.0">
+                                                         <StackPane.margin>
+                                                            <Insets left="15.0" top="20.0" />
+                                                         </StackPane.margin>
+                                                      </Rectangle>
+                                                      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="44.0" stroke="BLACK" strokeType="INSIDE" width="104.0" />
+                                                      <Text strokeType="OUTSIDE" strokeWidth="0.0" text="PRESS!" wrappingWidth="54.0">
+                                                         <font>
+                                                            <Font name="Arial Black" size="13.0" />
+                                                         </font>
+                                                      </Text>
+                                                      <Button mnemonicParsing="false" onAction="#starter" prefHeight="45.0" prefWidth="105.0" style="-fx-background-color: transparent; -fx-border-color: black; -fx-border-width: 2;">
+                                                         <font>
+                                                            <Font name="Arial Black" size="15.0" />
+                                                         </font>
+                                                         <opaqueInsets>
+                                                            <Insets />
+                                                         </opaqueInsets>
+                                                      </Button>
+                                                   </children>
+                                                </StackPane>
+                                             </children>
+                                          </HBox>
+                                          <VBox alignment="CENTER">
+                                             <VBox.margin>
+                                                <Insets />
+                                             </VBox.margin>
+                                             <children>
+                                                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Default Attributes">
+                                                   <font>
+                                                      <Font size="37.0" />
+                                                   </font>
+                                                </Text>
+                                             </children>
+                                          </VBox>
+                                          <Line endX="250.0" startX="-175.0">
+                                             <VBox.margin>
+                                                <Insets bottom="20.0" />
+                                             </VBox.margin>
+                                          </Line>
+                                          <HBox>
+                                             <children>
+                                                <VBox>
+                                                   <children>
+                                                      <HBox alignment="CENTER_LEFT" maxWidth="-Infinity" prefHeight="50.0" prefWidth="338.0">
+                                                         <children>
+                                                            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Name :" wrappingWidth="69.80380249023438">
+                                                               <font>
+                                                                  <Font size="21.0" />
+                                                               </font>
+                                                            </Text>
+                                                            <TextField prefHeight="26.0" prefWidth="263.0" style="-fx-background-color: #CDC2AE;">
+                                                               <font>
+                                                                  <Font size="14.0" />
+                                                               </font>
+                                                            </TextField>
+                                                         </children>
+                                                      </HBox>
+                                                      <HBox alignment="CENTER_LEFT" maxWidth="-Infinity" prefHeight="50.0" prefWidth="292.0">
+                                                         <children>
+                                                            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Value :" wrappingWidth="69.80380249023438">
+                                                               <font>
+                                                                  <Font size="21.0" />
+                                                               </font>
+                                                            </Text>
+                                                            <TextField prefHeight="26.0" prefWidth="219.0" style="-fx-background-color: #CDC2AE;">
+                                                               <font>
+                                                                  <Font size="14.0" />
+                                                               </font>
+                                                            </TextField>
+                                                         </children>
+                                                      </HBox>
+                                                   </children>
+                                                </VBox>
+                                                <ImageView fitHeight="89.0" fitWidth="99.0" pickOnBounds="true">
+                                                   <image>
+                                                      <Image url="@../../../Images/arrow2.png" />
+                                                   </image>
+                                                </ImageView>
+                                             </children>
+                                          </HBox>
+                                          <HBox alignment="CENTER_RIGHT" prefHeight="60.0" prefWidth="400.0">
+                                             <children>
+                                                <StackPane>
+                                                   <children>
+                                                      <Rectangle arcHeight="5.0" arcWidth="5.0" height="40.0" stroke="BLACK" strokeType="INSIDE" width="150.0">
+                                                         <StackPane.margin>
+                                                            <Insets left="15.0" top="20.0" />
+                                                         </StackPane.margin>
+                                                      </Rectangle>
+                                                      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="44.0" stroke="BLACK" strokeType="INSIDE" width="151.0" />
+                                                      <Text strokeType="OUTSIDE" strokeWidth="0.0" text="APPLY!">
                                                          <font>
                                                             <Font name="Arial Black" size="13.0" />
                                                          </font>
