@@ -922,7 +922,7 @@
                                                 </VBox>
                                                 <ImageView fitHeight="128.0" fitWidth="71.0" pickOnBounds="true">
                                                    <image>
-                                                      <Image url="@../../../../../../../../Downloads/image-removebg-preview%20(2).png" />
+                                                      <Image url="@../../../Images/arrow3.png" />
                                                    </image>
                                                 </ImageView>
                                                 <StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="128.0" prefWidth="128.0">
