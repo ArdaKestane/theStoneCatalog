@@ -133,6 +133,18 @@ public class LandingPageController {
     @FXML
     private Pane itemAddPane;
 
+    @FXML
+    private Pane generalEditPane;
+
+    @FXML
+    private Pane itemEditPane1;
+
+    @FXML
+    private Pane itemEditPane2;
+
+    @FXML
+    private StackPane stackPane3;
+
 
     @FXML
     public void starter() {
@@ -343,6 +355,9 @@ public class LandingPageController {
     public void addPane(){
         vBox.setVisible(false);
         addPane.setVisible(true);
+        editPane.setVisible(false);
+        itemEditPane1.setVisible(false);
+        itemEditPane2.setVisible(false);
         addPane.toFront();
         hBoxClose.setOpacity(0.35);
         FadeTransition fadeTransition = new FadeTransition(Duration.seconds(0.6), addPane);
@@ -369,7 +384,10 @@ public class LandingPageController {
 
     public void editPane(){
         vBox.setVisible(false);
+        itemEditPane1.setVisible(false);
+        itemEditPane2.setVisible(false);
         editPane.setVisible(true);
+        stackPane3.toFront();
         editPane.toFront();
         hBoxClose.setOpacity(0.35);
         FadeTransition fadeTransition = new FadeTransition(Duration.seconds(0.6), editPane);
@@ -437,4 +455,30 @@ public class LandingPageController {
         itemAddPane.setVisible(true);
     }
 
+    public void itemEditClose(){
+        itemEditPane1.setVisible(false);
+        itemEditPane2.setVisible(false);
+        generalEditPane.setVisible(true);
+        editPane.setVisible(false);
+    }
+
+    public void typeEdit(){
+
+    }
+
+    public void itemEdit(){
+        editPane.setVisible(false);
+        itemEditPane1.setVisible(true);
+    }
+
+    public void itemEditNextPage(){
+        itemEditPane1.setVisible(false);
+        itemEditPane2.setVisible(true);
+    }
+
+    public void itemEditPrevPage(){
+        itemEditPane2.setVisible(false);
+        itemEditPane1.setVisible(true);
+
+    }
 }
