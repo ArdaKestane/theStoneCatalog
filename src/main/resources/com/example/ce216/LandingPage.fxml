@@ -1077,7 +1077,7 @@
                         </VBox>
                         <Pane fx:id="treeViewPane" maxWidth="-Infinity" prefHeight="630.0" prefWidth="360.0" style="-fx-background-color: #e6e1d5; -fx-background-radius: 20;" visible="false">
                            <children>
-                              <TreeView opacity="0.35" prefHeight="630.0" prefWidth="360.0" style="-fx-background-radius: 20;" />
+                              <TreeView fx:id="treeView" onContextMenuRequested="#onSelect" onMouseClicked="#onSelect" opacity="0.35" prefHeight="630.0" prefWidth="360.0" style="-fx-background-radius: 20;" />
                            </children>
                         </Pane>
                      </children>
@@ -1132,48 +1132,134 @@
                                                             </HBox>
                                                             <HBox alignment="CENTER">
                                                                <children>
-                                                                  <Label text="ITEM NAME">
+                                                                  <Label fx:id="name">
                                                                      <font>
                                                                         <Font size="24.0" />
                                                                      </font>
                                                                   </Label>
                                                                </children>
                                                             </HBox>
-                                                            <HBox>
+                                                            <HBox prefHeight="359.0" prefWidth="449.0">
                                                                <children>
-                                                                  <Label text="TYPE:">
-                                                                     <font>
-                                                                        <Font size="24.0" />
-                                                                     </font>
+                                                                  <StackPane prefHeight="263.0" prefWidth="449.0" HBox.hgrow="ALWAYS">
                                                                      <HBox.margin>
                                                                         <Insets />
                                                                      </HBox.margin>
-                                                                  </Label>
-                                                               </children>
-                                                            </HBox>
-                                                            <HBox>
-                                                               <children>
-                                                                  <Label text="TAGS:" wrapText="true">
-                                                                     <font>
-                                                                        <Font size="24.0" />
-                                                                     </font>
-                                                                  </Label>
-                                                               </children>
-                                                            </HBox>
-                                                            <HBox>
-                                                               <children>
-                                                                  <Label text="ATTRIBUTES:">
-                                                                     <font>
-                                                                        <Font size="24.0" />
-                                                                     </font>
-                                                                  </Label>
+                                                                     <children>
+                                                                        <Pane fx:id="typePane" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #e6e1d5 #e6e1d5;" visible="false">
+                                                                           <children>
+                                                                              <VBox prefHeight="342.0" prefWidth="445.0">
+                                                                                 <children>
+                                                                                    <HBox prefHeight="37.0" prefWidth="445.0">
+                                                                                       <children>
+                                                                                          <Label fx:id="typeName1" prefHeight="29.0" prefWidth="255.0" text="DEFAULT ATTRIBUTES:">
+                                                                                             <font>
+                                                                                                <Font size="24.0" />
+                                                                                             </font>
+                                                                                          </Label>
+                                                                                       </children>
+                                                                                    </HBox>
+                                                                                    <HBox prefHeight="100.0" prefWidth="200.0">
+                                                                                       <children>
+                                                                                          <Label fx:id="typeDefaultAttribute" alignment="TOP_LEFT" prefHeight="123.0" prefWidth="446.0" wrapText="true" HBox.hgrow="ALWAYS">
+                                                                                             <font>
+                                                                                                <Font size="24.0" />
+                                                                                             </font>
+                                                                                          </Label>
+                                                                                       </children>
+                                                                                    </HBox>
+                                                                                    <HBox prefHeight="30.0" prefWidth="445.0">
+                                                                                       <children>
+                                                                                          <Label prefHeight="29.0" prefWidth="255.0" text="ITEMS:">
+                                                                                             <font>
+                                                                                                <Font size="24.0" />
+                                                                                             </font>
+                                                                                          </Label>
+                                                                                       </children>
+                                                                                    </HBox>
+                                                                                    <HBox prefHeight="100.0" prefWidth="200.0">
+                                                                                       <children>
+                                                                                          <Label fx:id="typeItems" alignment="TOP_LEFT" prefHeight="112.0" prefWidth="453.0">
+                                                                                             <font>
+                                                                                                <Font size="24.0" />
+                                                                                             </font>
+                                                                                          </Label>
+                                                                                       </children>
+                                                                                    </HBox>
+                                                                                 </children>
+                                                                              </VBox>
+                                                                           </children>
+                                                                        </Pane>
+                                                                        <Pane fx:id="itemPane" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #e6e1d5 #e6e1d5;" visible="false">
+                                                                           <children>
+                                                                              <VBox prefHeight="342.0" prefWidth="445.0">
+                                                                                 <children>
+                                                                                    <HBox prefHeight="37.0" prefWidth="445.0">
+                                                                                       <children>
+                                                                                          <Label prefHeight="37.0" prefWidth="64.0" text="Type:">
+                                                                                             <font>
+                                                                                                <Font size="24.0" />
+                                                                                             </font>
+                                                                                          </Label>
+                                                                                          <Label fx:id="typeName" prefHeight="37.0" prefWidth="273.0">
+                                                                                             <font>
+                                                                                                <Font size="24.0" />
+                                                                                             </font>
+                                                                                             <HBox.margin>
+                                                                                                <Insets left="10.0" />
+                                                                                             </HBox.margin>
+                                                                                          </Label>
+                                                                                       </children>
+                                                                                    </HBox>
+                                                                                    <HBox prefHeight="30.0" prefWidth="445.0">
+                                                                                       <children>
+                                                                                          <Label prefHeight="29.0" prefWidth="255.0" text="Attributes:">
+                                                                                             <font>
+                                                                                                <Font size="24.0" />
+                                                                                             </font>
+                                                                                          </Label>
+                                                                                       </children>
+                                                                                    </HBox>
+                                                                                    <HBox prefHeight="100.0" prefWidth="200.0">
+                                                                                       <children>
+                                                                                          <Label fx:id="itemAttributes" alignment="TOP_LEFT" prefHeight="112.0" prefWidth="453.0">
+                                                                                             <font>
+                                                                                                <Font size="24.0" />
+                                                                                             </font>
+                                                                                          </Label>
+                                                                                       </children>
+                                                                                    </HBox>
+                                                                                    <HBox prefHeight="30.0" prefWidth="445.0">
+                                                                                       <children>
+                                                                                          <Label prefHeight="29.0" prefWidth="255.0" text="Tags:">
+                                                                                             <font>
+                                                                                                <Font size="24.0" />
+                                                                                             </font>
+                                                                                          </Label>
+                                                                                       </children>
+                                                                                    </HBox>
+                                                                                    <HBox prefHeight="100.0" prefWidth="200.0">
+                                                                                       <children>
+                                                                                          <Label fx:id="itemTags" alignment="TOP_LEFT" prefHeight="112.0" prefWidth="453.0">
+                                                                                             <font>
+                                                                                                <Font size="24.0" />
+                                                                                             </font>
+                                                                                          </Label>
+                                                                                       </children>
+                                                                                    </HBox>
+                                                                                 </children>
+                                                                              </VBox>
+                                                                           </children>
+                                                                        </Pane>
+                                                                     </children>
+                                                                  </StackPane>
                                                                </children>
                                                             </HBox>
                                                          </children>
                                                       </VBox>
                                                    </children>
                                                 </Pane>
-                                                <Pane fx:id="pane2" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="485.0" prefWidth="465.0" style="-fx-border-width: 2; -fx-border-color: black; -fx-border-radius: 8;">
+                                                <Pane fx:id="pane2" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="485.0" prefWidth="465.0" style="-fx-border-width: 2; -fx-border-color: black; -fx-border-radius: 8;" visible="false">
                                                    <children>
                                                       <Region layoutX="-26.0" layoutY="-22.0" prefHeight="491.0" prefWidth="475.0" style="-fx-background-color: #e6e1d5; -fx-background-radius: 10; -fx-border-color: black; -fx-border-width: 2; -fx-border-radius: 8;" />
                                                       <VBox alignment="TOP_CENTER" prefHeight="255.0" prefWidth="444.0">
@@ -1627,7 +1713,7 @@
                                                       <Font size="21.0" />
                                                    </font>
                                                 </Text>
-                                                <TextField prefHeight="30.0" prefWidth="245.0" style="-fx-background-color: #CDC2AE;">
+                                                <TextField fx:id="typeNameInput" prefHeight="30.0" prefWidth="245.0" style="-fx-background-color: #CDC2AE;">
                                                    <font>
                                                       <Font size="14.0" />
                                                    </font>
@@ -1645,7 +1731,7 @@
                                                             <Font name="Arial Black" size="13.0" />
                                                          </font>
                                                       </Text>
-                                                      <Button mnemonicParsing="false" onAction="#starter" prefHeight="34.0" prefWidth="110.0" style="-fx-background-color: transparent; -fx-border-color: black; -fx-border-width: 2;">
+                                                      <Button mnemonicParsing="false" onAction="#createTypeButtonAction" prefHeight="34.0" prefWidth="110.0" style="-fx-background-color: transparent; -fx-border-color: black; -fx-border-width: 2;">
                                                          <font>
                                                             <Font name="Arial Black" size="15.0" />
                                                          </font>
@@ -1688,7 +1774,7 @@
                                                                   <Font size="21.0" />
                                                                </font>
                                                             </Text>
-                                                            <TextField prefHeight="26.0" prefWidth="263.0" style="-fx-background-color: #CDC2AE;">
+                                                            <TextField fx:id="typeDefaultAttributeNameInput" prefHeight="26.0" prefWidth="263.0" style="-fx-background-color: #CDC2AE;">
                                                                <font>
                                                                   <Font size="14.0" />
                                                                </font>
@@ -1702,7 +1788,7 @@
                                                                   <Font size="21.0" />
                                                                </font>
                                                             </Text>
-                                                            <TextField prefHeight="26.0" prefWidth="219.0" style="-fx-background-color: #CDC2AE;">
+                                                            <TextField fx:id="typeDefaultAttributeValueInput" prefHeight="26.0" prefWidth="219.0" style="-fx-background-color: #CDC2AE;">
                                                                <font>
                                                                   <Font size="14.0" />
                                                                </font>
@@ -1776,16 +1862,12 @@
                                                       </HBox>
                                                       <HBox alignment="CENTER_LEFT" maxWidth="-Infinity" prefHeight="60.0" prefWidth="242.0">
                                                          <children>
-                                                            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Name:" wrappingWidth="69.80380249023438">
+                                                            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Type" wrappingWidth="69.80380249023438">
                                                                <font>
                                                                   <Font size="21.0" />
                                                                </font>
                                                             </Text>
-                                                            <TextField prefHeight="30.0" prefWidth="245.0" style="-fx-background-color: #CDC2AE;">
-                                                               <font>
-                                                                  <Font size="14.0" />
-                                                               </font>
-                                                            </TextField>
+                                                            <ComboBox prefWidth="150.0" style="-fx-background-color: white; -fx-border-color: black; -fx-border-width: 2;" />
                                                          </children>
                                                       </HBox>
                                                    </children>

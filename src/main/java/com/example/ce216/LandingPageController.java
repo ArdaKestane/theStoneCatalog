@@ -5,17 +5,20 @@ import javafx.animation.TranslateTransition;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
+import javafx.scene.control.*;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.*;
 import javafx.stage.Stage;
 import javafx.util.Duration;
+
 import java.io.IOException;
+import java.net.URL;
+import java.util.ResourceBundle;
 
 
-public class LandingPageController {
+public class LandingPageController implements Initializable {
 
     @FXML
     private VBox root;
@@ -145,9 +148,31 @@ public class LandingPageController {
     @FXML
     private StackPane stackPane3;
 
-    @FXML
-    private Pane typeEdit;
+    @FXML private Pane typeEdit;
 
+    @FXML private TreeView<Object> treeView;
+
+    @FXML private TextField typeNameInput;
+
+    @FXML private TextField typeDefaultAttributeNameInput;
+    @FXML private TextField typeDefaultAttributeValueInput;
+    @FXML private Label name;
+    @FXML private Label typeName;
+    @FXML private Label itemTags;
+    @FXML private Label itemAttributes;
+    @FXML private Pane typePane;
+    @FXML private Pane itemPane;
+    @FXML private Label typeDefaultAttribute;
+    @FXML private Label typeItems;
+
+
+    Catalog catalog = Catalog.getCatalogInstance();
+
+
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+    treeMaker();
+    }
 
     @FXML
     public void starter() {
@@ -195,9 +220,11 @@ public class LandingPageController {
 
     }
 
+
+
     @FXML
     public void nextPage() {
-        if(pane1.isVisible()) {
+        if (pane1.isVisible()) {
             FadeTransition fadeTransition = new FadeTransition(Duration.seconds(0.6), pane1);
             fadeTransition.setFromValue(1);
             fadeTransition.setToValue(0);
@@ -253,55 +280,57 @@ public class LandingPageController {
         stage.show();
     }
 
-    public void onHoverColor(){
-       nextPage.setVisible(false);
-       nextPage2.setVisible(true);
+    public void onHoverColor() {
+        nextPage.setVisible(false);
+        nextPage2.setVisible(true);
     }
 
-    public void onHoverColorExit(){
+    public void onHoverColorExit() {
         nextPage.setVisible(true);
         nextPage2.setVisible(false);
     }
 
 
-    public void onHoverColor2(){
+    public void onHoverColor2() {
         prevPage.setVisible(false);
         prevPage2.setVisible(true);
     }
 
-    public void onHoverColorExit2(){
+    public void onHoverColorExit2() {
         prevPage.setVisible(true);
         prevPage2.setVisible(false);
     }
 
 
-    public void contact(){
+    public void contact() {
         contact.setVisible(false);
         mailLabel.setVisible(true);
     }
 
-    public void contact2(){
+    public void contact2() {
         contact.setVisible(true);
         mailLabel.setVisible(false);
     }
 
-    public void closeAllHelp(){
+    public void closeAllHelp() {
         generalHelp.setVisible(false);
         addHelp.setVisible(false);
         editHelp.setVisible(false);
         deleteHelp.setVisible(false);
     }
 
-    public void closeHelp(){
+    public void closeHelp() {
         vBox.setVisible(true);
         hBoxClose.setOpacity(1);
         hBoxClose.setOpacity(1);
+        helpPane.toBack();
         FadeTransition fadeTransition = new FadeTransition(Duration.seconds(0.6), helpPane);
         fadeTransition.setFromValue(1);
         fadeTransition.setToValue(0);
         fadeTransition.play();
     }
-    public void generalHelp(){
+
+    public void generalHelp() {
         closeAllHelp();
 
         generalHelp.setVisible(true);
@@ -312,18 +341,18 @@ public class LandingPageController {
         fadeTransition.play();
     }
 
-   public void addHelp(){
+    public void addHelp() {
         closeAllHelp();
 
         addHelp.setVisible(true);
 
-       FadeTransition fadeTransition = new FadeTransition(Duration.seconds(1), addHelp);
-       fadeTransition.setFromValue(0);
-       fadeTransition.setToValue(1);
-       fadeTransition.play();
-   }
+        FadeTransition fadeTransition = new FadeTransition(Duration.seconds(1), addHelp);
+        fadeTransition.setFromValue(0);
+        fadeTransition.setToValue(1);
+        fadeTransition.play();
+    }
 
-    public void editHelp(){
+    public void editHelp() {
         closeAllHelp();
 
         editHelp.setVisible(true);
@@ -334,7 +363,7 @@ public class LandingPageController {
         fadeTransition.play();
     }
 
-    public void deleteHelp(){
+    public void deleteHelp() {
         closeAllHelp();
 
         deleteHelp.setVisible(true);
@@ -345,7 +374,7 @@ public class LandingPageController {
         fadeTransition.play();
     }
 
-    public void searchPane(){
+    public void searchPane() {
         searchPane.setVisible(true);
         searchPane.toFront();
         FadeTransition fadeTransition = new FadeTransition(Duration.seconds(0.6), searchPane);
@@ -355,7 +384,7 @@ public class LandingPageController {
     }
 
 
-    public void addPane(){
+    public void addPane() {
         vBox.setVisible(false);
         addPane.setVisible(true);
         editPane.setVisible(false);
@@ -371,7 +400,7 @@ public class LandingPageController {
         deletePane.setVisible(false);
     }
 
-    public void closeAddPane(){
+    public void closeAddPane() {
         vBox.setVisible(true);
         addPane.setVisible(false);
         hBoxClose.setOpacity(1);
@@ -385,7 +414,7 @@ public class LandingPageController {
     }
 
 
-    public void editPane(){
+    public void editPane() {
         vBox.setVisible(false);
         itemEditPane1.setVisible(false);
         itemEditPane2.setVisible(false);
@@ -401,7 +430,7 @@ public class LandingPageController {
         deletePane.setVisible(false);
     }
 
-    public void closeEditPane(){
+    public void closeEditPane() {
         vBox.setVisible(true);
         generalEditPane.setVisible(true);
         typeEdit.setVisible(false);
@@ -413,7 +442,7 @@ public class LandingPageController {
         fadeTransition.play();
     }
 
-    public void deletePane(){
+    public void deletePane() {
         vBox.setVisible(false);
         deletePane.setVisible(true);
         deletePane.toFront();
@@ -426,7 +455,7 @@ public class LandingPageController {
         editPane.setVisible(false);
     }
 
-    public void closeDeletePane(){
+    public void closeDeletePane() {
         vBox.setVisible(true);
         deletePane.setVisible(false);
         hBoxClose.setOpacity(1);
@@ -436,7 +465,7 @@ public class LandingPageController {
         fadeTransition.play();
     }
 
-    public void help(){
+    public void help() {
         addPane.setVisible(false);
         editPane.setVisible(false);
         deletePane.setVisible(false);
@@ -450,17 +479,17 @@ public class LandingPageController {
 
     }
 
-    public void typeAdd(){
+    public void typeAdd() {
         generalAddPane.setVisible(false);
         typeAddPane.setVisible(true);
     }
 
-    public void itemAdd(){
+    public void itemAdd() {
         generalAddPane.setVisible(false);
         itemAddPane.setVisible(true);
     }
 
-    public void itemEditClose(){
+    public void itemEditClose() {
         itemEditPane1.setVisible(false);
         itemEditPane2.setVisible(false);
         generalEditPane.setVisible(true);
@@ -475,24 +504,91 @@ public class LandingPageController {
         fadeTransition.play();
     }
 
-    public void typeEdit(){
+    public void typeEdit() {
         generalEditPane.setVisible(false);
         typeEdit.setVisible(true);
     }
 
-    public void itemEdit(){
+    public void itemEdit() {
         editPane.setVisible(false);
         itemEditPane1.setVisible(true);
     }
 
-    public void itemEditNextPage(){
+    public void itemEditNextPage() {
         itemEditPane1.setVisible(false);
         itemEditPane2.setVisible(true);
     }
 
-    public void itemEditPrevPage(){
+    public void itemEditPrevPage() {
         itemEditPane2.setVisible(false);
         itemEditPane1.setVisible(true);
+    }
+
+    public void treeMaker() {
+        TreeItem<Object> treeRoot = new TreeItem<>("Types");
+        treeView.setRoot(treeRoot);
+        treeRoot.setExpanded(true);
+        treeView.setShowRoot(true);
+
+        for (Type type : Catalog.typeList) {
+            TreeItem<Object> treeTypeItem = new TreeItem<>(type);
+            treeRoot.getChildren().add(treeTypeItem);
+            treeTypeItem.setExpanded(true);
+            for (Item item : type.getItems()) {
+                treeTypeItem.getChildren().add(new TreeItem<>(item));
+            }
+        }
+    }
+
+    Type lastCreated;
+    public void createTypeButtonAction(ActionEvent event) {
+        boolean checker = true;
+
+        if (Catalog.typeList.size() != 0) {
+            for (Type type : Catalog.typeList) {
+                if (typeNameInput.getText().equalsIgnoreCase(type.getName())) {
+                    Alert a = new Alert(Alert.AlertType.ERROR);
+                    a.setContentText("A type with the same name is already defined.");
+                    a.show();
+                    checker = false;
+                    break;
+                }
+            }
+        }
+        if ((Catalog.typeList.size() == 0 || checker) && !typeNameInput.getText().isBlank()) {
+            Type t = new Type(typeNameInput.getText());
+            lastCreated = t;
+            catalog.createType(t);
+            typeNameInput.clear();
+
+            treeMaker();
+        }
+    }
+
+    public void createDefaultAttributeAction(ActionEvent event){
+        lastCreated.addDefaultAttributes(
+                new Attribute(typeDefaultAttributeNameInput.getText(), typeDefaultAttributeValueInput.getText()));
+    }
+
+    public void onSelect(){
+        TreeItem<Object> o = treeView.getSelectionModel().getSelectedItem();
+
+        if (o.getValue().getClass().getName().equals("com.example.ce216.Type")){
+            itemPane.setVisible(false);
+            typePane.setVisible(true);
+            Type t = (Type) o.getValue();
+            name.setText(t.getName());
+            typeDefaultAttribute.setText(t.getDefaultAttributes().toString());
+            typeItems.setText(t.getItems().toString());
+        }
+        else if (o.getValue().getClass().getName().equals("com.example.ce216.Item")){
+            typePane.setVisible(false);
+            itemPane.setVisible(true);
+            Item i = (Item) o.getValue();
+            typeName.setText(i.getName());
+            itemAttributes.setText(i.getAttributes().toString());
+            itemTags.setText(i.getTags().toString());
+        }
     }
 
 
