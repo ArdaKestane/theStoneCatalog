@@ -165,6 +165,8 @@ public class LandingPageController implements Initializable {
     @FXML private Label typeDefaultAttribute;
     @FXML private Label typeItems;
 
+    @FXML private StackPane stackPaneClose;
+
 
     Catalog catalog = Catalog.getCatalogInstance();
 
@@ -391,7 +393,7 @@ public class LandingPageController implements Initializable {
         itemEditPane1.setVisible(false);
         itemEditPane2.setVisible(false);
         addPane.toFront();
-        hBoxClose.setOpacity(0.35);
+        stackPaneClose.setOpacity(0.35);
         FadeTransition fadeTransition = new FadeTransition(Duration.seconds(0.6), addPane);
         fadeTransition.setFromValue(0);
         fadeTransition.setToValue(1);
@@ -403,7 +405,7 @@ public class LandingPageController implements Initializable {
     public void closeAddPane() {
         vBox.setVisible(true);
         addPane.setVisible(false);
-        hBoxClose.setOpacity(1);
+        stackPaneClose.setOpacity(1);
         FadeTransition fadeTransition = new FadeTransition(Duration.seconds(0.6), vBox);
         fadeTransition.setFromValue(0);
         fadeTransition.setToValue(1);

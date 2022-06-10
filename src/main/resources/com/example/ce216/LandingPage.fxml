@@ -1082,7 +1082,7 @@
                         </Pane>
                      </children>
                   </StackPane>
-                  <StackPane>
+                  <StackPane fx:id="stackPaneClose">
                      <HBox.margin>
                         <Insets />
                      </HBox.margin>
