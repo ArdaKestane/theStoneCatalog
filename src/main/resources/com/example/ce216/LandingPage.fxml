@@ -790,7 +790,7 @@
                                                             <Insets top="16.0" />
                                                          </HBox.margin>
                                                       </Text>
-                                                      <ComboBox prefWidth="150.0">
+                                                      <ComboBox fx:id="typeChoice2" prefWidth="150.0" style="-fx-background-color: white; -fx-border-color: black; -fx-border-width: 2;">
                                                          <HBox.margin>
                                                             <Insets right="40.0" top="18.0" />
                                                          </HBox.margin>
@@ -808,7 +808,7 @@
                                                                   <Font name="Arial Black" size="13.0" />
                                                                </font>
                                                             </Text>
-                                                            <Button mnemonicParsing="false" onAction="#typeEdit" prefHeight="37.0" prefWidth="98.0" style="-fx-background-color: transparent; -fx-border-color: black; -fx-border-width: 2;">
+                                                            <Button mnemonicParsing="false" onAction="#typeToEdit" prefHeight="37.0" prefWidth="98.0" style="-fx-background-color: transparent; -fx-border-color: black; -fx-border-width: 2;">
                                                                <font>
                                                                   <Font name="Arial Black" size="15.0" />
                                                                </font>
@@ -820,7 +820,50 @@
                                                       </StackPane>
                                                    </children>
                                                 </HBox>
-                                                <Text disable="true" strokeType="OUTSIDE" strokeWidth="0.0" text="DEFAULT ATTRIBUTES">
+                                                <HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="57.0" prefWidth="434.0">
+                                                   <children>
+                                                      <Text strokeType="OUTSIDE" strokeWidth="0.0" text="New Name:" wrappingWidth="99.72357177734375">
+                                                         <font>
+                                                            <Font size="18.0" />
+                                                         </font>
+                                                         <HBox.margin>
+                                                            <Insets top="16.0" />
+                                                         </HBox.margin>
+                                                      </Text>
+                                                      <TextField fx:id="newTypeName">
+                                                         <HBox.margin>
+                                                            <Insets right="42.0" top="18.0" />
+                                                         </HBox.margin>
+                                                      </TextField>
+                                                      <StackPane prefHeight="86.0" prefWidth="137.0">
+                                                         <children>
+                                                            <Rectangle arcHeight="5.0" arcWidth="5.0" height="34.0" stroke="BLACK" strokeType="INSIDE" width="101.0">
+                                                               <StackPane.margin>
+                                                                  <Insets left="15.0" top="20.0" />
+                                                               </StackPane.margin>
+                                                            </Rectangle>
+                                                            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="34.0" stroke="BLACK" strokeType="INSIDE" width="98.0" />
+                                                            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="APPLY!">
+                                                               <font>
+                                                                  <Font name="Arial Black" size="13.0" />
+                                                               </font>
+                                                            </Text>
+                                                            <Button mnemonicParsing="false" onAction="#newTypeName" prefHeight="37.0" prefWidth="98.0" style="-fx-background-color: transparent; -fx-border-color: black; -fx-border-width: 2;">
+                                                               <font>
+                                                                  <Font name="Arial Black" size="15.0" />
+                                                               </font>
+                                                               <opaqueInsets>
+                                                                  <Insets />
+                                                               </opaqueInsets>
+                                                            </Button>
+                                                         </children>
+                                                      </StackPane>
+                                                   </children>
+                                                   <VBox.margin>
+                                                      <Insets top="15.0" />
+                                                   </VBox.margin>
+                                                </HBox>
+                                                <Text disable="true" strokeType="OUTSIDE" strokeWidth="0.0" text="ATTRIBUTES">
                                                    <font>
                                                       <Font name="MS Gothic" size="31.0" />
                                                    </font>
@@ -838,7 +881,7 @@
                                                             <Insets top="16.0" />
                                                          </HBox.margin>
                                                       </Text>
-                                                      <ComboBox prefWidth="150.0">
+                                                      <ComboBox fx:id="typeAttributes" prefWidth="150.0" style="-fx-background-color: white; -fx-border-color: black; -fx-border-width: 2;">
                                                          <HBox.margin>
                                                             <Insets right="40.0" top="18.0" />
                                                          </HBox.margin>
@@ -852,94 +895,6 @@
                                                             </Rectangle>
                                                             <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="34.0" stroke="BLACK" strokeType="INSIDE" width="98.0" />
                                                             <Text strokeType="OUTSIDE" strokeWidth="0.0" text="SELECT!">
-                                                               <font>
-                                                                  <Font name="Arial Black" size="13.0" />
-                                                               </font>
-                                                            </Text>
-                                                            <Button mnemonicParsing="false" onAction="#typeEdit" prefHeight="37.0" prefWidth="98.0" style="-fx-background-color: transparent; -fx-border-color: black; -fx-border-width: 2;">
-                                                               <font>
-                                                                  <Font name="Arial Black" size="15.0" />
-                                                               </font>
-                                                               <opaqueInsets>
-                                                                  <Insets />
-                                                               </opaqueInsets>
-                                                            </Button>
-                                                         </children>
-                                                      </StackPane>
-                                                   </children>
-                                                   <VBox.margin>
-                                                      <Insets top="15.0" />
-                                                   </VBox.margin>
-                                                </HBox>
-                                                <HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="57.0" prefWidth="434.0">
-                                                   <children>
-                                                      <Text strokeType="OUTSIDE" strokeWidth="0.0" text="New Name:" wrappingWidth="99.72357177734375">
-                                                         <font>
-                                                            <Font size="18.0" />
-                                                         </font>
-                                                         <HBox.margin>
-                                                            <Insets top="16.0" />
-                                                         </HBox.margin>
-                                                      </Text>
-                                                      <TextField>
-                                                         <HBox.margin>
-                                                            <Insets right="42.0" top="18.0" />
-                                                         </HBox.margin>
-                                                      </TextField>
-                                                      <StackPane prefHeight="86.0" prefWidth="137.0">
-                                                         <children>
-                                                            <Rectangle arcHeight="5.0" arcWidth="5.0" height="34.0" stroke="BLACK" strokeType="INSIDE" width="101.0">
-                                                               <StackPane.margin>
-                                                                  <Insets left="15.0" top="20.0" />
-                                                               </StackPane.margin>
-                                                            </Rectangle>
-                                                            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="34.0" stroke="BLACK" strokeType="INSIDE" width="98.0" />
-                                                            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="APPLY!">
-                                                               <font>
-                                                                  <Font name="Arial Black" size="13.0" />
-                                                               </font>
-                                                            </Text>
-                                                            <Button mnemonicParsing="false" onAction="#typeEdit" prefHeight="37.0" prefWidth="98.0" style="-fx-background-color: transparent; -fx-border-color: black; -fx-border-width: 2;">
-                                                               <font>
-                                                                  <Font name="Arial Black" size="15.0" />
-                                                               </font>
-                                                               <opaqueInsets>
-                                                                  <Insets />
-                                                               </opaqueInsets>
-                                                            </Button>
-                                                         </children>
-                                                      </StackPane>
-                                                   </children>
-                                                </HBox>
-                                                <Text disable="true" strokeType="OUTSIDE" strokeWidth="0.0" text="NEW ATTRIBUTES">
-                                                   <font>
-                                                      <Font name="MS Gothic" size="31.0" />
-                                                   </font>
-                                                </Text>
-                                                <HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="57.0" prefWidth="434.0">
-                                                   <children>
-                                                      <Text strokeType="OUTSIDE" strokeWidth="0.0" text="New Name:" wrappingWidth="99.72357177734375">
-                                                         <font>
-                                                            <Font size="18.0" />
-                                                         </font>
-                                                         <HBox.margin>
-                                                            <Insets top="16.0" />
-                                                         </HBox.margin>
-                                                      </Text>
-                                                      <TextField>
-                                                         <HBox.margin>
-                                                            <Insets right="42.0" top="18.0" />
-                                                         </HBox.margin>
-                                                      </TextField>
-                                                      <StackPane prefHeight="86.0" prefWidth="137.0">
-                                                         <children>
-                                                            <Rectangle arcHeight="5.0" arcWidth="5.0" height="34.0" stroke="BLACK" strokeType="INSIDE" width="101.0">
-                                                               <StackPane.margin>
-                                                                  <Insets left="15.0" top="20.0" />
-                                                               </StackPane.margin>
-                                                            </Rectangle>
-                                                            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="34.0" stroke="BLACK" strokeType="INSIDE" width="98.0" />
-                                                            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="APPLY!">
                                                                <font>
                                                                   <Font name="Arial Black" size="13.0" />
                                                                </font>
@@ -959,11 +914,105 @@
                                                       <Insets top="10.0" />
                                                    </VBox.margin>
                                                 </HBox>
+                                                <HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="57.0" prefWidth="434.0">
+                                                   <children>
+                                                      <Text strokeType="OUTSIDE" strokeWidth="0.0" text="New Name:" wrappingWidth="99.72357177734375">
+                                                         <font>
+                                                            <Font size="18.0" />
+                                                         </font>
+                                                         <HBox.margin>
+                                                            <Insets top="16.0" />
+                                                         </HBox.margin>
+                                                      </Text>
+                                                      <TextField fx:id="newTypeAttName">
+                                                         <HBox.margin>
+                                                            <Insets right="42.0" top="18.0" />
+                                                         </HBox.margin>
+                                                      </TextField>
+                                                      <StackPane prefHeight="86.0" prefWidth="137.0">
+                                                         <children>
+                                                            <Rectangle arcHeight="5.0" arcWidth="5.0" height="34.0" stroke="BLACK" strokeType="INSIDE" width="101.0">
+                                                               <StackPane.margin>
+                                                                  <Insets left="15.0" top="20.0" />
+                                                               </StackPane.margin>
+                                                            </Rectangle>
+                                                            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="34.0" stroke="BLACK" strokeType="INSIDE" width="98.0" />
+                                                            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="APPLY!">
+                                                               <font>
+                                                                  <Font name="Arial Black" size="13.0" />
+                                                               </font>
+                                                            </Text>
+                                                            <Button mnemonicParsing="false" onAction="#changeTypeAttName" prefHeight="23.0" prefWidth="98.0" style="-fx-background-color: transparent; -fx-border-color: black; -fx-border-width: 2;">
+                                                               <font>
+                                                                  <Font name="Arial Black" size="15.0" />
+                                                               </font>
+                                                               <opaqueInsets>
+                                                                  <Insets />
+                                                               </opaqueInsets>
+                                                            </Button>
+                                                         </children>
+                                                      </StackPane>
+                                                   </children>
+                                                </HBox>
+                                                <Text disable="true" strokeType="OUTSIDE" strokeWidth="0.0" text="NEW ATTRIBUTES">
+                                                   <font>
+                                                      <Font name="MS Gothic" size="31.0" />
+                                                   </font>
+                                                   <VBox.margin>
+                                                      <Insets top="5.0" />
+                                                   </VBox.margin>
+                                                </Text>
+                                                <HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="57.0" prefWidth="434.0">
+                                                   <children>
+                                                      <Text strokeType="OUTSIDE" strokeWidth="0.0" text="New Name:" wrappingWidth="99.72357177734375">
+                                                         <font>
+                                                            <Font size="18.0" />
+                                                         </font>
+                                                         <HBox.margin>
+                                                            <Insets top="16.0" />
+                                                         </HBox.margin>
+                                                      </Text>
+                                                      <TextField fx:id="newTypeAttribute">
+                                                         <HBox.margin>
+                                                            <Insets right="42.0" top="18.0" />
+                                                         </HBox.margin>
+                                                      </TextField>
+                                                      <StackPane prefHeight="86.0" prefWidth="137.0">
+                                                         <children>
+                                                            <Rectangle arcHeight="5.0" arcWidth="5.0" height="34.0" stroke="BLACK" strokeType="INSIDE" width="101.0">
+                                                               <StackPane.margin>
+                                                                  <Insets left="15.0" top="20.0" />
+                                                               </StackPane.margin>
+                                                            </Rectangle>
+                                                            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="34.0" stroke="BLACK" strokeType="INSIDE" width="98.0" />
+                                                            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="APPLY!">
+                                                               <font>
+                                                                  <Font name="Arial Black" size="13.0" />
+                                                               </font>
+                                                            </Text>
+                                                            <Button mnemonicParsing="false" onAction="#newTypeAttribute" prefHeight="37.0" prefWidth="98.0" style="-fx-background-color: transparent; -fx-border-color: black; -fx-border-width: 2;">
+                                                               <font>
+                                                                  <Font name="Arial Black" size="15.0" />
+                                                               </font>
+                                                               <opaqueInsets>
+                                                                  <Insets />
+                                                               </opaqueInsets>
+                                                            </Button>
+                                                         </children>
+                                                         <HBox.margin>
+                                                            <Insets bottom="5.0" />
+                                                         </HBox.margin>
+                                                      </StackPane>
+                                                   </children>
+                                                   <VBox.margin>
+                                                      <Insets top="10.0" />
+                                                   </VBox.margin>
+                                                </HBox>
                                              </children>
                                           </VBox>
                                           <Line endX="220.0" layoutX="200.0" layoutY="75.0" startX="-200.0" />
-                                          <Line endX="220.0" layoutX="200.0" layoutY="135.0" startX="-200.0" />
-                                          <Line endX="220.0" layoutX="200.0" layoutY="290.0" startX="-200.0" />
+                                          <Line endX="220.0" layoutX="200.0" layoutY="140.0" startX="-200.0" />
+                                          <Line endX="220.0" layoutX="200.0" layoutY="355.0" startX="-200.0" />
                                        </children>
                                     </Pane>
                                  </children>
@@ -1819,7 +1868,7 @@
                                                             <Font name="Arial Black" size="13.0" />
                                                          </font>
                                                       </Text>
-                                                      <Button mnemonicParsing="false" onAction="#starter" prefHeight="46.0" prefWidth="154.0" style="-fx-background-color: transparent; -fx-border-color: black; -fx-border-width: 2;">
+                                                      <Button mnemonicParsing="false" onAction="#createDefaultAttributeAction" prefHeight="46.0" prefWidth="154.0" style="-fx-background-color: transparent; -fx-border-color: black; -fx-border-width: 2;">
                                                          <font>
                                                             <Font name="Arial Black" size="15.0" />
                                                          </font>
@@ -1853,7 +1902,7 @@
                                                                   <Font size="21.0" />
                                                                </font>
                                                             </Text>
-                                                            <TextField prefHeight="30.0" prefWidth="208.0" style="-fx-background-color: #CDC2AE;">
+                                                            <TextField fx:id="itemNameInput" prefHeight="30.0" prefWidth="208.0" style="-fx-background-color: #CDC2AE;">
                                                                <font>
                                                                   <Font size="14.0" />
                                                                </font>
@@ -1867,7 +1916,7 @@
                                                                   <Font size="21.0" />
                                                                </font>
                                                             </Text>
-                                                            <ComboBox prefWidth="150.0" style="-fx-background-color: white; -fx-border-color: black; -fx-border-width: 2;" />
+                                                            <ComboBox fx:id="typeChoice" prefWidth="150.0" style="-fx-background-color: white; -fx-border-color: black; -fx-border-width: 2;" />
                                                          </children>
                                                       </HBox>
                                                    </children>
@@ -1890,7 +1939,7 @@
                                                             <Font name="Arial Black" size="13.0" />
                                                          </font>
                                                       </Text>
-                                                      <Button mnemonicParsing="false" onAction="#starter" prefHeight="45.0" prefWidth="105.0" style="-fx-background-color: transparent; -fx-border-color: black; -fx-border-width: 2;">
+                                                      <Button mnemonicParsing="false" onAction="#createItemButtonAction" prefHeight="45.0" prefWidth="105.0" style="-fx-background-color: transparent; -fx-border-color: black; -fx-border-width: 2;">
                                                          <font>
                                                             <Font name="Arial Black" size="15.0" />
                                                          </font>
@@ -1907,7 +1956,7 @@
                                                 <Insets />
                                              </VBox.margin>
                                              <children>
-                                                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Default Attributes">
+                                                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Attributes">
                                                    <font>
                                                       <Font size="37.0" />
                                                    </font>
@@ -1930,7 +1979,7 @@
                                                                   <Font size="21.0" />
                                                                </font>
                                                             </Text>
-                                                            <TextField prefHeight="26.0" prefWidth="263.0" style="-fx-background-color: #CDC2AE;">
+                                                            <TextField fx:id="attributeNameInput" prefHeight="26.0" prefWidth="263.0" style="-fx-background-color: #CDC2AE;">
                                                                <font>
                                                                   <Font size="14.0" />
                                                                </font>
@@ -1944,7 +1993,7 @@
                                                                   <Font size="21.0" />
                                                                </font>
                                                             </Text>
-                                                            <TextField prefHeight="26.0" prefWidth="219.0" style="-fx-background-color: #CDC2AE;">
+                                                            <TextField fx:id="attributeValueInput" prefHeight="26.0" prefWidth="219.0" style="-fx-background-color: #CDC2AE;">
                                                                <font>
                                                                   <Font size="14.0" />
                                                                </font>
@@ -1975,7 +2024,7 @@
                                                             <Font name="Arial Black" size="13.0" />
                                                          </font>
                                                       </Text>
-                                                      <Button mnemonicParsing="false" onAction="#starter" prefHeight="46.0" prefWidth="154.0" style="-fx-background-color: transparent; -fx-border-color: black; -fx-border-width: 2;">
+                                                      <Button mnemonicParsing="false" onAction="#addAttributeButtonAction" prefHeight="46.0" prefWidth="154.0" style="-fx-background-color: transparent; -fx-border-color: black; -fx-border-width: 2;">
                                                          <font>
                                                             <Font name="Arial Black" size="15.0" />
                                                          </font>

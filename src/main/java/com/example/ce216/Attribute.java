@@ -13,6 +13,9 @@ public class Attribute implements Serializable {
         this.value = value;
     }
 
+    public Attribute(String name) {
+        this.name = name;
+    }
 
     public String getName() {
         return name;
@@ -28,5 +31,10 @@ public class Attribute implements Serializable {
 
     public void setValue(String value) {
         this.value = value;
+    }
+
+    @Override
+    public String toString() {
+        return name;
     }
 }

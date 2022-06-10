@@ -66,4 +66,9 @@ public class Item {
     public void setAttributes(ArrayList<Attribute> attributes) {
         this.attributes = attributes;
     }
+
+    @Override
+    public String toString() {
+        return name;
+    }
 }
