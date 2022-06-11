@@ -21,6 +21,9 @@ public class Type {
         defaultAttributes.add(attribute);
     }
 
+    public void deleteItem(Item item){
+        items.remove(item);
+    }
 
     public String getName() {
         return name;

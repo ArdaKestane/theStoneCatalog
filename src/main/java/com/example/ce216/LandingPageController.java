@@ -3,6 +3,8 @@ package com.example.ce216;
 import javafx.animation.FadeTransition;
 import javafx.animation.TranslateTransition;
 import javafx.event.ActionEvent;
+import javafx.event.Event;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -182,6 +184,9 @@ public class LandingPageController implements Initializable {
     @FXML
     private StackPane stackPaneClose;
 
+    @FXML
+    private Button getStarted;
+
 
     Catalog catalog = Catalog.getCatalogInstance();
 
@@ -344,6 +349,15 @@ public class LandingPageController implements Initializable {
         editPane.toBack();
         hBoxClose.setOpacity(1);
         hBoxClose.setOpacity(1);
+
+        getStarted.setOnAction(new EventHandler() {
+            @Override
+            public void handle(Event event) {
+                starter();
+            }
+        });
+
+
         FadeTransition fadeTransition = new FadeTransition(Duration.seconds(0.6), helpPane);
         fadeTransition.setFromValue(1);
         fadeTransition.setToValue(0);
@@ -352,7 +366,7 @@ public class LandingPageController implements Initializable {
 
     public void generalHelp() {
         closeAllHelp();
-
+        helpPane.toFront();
         generalHelp.setVisible(true);
 
         FadeTransition fadeTransition = new FadeTransition(Duration.seconds(1), generalHelp);
@@ -363,7 +377,7 @@ public class LandingPageController implements Initializable {
 
     public void addHelp() {
         closeAllHelp();
-
+        helpPane.toFront();
         addHelp.setVisible(true);
 
         FadeTransition fadeTransition = new FadeTransition(Duration.seconds(1), addHelp);
@@ -374,7 +388,7 @@ public class LandingPageController implements Initializable {
 
     public void editHelp() {
         closeAllHelp();
-
+        helpPane.toFront();
         editHelp.setVisible(true);
 
         FadeTransition fadeTransition = new FadeTransition(Duration.seconds(1), editHelp);
@@ -385,7 +399,7 @@ public class LandingPageController implements Initializable {
 
     public void deleteHelp() {
         closeAllHelp();
-
+        helpPane.toFront();
         deleteHelp.setVisible(true);
 
         FadeTransition fadeTransition = new FadeTransition(Duration.seconds(1), deleteHelp);
@@ -448,6 +462,13 @@ public class LandingPageController implements Initializable {
         fadeTransition.play();
         addPane.setVisible(false);
         deletePane.setVisible(false);
+        typeChoice2.getItems().clear();
+
+        for(Type type: Catalog.typeList){
+            typeChoice2.getItems().add(type);
+        }
+
+
     }
 
     public void closeEditPane() {
@@ -464,6 +485,8 @@ public class LandingPageController implements Initializable {
         fadeTransition.play();
     }
 
+    @FXML private ComboBox typeBox;
+    @FXML private ComboBox itemBox;
     public void deletePane() {
         vBox.setVisible(false);
         deletePane.setVisible(true);
@@ -475,6 +498,10 @@ public class LandingPageController implements Initializable {
         fadeTransition.play();
         addPane.setVisible(false);
         editPane.setVisible(false);
+        typeBox.getItems().clear();
+        itemBox.getItems().clear();
+        typeBox.getItems().addAll(Catalog.typeList);
+        itemBox.getItems().addAll(Catalog.itemList);
     }
 
     public void closeDeletePane() {
@@ -492,8 +519,16 @@ public class LandingPageController implements Initializable {
         editPane.setVisible(false);
         deletePane.setVisible(false);
         helpPane.setVisible(true);
-
         helpPane.toFront();
+
+
+        getStarted.setOnAction(new EventHandler() {
+            @Override
+            public void handle(Event event) {
+            }
+        });
+
+
         hBoxClose.setOpacity(0.35);
         FadeTransition fadeTransition = new FadeTransition(Duration.seconds(0.6), helpPane);
         fadeTransition.setFromValue(0);
@@ -513,6 +548,7 @@ public class LandingPageController implements Initializable {
     }
 
     public void itemEditClose() {
+        stackPane3.toBack();
         itemEditPane1.setVisible(false);
         itemEditPane2.setVisible(false);
         generalEditPane.setVisible(true);
@@ -521,6 +557,7 @@ public class LandingPageController implements Initializable {
         typeEdit.setVisible(false);
         editPane.setVisible(false);
         hBoxClose.setOpacity(1);
+        stackPaneClose.setOpacity(1);
         FadeTransition fadeTransition = new FadeTransition(Duration.seconds(0.6), vBox);
         fadeTransition.setFromValue(0);
         fadeTransition.setToValue(1);
@@ -535,6 +572,12 @@ public class LandingPageController implements Initializable {
     public void itemEdit() {
         editPane.setVisible(false);
         itemEditPane1.setVisible(true);
+        itemChoice.getItems().clear();
+
+        for(Item item : Catalog.itemList){
+            itemChoice.getItems().add(item);
+        }
+
     }
 
     public void itemEditNextPage() {
@@ -629,7 +672,7 @@ public class LandingPageController implements Initializable {
             for (Attribute attribute : item.getType().getDefaultAttributes()) {
                 item.getAttributes().add(attribute);
             }
-
+            itemChoice.getItems().add(item);
             treeMaker();
         }
     }
@@ -640,9 +683,17 @@ public class LandingPageController implements Initializable {
     private TextField attributeValueInput;
 
     public void addAttributeButtonAction(ActionEvent event) {
-        Attribute att = new Attribute(attributeNameInput.getText(), attributeValueInput.getText());
-        lastCreatedItem.addAttribute(att);
-        attributeNameInput.clear();
+
+        if (lastCreatedItem.getAttributes().toString().contains(attributeNameInput.getText())) {
+            Alert a = new Alert(Alert.AlertType.ERROR);
+            a.setContentText("An attribute with the same name is already defined.");
+            a.show();
+        }
+        else{
+            Attribute att = new Attribute(attributeNameInput.getText(), attributeValueInput.getText());
+            lastCreatedItem.addAttribute(att);
+            attributeNameInput.clear();
+        }
     }
 
 
@@ -652,8 +703,7 @@ public class LandingPageController implements Initializable {
                     new Attribute(typeDefaultAttributeNameInput.getText(), typeDefaultAttributeValueInput.getText()));
             typeDefaultAttributeNameInput.clear();
             typeDefaultAttributeValueInput.clear();
-        }
-        else{
+        } else {
             Alert a = new Alert(Alert.AlertType.ERROR);
             a.setContentText("There must be an Item selected priorly (last created Item is selected) in order to create any attributes.");
             a.show();
@@ -729,16 +779,134 @@ public class LandingPageController implements Initializable {
 
     public void newTypeAttribute() {
 
-            if (target.getDefaultAttributes().toString().contains(newTypeAttribute.getText())) {
-                Alert a = new Alert(Alert.AlertType.ERROR);
-                a.setContentText("An attribute with the same name is already defined.");
-                a.show();
-            } else {
-                Attribute att = new Attribute(newTypeAttribute.getText());
-                target.addDefaultAttributes(att);
-                typeAttributes.getItems().add(att);
-            }
-
+        if (target.getDefaultAttributes().toString().contains(newTypeAttribute.getText())) {
+            Alert a = new Alert(Alert.AlertType.ERROR);
+            a.setContentText("An attribute with the same name is already defined.");
+            a.show();
+        } else {
+            Attribute att = new Attribute(newTypeAttribute.getText(), "");
+            target.addDefaultAttributes(att);
+            typeAttributes.getItems().add(att);
         }
 
+    }
+
+    Item targetItem;
+    @FXML
+    private ComboBox itemChoice;
+
+    public void itemToEdit() {
+        targetItem = (Item) itemChoice.getValue();
+        for(Attribute attribute : targetItem.getAttributes()) {
+            itemAttribute.getItems().add(attribute);
+        }
+    }
+
+    @FXML
+    private TextField newItemName;
+
+    public void newItemName() {
+        if (targetItem != null) {
+            itemChoice.getItems().remove(targetItem);
+            targetItem.setName(newItemName.getText());
+            treeMaker();
+            itemChoice.getItems().add(targetItem);
+
+        } else {
+            Alert a = new Alert(Alert.AlertType.ERROR);
+            a.setContentText("Select an Item to edit.");
+            a.show();
+        }
+    }
+
+    @FXML private ComboBox itemAttribute;
+    @FXML private TextField newItemAttName;
+    @FXML private TextField newItemAttValue;
+    Attribute targetItemAtt;
+
+    public void attributeToEdit(){
+
+    }
+    public void itemDefaultAttributeEdit(){
+        targetItemAtt.setName(newItemAttName.getText());
+    }
+
+    public void changeItemAttNameAndValue() {
+        targetItemAtt =(Attribute) itemAttribute.getValue();
+
+        itemAttribute.getItems().remove(targetItemAtt);
+        if (!newItemAttName.getText().isBlank())
+            targetItemAtt.setName(newItemAttName.getText());
+
+        if (targetItemAtt != null) {
+            targetItemAtt.setValue(newItemAttValue.getText());
+            treeMaker();
+            itemAttribute.getItems().add(targetItemAtt);
+        }
+        else {
+            Alert a = new Alert(Alert.AlertType.ERROR);
+            a.setContentText("Select an Attribute to edit.");
+            a.show();
+        }
+    }
+
+
+    @FXML
+    private TextField newItemAttName2;
+
+    @FXML
+    private TextField newItemAttValue2;
+    public void newItemAttribute() {
+
+        if (targetItem.getAttributes().toString().contains(newItemAttName2.getText())) {
+            Alert a = new Alert(Alert.AlertType.ERROR);
+            a.setContentText("An attribute with the same name is already defined.");
+            a.show();
+        } else {
+            Attribute att = new Attribute(newItemAttName2.getText(), newItemAttValue2.getText());
+            targetItem.addAttribute(att);
+            itemAttribute.getItems().add(att);
+        }
+    }
+
+@FXML private TextField tagName;
+    @FXML private ComboBox tags;
+
+    public void addTag(){
+
+        if (targetItem.getTags().toString().contains(tagName.getText())) {
+            Alert a = new Alert(Alert.AlertType.ERROR);
+            a.setContentText("A tag with the same name is already defined.");
+            a.show();
+        } else {
+            Tag tag = new Tag(tagName.getText());
+            targetItem.addTag(tag);
+            tags.getItems().add(tag);
+        }
+    }
+
+    public void deleteTag(){
+            targetItem.removeTag((Tag)tags.getValue());
+            tags.getItems().remove(tags.getValue());
+    }
+
+    public void deleteType(){
+        Catalog.typeList.remove(typeBox.getValue());
+        Type type = (Type) typeBox.getValue();
+        for( Item i: type.getItems()){
+            Catalog.itemList.remove(i);
+        }
+
+        typeBox.getItems().remove(typeBox.getValue());
+        treeMaker();
+    }
+
+    public void deleteItem(){
+        Item item = (Item) itemBox.getValue();
+        Catalog.itemList.remove(itemBox.getValue());
+        item.getType().deleteItem(item);
+
+        itemBox.getItems().remove(itemBox.getValue());
+        treeMaker();
+    }
 }

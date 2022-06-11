@@ -37,4 +37,9 @@ public class Tag {
     public void setAttachedItems(LinkedList<Item> attachedItems) {
         this.attachedItems = attachedItems;
     }
+
+    @Override
+    public String toString() {
+        return name;
+    }
 }
