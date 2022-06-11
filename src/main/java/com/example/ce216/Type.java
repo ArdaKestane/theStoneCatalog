@@ -21,6 +21,16 @@ public class Type {
         defaultAttributes.add(attribute);
     }
 
+    public void removeAttribute(Attribute attribute){
+        ArrayList<Attribute> temp = new ArrayList(defaultAttributes);
+
+        for(Attribute att : temp){
+            if(att.equals(attribute)){
+                defaultAttributes.remove(attribute);
+            }
+        }
+    }
+
     public void deleteItem(Item item){
         items.remove(item);
     }

@@ -30,8 +30,14 @@ public class Item {
         attributes.add(attribute);
     }
 
-    public void removeAttributes(Attribute attribute) {
-        attributes.remove(attribute);
+    public void removeAttribute(Attribute attribute){
+        ArrayList<Attribute> temp = new ArrayList(attributes);
+
+        for(Attribute att : temp){
+            if(att.equals(attribute)){
+                attributes.remove(attribute);
+            }
+        }
     }
 
 

@@ -550,7 +550,7 @@
                                                 <Insets top="10.0" />
                                              </VBox.margin>
                                           </HBox>
-                                          <HBox alignment="CENTER_LEFT" prefHeight="59.0" prefWidth="450.0">
+                                          <HBox alignment="CENTER_LEFT" prefHeight="42.0" prefWidth="450.0">
                                              <children>
                                                 <Text strokeType="OUTSIDE" strokeWidth="0.0" text="New Name:" wrappingWidth="99.72357177734375">
                                                    <font>
@@ -567,7 +567,7 @@
                                                 </HBox>
                                              </children>
                                           </HBox>
-                                          <HBox alignment="CENTER_LEFT" prefHeight="59.0" prefWidth="450.0">
+                                          <HBox alignment="CENTER_LEFT" prefHeight="45.0" prefWidth="450.0">
                                              <children>
                                                 <Text strokeType="OUTSIDE" strokeWidth="0.0" text="New Value:" wrappingWidth="99.72357177734375">
                                                    <font>
@@ -577,7 +577,7 @@
                                                       <Insets right="10.0" />
                                                    </HBox.margin>
                                                 </Text>
-                                                <HBox alignment="CENTER" prefHeight="45.0" prefWidth="161.0">
+                                                <HBox alignment="CENTER" prefHeight="45.0" prefWidth="157.0">
                                                    <HBox.margin>
                                                       <Insets right="50.0" />
                                                    </HBox.margin>
@@ -599,6 +599,38 @@
                                                          </font>
                                                       </Text>
                                                       <Button mnemonicParsing="false" onAction="#changeItemAttNameAndValue" prefHeight="37.0" prefWidth="95.0" style="-fx-background-color: transparent; -fx-border-color: black; -fx-border-width: 2;">
+                                                         <font>
+                                                            <Font name="Arial Black" size="15.0" />
+                                                         </font>
+                                                         <opaqueInsets>
+                                                            <Insets />
+                                                         </opaqueInsets>
+                                                      </Button>
+                                                   </children>
+                                                </StackPane>
+                                             </children>
+                                          </HBox>
+                                          <HBox alignment="CENTER_RIGHT" prefHeight="50.0" prefWidth="450.0">
+                                             <children>
+                                                <HBox alignment="CENTER" prefHeight="45.0" prefWidth="161.0">
+                                                   <HBox.margin>
+                                                      <Insets right="50.0" />
+                                                   </HBox.margin>
+                                                </HBox>
+                                                <StackPane prefHeight="86.0" prefWidth="137.0">
+                                                   <children>
+                                                      <Rectangle arcHeight="5.0" arcWidth="5.0" height="34.0" stroke="BLACK" strokeType="INSIDE" width="92.0">
+                                                         <StackPane.margin>
+                                                            <Insets left="15.0" top="20.0" />
+                                                         </StackPane.margin>
+                                                      </Rectangle>
+                                                      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="35.0" stroke="BLACK" strokeType="INSIDE" width="94.0" />
+                                                      <Text strokeType="OUTSIDE" strokeWidth="0.0" text="DELETE!">
+                                                         <font>
+                                                            <Font name="Arial Black" size="13.0" />
+                                                         </font>
+                                                      </Text>
+                                                      <Button mnemonicParsing="false" onAction="#deleteItemAttribute" prefHeight="37.0" prefWidth="95.0" style="-fx-background-color: transparent; -fx-border-color: black; -fx-border-width: 2;">
                                                          <font>
                                                             <Font name="Arial Black" size="15.0" />
                                                          </font>
@@ -907,42 +939,28 @@
                                                                </opaqueInsets>
                                                             </Button>
                                                          </children>
+                                                         <HBox.margin>
+                                                            <Insets />
+                                                         </HBox.margin>
                                                       </StackPane>
                                                    </children>
                                                    <VBox.margin>
                                                       <Insets />
                                                    </VBox.margin>
                                                 </HBox>
-                                                <HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="57.0" prefWidth="434.0">
+                                                <HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="29.0" prefWidth="434.0">
                                                    <children>
                                                       <Text strokeType="OUTSIDE" strokeWidth="0.0" text="New Name:" wrappingWidth="99.72357177734375">
                                                          <font>
                                                             <Font size="18.0" />
                                                          </font>
                                                          <HBox.margin>
-                                                            <Insets top="16.0" />
+                                                            <Insets top="10.0" />
                                                          </HBox.margin>
                                                       </Text>
                                                       <TextField fx:id="newTypeAttName">
                                                          <HBox.margin>
-                                                            <Insets right="42.0" top="18.0" />
-                                                         </HBox.margin>
-                                                      </TextField>
-                                                   </children>
-                                                </HBox>
-                                                <HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="57.0" prefWidth="434.0">
-                                                   <children>
-                                                      <Text strokeType="OUTSIDE" strokeWidth="0.0" text="New Value:" wrappingWidth="99.72357177734375">
-                                                         <font>
-                                                            <Font size="18.0" />
-                                                         </font>
-                                                         <HBox.margin>
-                                                            <Insets top="16.0" />
-                                                         </HBox.margin>
-                                                      </Text>
-                                                      <TextField fx:id="newTypeAttValue">
-                                                         <HBox.margin>
-                                                            <Insets right="42.0" top="18.0" />
+                                                            <Insets top="10.0" />
                                                          </HBox.margin>
                                                       </TextField>
                                                       <StackPane prefHeight="86.0" prefWidth="137.0">
@@ -965,10 +983,65 @@
                                                                <opaqueInsets>
                                                                   <Insets />
                                                                </opaqueInsets>
+                                                               <StackPane.margin>
+                                                                  <Insets />
+                                                               </StackPane.margin>
                                                             </Button>
                                                          </children>
+                                                         <HBox.margin>
+                                                            <Insets left="40.0" />
+                                                         </HBox.margin>
                                                       </StackPane>
                                                    </children>
+                                                </HBox>
+                                                <HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="84.0" prefWidth="434.0">
+                                                   <children>
+                                                      <Text strokeType="OUTSIDE" strokeWidth="0.0" text="New Value:" wrappingWidth="99.72357177734375">
+                                                         <font>
+                                                            <Font size="18.0" />
+                                                         </font>
+                                                         <HBox.margin>
+                                                            <Insets top="25.0" />
+                                                         </HBox.margin>
+                                                      </Text>
+                                                      <TextField fx:id="newTypeAttValue">
+                                                         <HBox.margin>
+                                                            <Insets top="25.0" />
+                                                         </HBox.margin>
+                                                      </TextField>
+                                                      <StackPane prefHeight="86.0" prefWidth="137.0">
+                                                         <children>
+                                                            <Rectangle arcHeight="5.0" arcWidth="5.0" height="34.0" stroke="BLACK" strokeType="INSIDE" width="101.0">
+                                                               <StackPane.margin>
+                                                                  <Insets left="15.0" top="20.0" />
+                                                               </StackPane.margin>
+                                                            </Rectangle>
+                                                            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="34.0" stroke="BLACK" strokeType="INSIDE" width="98.0" />
+                                                            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="DELETE!">
+                                                               <font>
+                                                                  <Font name="Arial Black" size="13.0" />
+                                                               </font>
+                                                            </Text>
+                                                            <Button mnemonicParsing="false" onAction="#deleteTypeAttribute" prefHeight="23.0" prefWidth="98.0" style="-fx-background-color: transparent; -fx-border-color: black; -fx-border-width: 2;">
+                                                               <font>
+                                                                  <Font name="Arial Black" size="15.0" />
+                                                               </font>
+                                                               <opaqueInsets>
+                                                                  <Insets />
+                                                               </opaqueInsets>
+                                                               <StackPane.margin>
+                                                                  <Insets />
+                                                               </StackPane.margin>
+                                                            </Button>
+                                                         </children>
+                                                         <HBox.margin>
+                                                            <Insets left="40.0" top="25.0" />
+                                                         </HBox.margin>
+                                                      </StackPane>
+                                                   </children>
+                                                   <VBox.margin>
+                                                      <Insets />
+                                                   </VBox.margin>
                                                 </HBox>
                                                 <Text disable="true" strokeType="OUTSIDE" strokeWidth="0.0" text="NEW ATTRIBUTES">
                                                    <font>

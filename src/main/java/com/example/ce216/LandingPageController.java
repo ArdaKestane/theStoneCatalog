@@ -797,6 +797,7 @@ public class LandingPageController implements Initializable {
 
     public void itemToEdit() {
         targetItem = (Item) itemChoice.getValue();
+        itemAttribute.getItems().clear();
         for(Attribute attribute : targetItem.getAttributes()) {
             itemAttribute.getItems().add(attribute);
         }
@@ -909,4 +910,20 @@ public class LandingPageController implements Initializable {
         itemBox.getItems().remove(itemBox.getValue());
         treeMaker();
     }
+
+    public void deleteTypeAttribute(){
+
+        Attribute attribute = (Attribute) typeAttributes.getValue();
+
+        target.removeAttribute(attribute);
+        typeAttributes.getItems().remove(attribute);
+    }
+
+    public void deleteItemAttribute(){
+        Attribute attribute = (Attribute) itemAttribute.getValue();
+        targetItem.removeAttribute(attribute);
+        itemAttribute.getItems().remove(attribute);
+    }
+
+
 }
