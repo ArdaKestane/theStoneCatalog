@@ -35,6 +35,6 @@ public class Attribute implements Serializable {
 
     @Override
     public String toString() {
-        return name;
+        return name+"="+value;
     }
 }

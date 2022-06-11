@@ -779,7 +779,7 @@
                                              <children>
                                                 <HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="57.0" prefWidth="434.0">
                                                    <VBox.margin>
-                                                      <Insets top="5.0" />
+                                                      <Insets />
                                                    </VBox.margin>
                                                    <children>
                                                       <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Type Name:" wrappingWidth="99.72357177734375">
@@ -860,7 +860,7 @@
                                                       </StackPane>
                                                    </children>
                                                    <VBox.margin>
-                                                      <Insets top="15.0" />
+                                                      <Insets top="5.0" />
                                                    </VBox.margin>
                                                 </HBox>
                                                 <Text disable="true" strokeType="OUTSIDE" strokeWidth="0.0" text="ATTRIBUTES">
@@ -868,7 +868,7 @@
                                                       <Font name="MS Gothic" size="31.0" />
                                                    </font>
                                                    <VBox.margin>
-                                                      <Insets left="10.0" top="25.0" />
+                                                      <Insets left="10.0" top="5.0" />
                                                    </VBox.margin>
                                                 </Text>
                                                 <HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="57.0" prefWidth="434.0">
@@ -911,7 +911,7 @@
                                                       </StackPane>
                                                    </children>
                                                    <VBox.margin>
-                                                      <Insets top="10.0" />
+                                                      <Insets />
                                                    </VBox.margin>
                                                 </HBox>
                                                 <HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="57.0" prefWidth="434.0">
@@ -929,6 +929,23 @@
                                                             <Insets right="42.0" top="18.0" />
                                                          </HBox.margin>
                                                       </TextField>
+                                                   </children>
+                                                </HBox>
+                                                <HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="57.0" prefWidth="434.0">
+                                                   <children>
+                                                      <Text strokeType="OUTSIDE" strokeWidth="0.0" text="New Value:" wrappingWidth="99.72357177734375">
+                                                         <font>
+                                                            <Font size="18.0" />
+                                                         </font>
+                                                         <HBox.margin>
+                                                            <Insets top="16.0" />
+                                                         </HBox.margin>
+                                                      </Text>
+                                                      <TextField fx:id="newTypeAttValue">
+                                                         <HBox.margin>
+                                                            <Insets right="42.0" top="18.0" />
+                                                         </HBox.margin>
+                                                      </TextField>
                                                       <StackPane prefHeight="86.0" prefWidth="137.0">
                                                          <children>
                                                             <Rectangle arcHeight="5.0" arcWidth="5.0" height="34.0" stroke="BLACK" strokeType="INSIDE" width="101.0">
@@ -942,7 +959,7 @@
                                                                   <Font name="Arial Black" size="13.0" />
                                                                </font>
                                                             </Text>
-                                                            <Button mnemonicParsing="false" onAction="#changeTypeAttName" prefHeight="23.0" prefWidth="98.0" style="-fx-background-color: transparent; -fx-border-color: black; -fx-border-width: 2;">
+                                                            <Button mnemonicParsing="false" onAction="#changeTypeAttNameAndValue" prefHeight="23.0" prefWidth="98.0" style="-fx-background-color: transparent; -fx-border-color: black; -fx-border-width: 2;">
                                                                <font>
                                                                   <Font name="Arial Black" size="15.0" />
                                                                </font>
@@ -1005,14 +1022,14 @@
                                                       </StackPane>
                                                    </children>
                                                    <VBox.margin>
-                                                      <Insets top="10.0" />
+                                                      <Insets />
                                                    </VBox.margin>
                                                 </HBox>
                                              </children>
                                           </VBox>
-                                          <Line endX="220.0" layoutX="200.0" layoutY="75.0" startX="-200.0" />
-                                          <Line endX="220.0" layoutX="200.0" layoutY="140.0" startX="-200.0" />
-                                          <Line endX="220.0" layoutX="200.0" layoutY="355.0" startX="-200.0" />
+                                          <Line endX="220.0" layoutX="200.0" layoutY="65.0" startX="-200.0" />
+                                          <Line endX="220.0" layoutX="200.0" layoutY="158.0" startX="-200.0" />
+                                          <Line endX="220.0" layoutX="200.0" layoutY="365.0" startX="-200.0" />
                                        </children>
                                     </Pane>
                                  </children>

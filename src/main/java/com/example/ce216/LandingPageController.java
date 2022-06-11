@@ -149,24 +149,38 @@ public class LandingPageController implements Initializable {
     @FXML
     private StackPane stackPane3;
 
-    @FXML private Pane typeEdit;
+    @FXML
+    private Pane typeEdit;
 
-    @FXML private TreeView<Object> treeView;
+    @FXML
+    private TreeView<Object> treeView;
 
-    @FXML private TextField typeNameInput;
+    @FXML
+    private TextField typeNameInput;
 
-    @FXML private TextField typeDefaultAttributeNameInput;
-    @FXML private TextField typeDefaultAttributeValueInput;
-    @FXML private Label name;
-    @FXML private Label typeName;
-    @FXML private Label itemTags;
-    @FXML private Label itemAttributes;
-    @FXML private Pane typePane;
-    @FXML private Pane itemPane;
-    @FXML private Label typeDefaultAttribute;
-    @FXML private Label typeItems;
+    @FXML
+    private TextField typeDefaultAttributeNameInput;
+    @FXML
+    private TextField typeDefaultAttributeValueInput;
+    @FXML
+    private Label name;
+    @FXML
+    private Label typeName;
+    @FXML
+    private Label itemTags;
+    @FXML
+    private Label itemAttributes;
+    @FXML
+    private Pane typePane;
+    @FXML
+    private Pane itemPane;
+    @FXML
+    private Label typeDefaultAttribute;
+    @FXML
+    private Label typeItems;
 
-    @FXML private StackPane stackPaneClose;
+    @FXML
+    private StackPane stackPaneClose;
 
 
     Catalog catalog = Catalog.getCatalogInstance();
@@ -174,7 +188,7 @@ public class LandingPageController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-    treeMaker();
+        treeMaker();
     }
 
     @FXML
@@ -222,7 +236,6 @@ public class LandingPageController implements Initializable {
 
 
     }
-
 
 
     @FXML
@@ -479,6 +492,7 @@ public class LandingPageController implements Initializable {
         editPane.setVisible(false);
         deletePane.setVisible(false);
         helpPane.setVisible(true);
+
         helpPane.toFront();
         hBoxClose.setOpacity(0.35);
         FadeTransition fadeTransition = new FadeTransition(Duration.seconds(0.6), helpPane);
@@ -550,10 +564,13 @@ public class LandingPageController implements Initializable {
     }
 
 
-    @FXML private ComboBox typeChoice;
-    @FXML private ComboBox typeChoice2;
+    @FXML
+    private ComboBox typeChoice;
+    @FXML
+    private ComboBox typeChoice2;
 
     Type lastCreated;
+
     public void createTypeButtonAction(ActionEvent event) {
         boolean checker = true;
 
@@ -580,10 +597,12 @@ public class LandingPageController implements Initializable {
         }
     }
 
-   @FXML private TextField itemNameInput;
+    @FXML
+    private TextField itemNameInput;
 
 
     Item lastCreatedItem;
+
     @FXML
     public void createItemButtonAction(ActionEvent event) throws IOException {
         boolean checker = true;
@@ -600,14 +619,14 @@ public class LandingPageController implements Initializable {
             }
             treeMaker();
         }
-        if ((catalog.itemList.size() == 0 || checker)&& !itemNameInput.getText().isBlank()) {
+        if ((catalog.itemList.size() == 0 || checker) && !itemNameInput.getText().isBlank()) {
             Item item = new Item(itemNameInput.getText(), (Type) typeChoice.getValue());
             lastCreatedItem = item;
             catalog.createItem(item);
             TreeItem<Object> treeItem = new TreeItem<>(item.toString());
             item.getType().getItems().add(item);
 
-            for(Attribute attribute : item.getType().getDefaultAttributes()){
+            for (Attribute attribute : item.getType().getDefaultAttributes()) {
                 item.getAttributes().add(attribute);
             }
 
@@ -615,14 +634,16 @@ public class LandingPageController implements Initializable {
         }
     }
 
-    @FXML private TextField attributeNameInput;
-    @FXML private TextField attributeValueInput;
+    @FXML
+    private TextField attributeNameInput;
+    @FXML
+    private TextField attributeValueInput;
+
     public void addAttributeButtonAction(ActionEvent event) {
         Attribute att = new Attribute(attributeNameInput.getText(), attributeValueInput.getText());
         lastCreatedItem.addAttribute(att);
         attributeNameInput.clear();
     }
-
 
 
     public void createDefaultAttributeAction(ActionEvent event) {
@@ -632,11 +653,16 @@ public class LandingPageController implements Initializable {
             typeDefaultAttributeNameInput.clear();
             typeDefaultAttributeValueInput.clear();
         }
+        else{
+            Alert a = new Alert(Alert.AlertType.ERROR);
+            a.setContentText("There must be an Item selected priorly (last created Item is selected) in order to create any attributes.");
+            a.show();
+        }
     }
 
-    public void onSelect(){
+    public void onSelect() {
         TreeItem<Object> o = treeView.getSelectionModel().getSelectedItem();
-        if(o!=null) {
+        if (o != null) {
             if (o.getValue().getClass().getName().equals("com.example.ce216.Type")) {
                 itemPane.setVisible(false);
                 typePane.setVisible(true);
@@ -654,47 +680,65 @@ public class LandingPageController implements Initializable {
             }
         }
     }
-Type target;
 
-    @FXML private TextField newTypeName;
-    @FXML private ComboBox typeAttributes;
+    Type target;
+
+    @FXML
+    private TextField newTypeName;
+    @FXML
+    private ComboBox typeAttributes;
 
     public void typeToEdit() {
         target = (Type) typeChoice2.getValue();
         typeAttributes.getItems().clear();
-        if(target!=null) {
+        if (target != null) {
             for (Attribute attribute : target.getDefaultAttributes()) {
                 typeAttributes.getItems().addAll(attribute);
             }
         }
     }
 
-    public void newTypeName(){
+    public void newTypeName() {
         typeChoice2.getItems().remove(target);
         target.setName(newTypeName.getText());
         treeMaker();
         typeChoice2.getItems().add(target);
 
     }
-Attribute targetAtt;
-    @FXML private TextField newTypeAttName;
 
+    Attribute targetAtt;
+    @FXML
+    private TextField newTypeAttName;
+    @FXML
+    private TextField newTypeAttValue;
 
-    public void changeTypeAttName(){
+    public void changeTypeAttNameAndValue() {
         targetAtt = (Attribute) typeAttributes.getValue();
 
         typeAttributes.getItems().remove(targetAtt);
-        targetAtt.setName(newTypeAttName.getText());
+        if (!newTypeAttName.getText().isBlank())
+            targetAtt.setName(newTypeAttName.getText());
+
+        targetAtt.setValue(newTypeAttValue.getText());
         treeMaker();
         typeAttributes.getItems().add(targetAtt);
     }
 
-    @FXML private TextField newTypeAttribute;
-    public void newTypeAttribute(){
-        Attribute att = new Attribute(newTypeAttribute.getText());
-        target.addDefaultAttributes(att);
-        typeAttributes.getItems().add(att);
+    @FXML
+    private TextField newTypeAttribute;
 
-    }
+    public void newTypeAttribute() {
+
+            if (target.getDefaultAttributes().toString().contains(newTypeAttribute.getText())) {
+                Alert a = new Alert(Alert.AlertType.ERROR);
+                a.setContentText("An attribute with the same name is already defined.");
+                a.show();
+            } else {
+                Attribute att = new Attribute(newTypeAttribute.getText());
+                target.addDefaultAttributes(att);
+                typeAttributes.getItems().add(att);
+            }
+
+        }
 
 }
