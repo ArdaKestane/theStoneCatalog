@@ -17,6 +17,7 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
+<?import org.controlsfx.control.CheckComboBox?>
 
 <VBox fx:id="root" minHeight="-Infinity" minWidth="-Infinity" prefHeight="784.0" prefWidth="1243.0" style="-fx-border-color: black;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.ce216.LandingPageController">
    <children>
@@ -1231,8 +1232,8 @@
                                  <children>
                                     <HBox prefHeight="25.0" prefWidth="366.0">
                                        <children>
-                                          <TextField prefHeight="25.0" prefWidth="243.0" />
-                                          <ComboBox prefWidth="150.0" />
+                                          <TextField fx:id="searchBar" onInputMethodTextChanged="#search" onKeyTyped="#search" prefHeight="25.0" prefWidth="243.0" style="-fx-background-radius: 20;" />
+                                          <CheckComboBox fx:id="tagFilter" prefHeight="25.0" prefWidth="126.0" style="-fx-background-radius: 20;" />
                                        </children>
                                     </HBox>
                                  </children>

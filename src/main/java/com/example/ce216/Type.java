@@ -1,8 +1,9 @@
 package com.example.ce216;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class Type {
+public class Type implements Serializable {
 
     private String name;
     private ArrayList<Item> items;

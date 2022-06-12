@@ -1,8 +1,9 @@
 package com.example.ce216;
 
+import java.io.Serializable;
 import java.util.LinkedList;
 
-public class Tag {
+public class Tag implements Serializable {
 
     private String name;
     private LinkedList<Item> attachedItems;
@@ -11,6 +12,7 @@ public class Tag {
         this.name = name;
         attachedItems = new LinkedList<>();
     }
+
 
 
     public void addAttachedItems(Item item) {

@@ -2,6 +2,8 @@ package com.example.ce216;
 
 import javafx.animation.FadeTransition;
 import javafx.animation.TranslateTransition;
+import javafx.collections.ListChangeListener;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.event.Event;
 import javafx.event.EventHandler;
@@ -11,9 +13,11 @@ import javafx.fxml.Initializable;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.*;
 import javafx.stage.Stage;
 import javafx.util.Duration;
+import org.controlsfx.control.CheckComboBox;
 
 import java.io.IOException;
 import java.net.URL;
@@ -187,6 +191,9 @@ public class LandingPageController implements Initializable {
     @FXML
     private Button getStarted;
 
+    @FXML
+    private CheckComboBox tagFilter;
+
 
     Catalog catalog = Catalog.getCatalogInstance();
 
@@ -194,6 +201,18 @@ public class LandingPageController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         treeMaker();
+
+
+        tagFilter.setTitle("Tags");
+
+        tagFilter.getItems().addAll(catalog.tagList);
+        tagFilter.getCheckModel().getCheckedItems().addListener(new ListChangeListener<Tag>() {
+            @Override
+            public void onChanged(Change<? extends Tag> change) {
+                filterByTags();
+            }
+        });
+
     }
 
     @FXML
@@ -751,6 +770,7 @@ public class LandingPageController implements Initializable {
     public void newTypeName() {
         typeChoice2.getItems().remove(target);
         target.setName(newTypeName.getText());
+
         treeMaker();
         typeChoice2.getItems().add(target);
 
@@ -787,6 +807,10 @@ public class LandingPageController implements Initializable {
             Attribute att = new Attribute(newTypeAttribute.getText(), "");
             target.addDefaultAttributes(att);
             typeAttributes.getItems().add(att);
+
+            for(Item item : target.getItems()){
+                item.addAttribute(att);
+            }
         }
 
     }
@@ -880,9 +904,24 @@ public class LandingPageController implements Initializable {
             a.setContentText("A tag with the same name is already defined.");
             a.show();
         } else {
-            Tag tag = new Tag(tagName.getText());
-            targetItem.addTag(tag);
-            tags.getItems().add(tag);
+            boolean checker = true;
+            for (Tag tag : Catalog.tagList) {
+                if (tagName.getText().equals(tag.getName())) {
+                    checker = false;
+                    targetItem.addTag(tag);
+                    tag.addAttachedItems(targetItem);
+                    break;
+                }
+            }
+            if (checker == true) {
+                Tag tag = new Tag(tagName.getText());
+                targetItem.addTag(tag);
+                tags.getItems().add(tag);
+                Catalog.tagList.add(tag);
+                tag.addAttachedItems(targetItem);
+                tagFilter.getItems().add(tag);
+            }
+
         }
     }
 
@@ -923,6 +962,76 @@ public class LandingPageController implements Initializable {
         Attribute attribute = (Attribute) itemAttribute.getValue();
         targetItem.removeAttribute(attribute);
         itemAttribute.getItems().remove(attribute);
+    }
+
+    @FXML private TextField searchBar;
+    public void search(KeyEvent event) {
+
+        if (searchBar.getText().isBlank()) {
+            treeMaker();
+        } else {
+            String search = searchBar.getText();
+
+            searchTreeMaker(search);
+        }
+    }
+
+    private TreeItem treeRoot = new TreeItem();
+
+    public void searchTreeMaker(String s) {
+
+        treeView.setRoot(treeRoot);
+        treeView.setShowRoot(false);
+        treeRoot.getChildren().clear();
+        for (Type type : catalog.typeList) {
+            if (type.getName().contains(s)) {
+                TreeItem treeTypeItem = new TreeItem<>(type);
+                treeRoot.getChildren().add(treeTypeItem);
+            }
+            for (Item item : type.getItems()) {
+                if (item.getName().contains(s)) {
+                    TreeItem treeTypeItem = new TreeItem<>(item);
+                    treeRoot.getChildren().add(treeTypeItem);
+                }
+            }
+            for (Tag tag : catalog.tagList) {
+                if (tag.getName().contains(s)) {
+                    TreeItem treeTypeItem = new TreeItem<>(tag);
+                    treeRoot.getChildren().add(treeTypeItem);
+                }
+            }
+        }
+    }
+
+
+    private void filterByTags() {
+        ObservableList<Tag> l = tagFilter.getCheckModel().getCheckedItems();
+        if (l.size() != 0) {
+            TreeItem<Object> root = new TreeItem<>();
+            treeView.setRoot(root);
+            treeView.setShowRoot(false);
+
+            for (Tag tag : l) {
+                for (Item item : tag.getAttachedItems()) {
+                    boolean isFound = false;
+                    if (item.getTags().containsAll(l)) {
+                        TreeItem<Object> newItem = new TreeItem<>(item);
+
+                        for (TreeItem t : root.getChildren()) {
+                            Item i = (Item) t.getValue();
+                            if (item.getName().equals(i.getName())) {
+                                isFound = true;
+                                break;
+                            }
+                        }
+                        if (!isFound)
+                            root.getChildren().add(newItem);
+                    }
+                }
+            }
+        } else
+            treeMaker();
+
     }
 
 
