@@ -21,149 +21,109 @@ import org.controlsfx.control.CheckComboBox;
 
 import java.io.IOException;
 import java.net.URL;
-import java.util.Objects;
 import java.util.ResourceBundle;
 
 
 public class LandingPageController implements Initializable {
 
+    private final TreeItem treeRoot = new TreeItem();
+    Catalog catalog = Catalog.getCatalogInstance();
+    Type lastCreated;
+    Item lastCreatedItem;
+    Type target;
+    Attribute targetAtt;
+    Item targetItem;
+    Attribute targetItemAtt;
     @FXML
     private VBox root;
-
     @FXML
     private StackPane stackPane;
-
     @FXML
     private VBox vBox;
-
     @FXML
     private Button button;
-
     @FXML
     private Button button2;
-
     @FXML
     private Button contact;
-
     @FXML
     private Pane pane1;
-
     @FXML
     private Pane pane2;
-
     @FXML
     private Pane pane3;
-
     @FXML
     private Button add;
-
     @FXML
     private Button edit;
-
     @FXML
     private Button delete;
-
     @FXML
     private Button search;
-
     @FXML
     private Region region;
-
     @FXML
     private Button nextPage;
-
     @FXML
     private Button nextPage2;
-
     @FXML
     private Button prevPage;
-
     @FXML
     private Button prevPage2;
-
-
     @FXML
     private ImageView next;
-
     @FXML
     private ImageView prev;
-
     @FXML
     private Pane helpPane;
-
     @FXML
     private Pane helpPane2;
-
-
     @FXML
     private HBox hBoxClose;
-
     @FXML
     private Label mailLabel;
-
     @FXML
     private Pane generalHelp;
-
     @FXML
     private Pane addHelp;
-
     @FXML
     private Pane editHelp;
-
     @FXML
     private Pane deleteHelp;
-
     @FXML
     private Pane treeViewPane;
-
     @FXML
     private VBox vBox2;
-
     @FXML
     private Pane searchPane;
-
     @FXML
     private Pane addPane;
-
     @FXML
     private Pane editPane;
-
     @FXML
     private Pane deletePane;
-
     @FXML
     private StackPane stackPane2;
-
     @FXML
     private Pane generalAddPane;
-
     @FXML
     private Pane typeAddPane;
-
     @FXML
     private Pane itemAddPane;
-
     @FXML
     private Pane generalEditPane;
-
     @FXML
     private Pane itemEditPane1;
-
     @FXML
     private Pane itemEditPane2;
-
     @FXML
     private StackPane stackPane3;
-
     @FXML
     private Pane typeEdit;
-
     @FXML
     private TreeView<Object> treeView;
-
     @FXML
     private TextField typeNameInput;
-
     @FXML
     private TextField typeDefaultAttributeNameInput;
     @FXML
@@ -184,19 +144,56 @@ public class LandingPageController implements Initializable {
     private Label typeDefaultAttribute;
     @FXML
     private Label typeItems;
-
     @FXML
     private StackPane stackPaneClose;
-
     @FXML
     private Button getStarted;
-
     @FXML
     private CheckComboBox tagFilter;
-
-
-    Catalog catalog = Catalog.getCatalogInstance();
-
+    @FXML
+    private ComboBox typeBox;
+    @FXML
+    private ComboBox itemBox;
+    @FXML
+    private ComboBox typeChoice;
+    @FXML
+    private ComboBox typeChoice2;
+    @FXML
+    private TextField itemNameInput;
+    @FXML
+    private TextField attributeNameInput;
+    @FXML
+    private TextField attributeValueInput;
+    @FXML
+    private TextField newTypeName;
+    @FXML
+    private ComboBox typeAttributes;
+    @FXML
+    private TextField newTypeAttName;
+    @FXML
+    private TextField newTypeAttValue;
+    @FXML
+    private TextField newTypeAttribute;
+    @FXML
+    private ComboBox itemChoice;
+    @FXML
+    private TextField newItemName;
+    @FXML
+    private ComboBox itemAttribute;
+    @FXML
+    private TextField newItemAttName;
+    @FXML
+    private TextField newItemAttValue;
+    @FXML
+    private TextField newItemAttName2;
+    @FXML
+    private TextField newItemAttValue2;
+    @FXML
+    private TextField tagName;
+    @FXML
+    private ComboBox tags;
+    @FXML
+    private TextField searchBar;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -205,13 +202,18 @@ public class LandingPageController implements Initializable {
 
         tagFilter.setTitle("Tags");
 
-        tagFilter.getItems().addAll(catalog.tagList);
+        tagFilter.getItems().addAll(Catalog.tagList);
         tagFilter.getCheckModel().getCheckedItems().addListener(new ListChangeListener<Tag>() {
             @Override
             public void onChanged(Change<? extends Tag> change) {
                 filterByTags();
             }
         });
+
+        for (Type type : Catalog.typeList) {
+            typeChoice.getItems().add(type);
+        }
+
 
     }
 
@@ -260,7 +262,6 @@ public class LandingPageController implements Initializable {
 
 
     }
-
 
     @FXML
     public void nextPage() {
@@ -330,7 +331,6 @@ public class LandingPageController implements Initializable {
         nextPage2.setVisible(false);
     }
 
-
     public void onHoverColor2() {
         prevPage.setVisible(false);
         prevPage2.setVisible(true);
@@ -340,7 +340,6 @@ public class LandingPageController implements Initializable {
         prevPage.setVisible(true);
         prevPage2.setVisible(false);
     }
-
 
     public void contact() {
         contact.setVisible(false);
@@ -436,7 +435,6 @@ public class LandingPageController implements Initializable {
         fadeTransition.play();
     }
 
-
     public void addPane() {
         vBox.setVisible(false);
         addPane.setVisible(true);
@@ -464,8 +462,11 @@ public class LandingPageController implements Initializable {
         generalAddPane.setVisible(true);
         typeAddPane.setVisible(false);
         itemAddPane.setVisible(false);
+        itemNameInput.clear();
+        typeChoice.getSelectionModel().clearSelection();
+        attributeNameInput.clear();
+        attributeValueInput.clear();
     }
-
 
     public void editPane() {
         vBox.setVisible(false);
@@ -483,7 +484,7 @@ public class LandingPageController implements Initializable {
         deletePane.setVisible(false);
         typeChoice2.getItems().clear();
 
-        for(Type type: Catalog.typeList){
+        for (Type type : Catalog.typeList) {
             typeChoice2.getItems().add(type);
         }
 
@@ -504,8 +505,6 @@ public class LandingPageController implements Initializable {
         fadeTransition.play();
     }
 
-    @FXML private ComboBox typeBox;
-    @FXML private ComboBox itemBox;
     public void deletePane() {
         vBox.setVisible(false);
         deletePane.setVisible(true);
@@ -593,7 +592,7 @@ public class LandingPageController implements Initializable {
         itemEditPane1.setVisible(true);
         itemChoice.getItems().clear();
 
-        for(Item item : Catalog.itemList){
+        for (Item item : Catalog.itemList) {
             itemChoice.getItems().add(item);
         }
 
@@ -625,14 +624,6 @@ public class LandingPageController implements Initializable {
         }
     }
 
-
-    @FXML
-    private ComboBox typeChoice;
-    @FXML
-    private ComboBox typeChoice2;
-
-    Type lastCreated;
-
     public void createTypeButtonAction(ActionEvent event) {
         boolean checker = true;
 
@@ -660,74 +651,95 @@ public class LandingPageController implements Initializable {
     }
 
     @FXML
-    private TextField itemNameInput;
-
-
-    Item lastCreatedItem;
-
-    @FXML
     public void createItemButtonAction(ActionEvent event) throws IOException {
         boolean checker = true;
 
-        if (catalog.itemList.size() != 0) {
-            for (Item type : catalog.itemList) {
-                if (itemNameInput.getText().equals(type.getName())) {
-                    Alert a = new Alert(Alert.AlertType.ERROR);
-                    a.setContentText("An item with the same name is already defined.");
-                    a.show();
-                    checker = false;
-                    break;
+        if (itemNameInput.getText().isBlank() || typeChoice.getValue() == null) {
+            Alert a = new Alert(Alert.AlertType.ERROR);
+            a.setContentText("Item name can not be blank and every item must belong to a type.");
+            a.show();
+        } else {
+            if (Catalog.itemList.size() != 0) {
+                for (Item type : Catalog.itemList) {
+                    if (itemNameInput.getText().equals(type.getName())) {
+                        Alert a = new Alert(Alert.AlertType.ERROR);
+                        a.setContentText("An item with the same name is already defined.");
+                        a.show();
+                        checker = false;
+                        break;
+                    }
+                }
+                treeMaker();
+            }
+            if ((Catalog.itemList.size() == 0 || checker) && !itemNameInput.getText().isBlank()) {
+                Item item = new Item(itemNameInput.getText(), (Type) typeChoice.getValue());
+                lastCreatedItem = item;
+                catalog.createItem(item);
+                item.getType().getItems().add(item);
+
+                for (Attribute attribute : item.getType().getDefaultAttributes()) {
+                    item.getAttributes().add(attribute);
+                }
+                itemChoice.getItems().add(item);
+                itemNameInput.clear();
+                typeChoice.getSelectionModel().clearSelection();
+                treeMaker();
+            }
+        }
+    }
+
+    public void addAttributeButtonAction(ActionEvent event) throws IOException {
+
+        if (attributeNameInput.getText().isBlank()) {
+            Alert a = new Alert(Alert.AlertType.ERROR);
+            a.setContentText("Name can not be blank.");
+            a.show();
+        } else {
+            if (lastCreatedItem != null && !lastCreatedItem.getAttributes().toString().contains(attributeNameInput.getText())) {
+                {
+                    if (!itemNameInput.getText().isBlank() && typeChoice.getValue() != null) {
+                        createItemButtonAction(event);
+                        Attribute att = new Attribute(attributeNameInput.getText(), attributeValueInput.getText());
+                        lastCreatedItem.addAttribute(att);
+                    } else {
+                        Attribute att = new Attribute(attributeNameInput.getText(), attributeValueInput.getText());
+                        lastCreatedItem.addAttribute(att);
+                        attributeNameInput.clear();
+                    }
                 }
             }
-            treeMaker();
-        }
-        if ((catalog.itemList.size() == 0 || checker) && !itemNameInput.getText().isBlank()) {
-            Item item = new Item(itemNameInput.getText(), (Type) typeChoice.getValue());
-            lastCreatedItem = item;
-            catalog.createItem(item);
-            TreeItem<Object> treeItem = new TreeItem<>(item.toString());
-            item.getType().getItems().add(item);
-
-            for (Attribute attribute : item.getType().getDefaultAttributes()) {
-                item.getAttributes().add(attribute);
-            }
-            itemChoice.getItems().add(item);
-            treeMaker();
         }
     }
-
-    @FXML
-    private TextField attributeNameInput;
-    @FXML
-    private TextField attributeValueInput;
-
-    public void addAttributeButtonAction(ActionEvent event) {
-
-        if (lastCreatedItem.getAttributes().toString().contains(attributeNameInput.getText())) {
-            Alert a = new Alert(Alert.AlertType.ERROR);
-            a.setContentText("An attribute with the same name is already defined.");
-            a.show();
-        }
-        else{
-            Attribute att = new Attribute(attributeNameInput.getText(), attributeValueInput.getText());
-            lastCreatedItem.addAttribute(att);
-            attributeNameInput.clear();
-        }
-    }
-
 
     public void createDefaultAttributeAction(ActionEvent event) {
+
+
+        if (!typeNameInput.getText().isBlank())
+            createTypeButtonAction(event);
+
+
         if (!Catalog.typeList.isEmpty()) {
-            lastCreated.addDefaultAttributes(
-                    new Attribute(typeDefaultAttributeNameInput.getText(), typeDefaultAttributeValueInput.getText()));
-            typeDefaultAttributeNameInput.clear();
-            typeDefaultAttributeValueInput.clear();
-        } else {
-            Alert a = new Alert(Alert.AlertType.ERROR);
-            a.setContentText("There must be an Item selected priorly (last created Item is selected) in order to create any attributes.");
-            a.show();
+            if (lastCreated == null) {
+                Alert a = new Alert(Alert.AlertType.ERROR);
+                a.setContentText("There must be an Item selected priorly (last created Item is selected) in order to create any attributes.");
+                a.show();
+            } else if (typeDefaultAttributeNameInput.getText().isBlank()) {
+                Alert a = new Alert(Alert.AlertType.ERROR);
+                a.setContentText("The attribute name can not be blank.");
+                a.show();
+            } else {
+                if (lastCreated.getDefaultAttributes().toString().contains(typeDefaultAttributeNameInput.getText())) {
+                    System.out.println("heööl");
+                } else {
+                    lastCreated.addDefaultAttributes(
+                            new Attribute(typeDefaultAttributeNameInput.getText(), typeDefaultAttributeValueInput.getText()));
+                    typeDefaultAttributeNameInput.clear();
+                    typeDefaultAttributeValueInput.clear();
+                }
+            }
         }
     }
+
 
     public void onSelect() {
         TreeItem<Object> o = treeView.getSelectionModel().getSelectedItem();
@@ -750,13 +762,6 @@ public class LandingPageController implements Initializable {
         }
     }
 
-    Type target;
-
-    @FXML
-    private TextField newTypeName;
-    @FXML
-    private ComboBox typeAttributes;
-
     public void typeToEdit() {
         target = (Type) typeChoice2.getValue();
         typeAttributes.getItems().clear();
@@ -776,26 +781,16 @@ public class LandingPageController implements Initializable {
 
     }
 
-    Attribute targetAtt;
-    @FXML
-    private TextField newTypeAttName;
-    @FXML
-    private TextField newTypeAttValue;
-
     public void changeTypeAttNameAndValue() {
         targetAtt = (Attribute) typeAttributes.getValue();
 
         typeAttributes.getItems().remove(targetAtt);
-        if (!newTypeAttName.getText().isBlank())
-            targetAtt.setName(newTypeAttName.getText());
+        if (!newTypeAttName.getText().isBlank()) targetAtt.setName(newTypeAttName.getText());
 
         targetAtt.setValue(newTypeAttValue.getText());
         treeMaker();
         typeAttributes.getItems().add(targetAtt);
     }
-
-    @FXML
-    private TextField newTypeAttribute;
 
     public void newTypeAttribute() {
 
@@ -808,34 +803,39 @@ public class LandingPageController implements Initializable {
             target.addDefaultAttributes(att);
             typeAttributes.getItems().add(att);
 
-            for(Item item : target.getItems()){
+            for (Item item : target.getItems()) {
                 item.addAttribute(att);
             }
         }
 
     }
 
-    Item targetItem;
-    @FXML
-    private ComboBox itemChoice;
-
     public void itemToEdit() {
-        targetItem = (Item) itemChoice.getValue();
-        itemAttribute.getItems().clear();
-        for(Attribute attribute : targetItem.getAttributes()) {
-            itemAttribute.getItems().add(attribute);
+        if (itemChoice.getValue() == null) {
+            Alert a = new Alert(Alert.AlertType.ERROR);
+            a.setContentText("Choose an item to edit");
+            a.show();
+        } else {
+            targetItem = (Item) itemChoice.getValue();
+            itemAttribute.getItems().clear();
+            for (Attribute attribute : targetItem.getAttributes()) {
+                itemAttribute.getItems().add(attribute);
+            }
         }
     }
 
-    @FXML
-    private TextField newItemName;
-
     public void newItemName() {
         if (targetItem != null) {
-            itemChoice.getItems().remove(targetItem);
-            targetItem.setName(newItemName.getText());
-            treeMaker();
-            itemChoice.getItems().add(targetItem);
+            if (!newItemName.getText().isBlank()) {
+                itemChoice.getItems().remove(targetItem);
+                targetItem.setName(newItemName.getText());
+                treeMaker();
+                itemChoice.getItems().add(targetItem);
+            } else {
+                Alert a = new Alert(Alert.AlertType.ERROR);
+                a.setContentText("New name of the item can not be blank");
+                a.show();
+            }
 
         } else {
             Alert a = new Alert(Alert.AlertType.ERROR);
@@ -844,43 +844,32 @@ public class LandingPageController implements Initializable {
         }
     }
 
-    @FXML private ComboBox itemAttribute;
-    @FXML private TextField newItemAttName;
-    @FXML private TextField newItemAttValue;
-    Attribute targetItemAtt;
-
-    public void attributeToEdit(){
-
-    }
-    public void itemDefaultAttributeEdit(){
-        targetItemAtt.setName(newItemAttName.getText());
-    }
 
     public void changeItemAttNameAndValue() {
-        targetItemAtt =(Attribute) itemAttribute.getValue();
 
-        itemAttribute.getItems().remove(targetItemAtt);
+
+        targetItemAtt = (Attribute) itemAttribute.getValue();
+        if (targetItemAtt == null) {
+            Alert a = new Alert(Alert.AlertType.ERROR);
+            a.setContentText("Select an Attribute to edit.");
+            a.show();
+        }
+
         if (!newItemAttName.getText().isBlank())
             targetItemAtt.setName(newItemAttName.getText());
 
-        if (targetItemAtt != null) {
+        if (targetItemAtt != null && !newItemAttValue.getText().isBlank()) {
             targetItemAtt.setValue(newItemAttValue.getText());
             treeMaker();
+            itemAttribute.getItems().remove(targetItemAtt);
             itemAttribute.getItems().add(targetItemAtt);
-        }
-        else {
+        } else {
             Alert a = new Alert(Alert.AlertType.ERROR);
             a.setContentText("Select an Attribute to edit.");
             a.show();
         }
     }
 
-
-    @FXML
-    private TextField newItemAttName2;
-
-    @FXML
-    private TextField newItemAttValue2;
     public void newItemAttribute() {
 
         if (targetItem.getAttributes().toString().contains(newItemAttName2.getText())) {
@@ -894,10 +883,7 @@ public class LandingPageController implements Initializable {
         }
     }
 
-@FXML private TextField tagName;
-    @FXML private ComboBox tags;
-
-    public void addTag(){
+    public void addTag() {
 
         if (targetItem.getTags().toString().contains(tagName.getText())) {
             Alert a = new Alert(Alert.AlertType.ERROR);
@@ -925,15 +911,15 @@ public class LandingPageController implements Initializable {
         }
     }
 
-    public void deleteTag(){
-            targetItem.removeTag((Tag)tags.getValue());
-            tags.getItems().remove(tags.getValue());
+    public void deleteTag() {
+        targetItem.removeTag((Tag) tags.getValue());
+        tags.getItems().remove(tags.getValue());
     }
 
-    public void deleteType(){
+    public void deleteType() {
         Catalog.typeList.remove(typeBox.getValue());
         Type type = (Type) typeBox.getValue();
-        for( Item i: type.getItems()){
+        for (Item i : type.getItems()) {
             Catalog.itemList.remove(i);
         }
 
@@ -941,7 +927,7 @@ public class LandingPageController implements Initializable {
         treeMaker();
     }
 
-    public void deleteItem(){
+    public void deleteItem() {
         Item item = (Item) itemBox.getValue();
         Catalog.itemList.remove(itemBox.getValue());
         item.getType().deleteItem(item);
@@ -950,7 +936,7 @@ public class LandingPageController implements Initializable {
         treeMaker();
     }
 
-    public void deleteTypeAttribute(){
+    public void deleteTypeAttribute() {
 
         Attribute attribute = (Attribute) typeAttributes.getValue();
 
@@ -958,13 +944,12 @@ public class LandingPageController implements Initializable {
         typeAttributes.getItems().remove(attribute);
     }
 
-    public void deleteItemAttribute(){
+    public void deleteItemAttribute() {
         Attribute attribute = (Attribute) itemAttribute.getValue();
         targetItem.removeAttribute(attribute);
         itemAttribute.getItems().remove(attribute);
     }
 
-    @FXML private TextField searchBar;
     public void search(KeyEvent event) {
 
         if (searchBar.getText().isBlank()) {
@@ -976,14 +961,12 @@ public class LandingPageController implements Initializable {
         }
     }
 
-    private TreeItem treeRoot = new TreeItem();
-
     public void searchTreeMaker(String s) {
 
         treeView.setRoot(treeRoot);
         treeView.setShowRoot(false);
         treeRoot.getChildren().clear();
-        for (Type type : catalog.typeList) {
+        for (Type type : Catalog.typeList) {
             if (type.getName().contains(s)) {
                 TreeItem treeTypeItem = new TreeItem<>(type);
                 treeRoot.getChildren().add(treeTypeItem);
@@ -994,7 +977,7 @@ public class LandingPageController implements Initializable {
                     treeRoot.getChildren().add(treeTypeItem);
                 }
             }
-            for (Tag tag : catalog.tagList) {
+            for (Tag tag : Catalog.tagList) {
                 if (tag.getName().contains(s)) {
                     TreeItem treeTypeItem = new TreeItem<>(tag);
                     treeRoot.getChildren().add(treeTypeItem);
@@ -1024,13 +1007,11 @@ public class LandingPageController implements Initializable {
                                 break;
                             }
                         }
-                        if (!isFound)
-                            root.getChildren().add(newItem);
+                        if (!isFound) root.getChildren().add(newItem);
                     }
                 }
             }
-        } else
-            treeMaker();
+        } else treeMaker();
 
     }
 
