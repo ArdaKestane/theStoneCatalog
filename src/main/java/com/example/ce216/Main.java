@@ -14,6 +14,7 @@ import java.util.concurrent.atomic.AtomicBoolean;
 
 public class Main extends Application {
 
+
     private Catalog catalog = Catalog.getCatalogInstance();
     @Override
     public void start(Stage stage) throws IOException {
