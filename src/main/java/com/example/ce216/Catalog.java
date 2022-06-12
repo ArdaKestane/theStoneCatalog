@@ -2,6 +2,7 @@ package com.example.ce216;
 
 import java.io.*;
 import java.util.ArrayList;
+import java.util.Scanner;
 
 public class Catalog{
 
@@ -50,11 +51,15 @@ public class Catalog{
         if (file.exists()) {
             ObjectInputStream ois;
             FileInputStream fis;
+
             try {
+
                 fis = new FileInputStream("src/main/resources/Files/Objects.txt");
                 ois = new ObjectInputStream(fis);
                 try {
                     while (true) {
+
+
                         Type type = (Type) ois.readObject();
                         types.add(type);
                         for (Item item : type.getItems()) {
@@ -70,6 +75,8 @@ public class Catalog{
             }// file not found
         }
     }
+
+
 
     public void writeToFile(ArrayList<Type> arrayList) {
         File file = new File("src/main/resources/Files/Objects.txt");

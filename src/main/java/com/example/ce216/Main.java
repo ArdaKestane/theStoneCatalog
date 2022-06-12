@@ -35,7 +35,7 @@ public class Main extends Application {
                 b.set(choice != noButton);
             });
             if(b.get())
-            catalog.writeToFile();
+                catalog.writeToFile();
         });
     }
 
