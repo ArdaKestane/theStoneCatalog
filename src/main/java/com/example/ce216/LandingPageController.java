@@ -10,17 +10,25 @@ import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.print.PrinterJob;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.*;
+import javafx.scene.web.WebEngine;
+import javafx.scene.web.WebView;
+import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 import org.controlsfx.control.CheckComboBox;
 
+import java.io.File;
 import java.io.IOException;
+import java.net.MalformedURLException;
 import java.net.URL;
+import java.nio.file.Files;
+import java.nio.file.StandardOpenOption;
 import java.util.ResourceBundle;
 
 
@@ -320,13 +328,58 @@ public class LandingPageController implements Initializable {
             button2.setStyle("-fx-background-radius: 100; -fx-background-color: white; -fx-border-color: black;-fx-border-radius:100; -fx-border-width:3");
         }
     }
+    @FXML
+    private void exportItem() {
+        FileChooser fileChooser = new FileChooser();
+        File pathFile = fileChooser.showSaveDialog(pane1.getScene().getWindow());
+        Item item = (Item) o.getValue();
+
+        try {
+            File f = !pathFile.getAbsolutePath().contains(".") ? new File(pathFile.toPath() + ".html") : pathFile;
+            Files.writeString(f.toPath(), item.exportItem(), StandardOpenOption.CREATE);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @FXML
+    private void printPDF() {
+        Item printItem = (Item) o.getValue();
+        AnchorPane pane  = new AnchorPane();
+        WebView webView = new WebView();
+        pane.getChildren().add(webView);
+
+        Stage stage = (Stage) pane1.getScene().getWindow();
+        printItem.printFile();
+        WebEngine webEngine = webView.getEngine();
+        File f = new File("src/main/resources/Files/template.html");
+        if (f.exists()) {
+            try {
+                webEngine.load(f.toURI().toURL().toString());
+            } catch (MalformedURLException e) {
+                e.printStackTrace();
+            }
+        }
+        PrinterJob job = PrinterJob.createPrinterJob();
+        if (job == null) {
+            Alert a = new Alert(Alert.AlertType.ERROR);
+            a.setContentText("Error\",\"There is no printer in your device. Please add a printer to your device.");
+            a.show();
+
+        }
+        else if(job.showPrintDialog(stage)) {
+            boolean success = job.printPage(pane);
+            if (success)
+                job.endJob();
+        }
+    }
 
     public void setLandingPage(ActionEvent actionEvent) {
         Stage stage = (Stage) pane1.getScene().getWindow();
         FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("LandingPage.fxml"));
         Scene scene = null;
         try {
-            scene = new Scene(fxmlLoader.load());
+            scene = new Scene(fxmlLoader.load(),root.getWidth(), root.getHeight());
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -780,9 +833,9 @@ public class LandingPageController implements Initializable {
         }
     }
 
-
+    TreeItem<Object> o;
     public void onSelect() {
-        TreeItem<Object> o = treeView.getSelectionModel().getSelectedItem();
+        o = treeView.getSelectionModel().getSelectedItem();
         if (o != null) {
             if (o.getValue().getClass().getName().equals("com.example.ce216.Type")) {
                 itemPane.setVisible(false);
