@@ -14,8 +14,18 @@ public class Item implements Serializable {
         this.name = name;
         this.type = type;
 
-        tags = new ArrayList<>();
-        attributes = new ArrayList<>();
+        tags = new ArrayList<>(){
+            @Override
+            public String toString() {
+                return super.toString().replace("[","").replace("]","");
+            }
+        };
+        attributes = new ArrayList<>(){
+            @Override
+            public String toString() {
+                return super.toString().replace("[","").replace("]","");
+            }
+        };;
     }
 
     public void addTag(Tag tag) {

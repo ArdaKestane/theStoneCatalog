@@ -816,7 +816,7 @@
                                           </HBox>
                                           <VBox>
                                              <children>
-                                                <StackPane alignment="CENTER_LEFT" prefHeight="32.0" prefWidth="450.0">
+                                                <StackPane alignment="CENTER_LEFT" minHeight="-Infinity" minWidth="-Infinity" prefHeight="32.0" prefWidth="450.0">
                                                    <children>
                                                       <Rectangle arcHeight="5.0" arcWidth="5.0" height="34.0" stroke="BLACK" strokeType="INSIDE" width="88.0">
                                                          <StackPane.margin>
@@ -842,10 +842,16 @@
                                                       </Button>
                                                    </children>
                                                    <VBox.margin>
-                                                      <Insets left="10.0" />
+                                                      <Insets left="5.0" />
                                                    </VBox.margin>
+                                                   <padding>
+                                                      <Insets top="5.0" />
+                                                   </padding>
                                                 </StackPane>
                                              </children>
+                                             <VBox.margin>
+                                                <Insets />
+                                             </VBox.margin>
                                           </VBox>
                                        </children>
                                     </VBox>

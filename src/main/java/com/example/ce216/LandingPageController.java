@@ -373,7 +373,7 @@ public class LandingPageController implements Initializable {
         PrinterJob job = PrinterJob.createPrinterJob();
         if (job == null) {
             Alert a = new Alert(Alert.AlertType.ERROR);
-            a.setContentText("Error\",\"There is no printer in your device. Please add a printer to your device.");
+            a.setContentText("There is no printer in your device. Please add a printer to your device.");
             a.show();
 
         }
@@ -523,6 +523,10 @@ public class LandingPageController implements Initializable {
         typeAddPane.setVisible(false);
         itemAddPane.setVisible(false);
         addPane.toFront();
+        typeChoice.getItems().clear();
+        for(Type type : Catalog.typeList){
+            typeChoice.getItems().add(type);
+        }
 
         FadeTransition fadeTransition = new FadeTransition(Duration.seconds(0.6), addPane);
         fadeTransition.setFromValue(0);
@@ -864,6 +868,10 @@ public class LandingPageController implements Initializable {
                 itemAttributes.setText(i.getAttributes().toString());
                 itemTags.setText(i.getTags().toString());
             }
+        } else if(Catalog.typeList.size()==0) {
+            typePane.setVisible(false);
+            itemPane.setVisible(false);
+            name.setText("");
         }
     }
 

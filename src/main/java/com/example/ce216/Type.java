@@ -12,8 +12,18 @@ public class Type implements Serializable {
     public Type(String name) {
         this.name = name;
 
-        items = new ArrayList<>();
-        defaultAttributes = new ArrayList<>();
+        items = new ArrayList<>(){
+            @Override
+            public String toString() {
+                return super.toString().replace("[","").replace("]","");
+            }
+        };
+        defaultAttributes = new ArrayList<>(){
+            @Override
+            public String toString() {
+                return super.toString().replace("[","").replace("]","");
+            }
+        };
 
     }
 
