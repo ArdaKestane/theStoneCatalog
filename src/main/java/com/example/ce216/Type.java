@@ -55,7 +55,7 @@ public class Type implements Serializable {
     public ArrayList<Attribute> getDefaultAttributes() {
         return defaultAttributes;
     }
-    public void addDefaultAttributes(Attribute attribute){
+    public void addAttribute(Attribute attribute){
         defaultAttributes.add(attribute);
     }
 

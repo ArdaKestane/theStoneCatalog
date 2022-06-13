@@ -210,6 +210,12 @@ public class LandingPageController implements Initializable {
 
     @FXML Region deneme;
 
+    @FXML
+    private Button printer;
+    @FXML
+    private Button export;
+
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         treeMaker();
@@ -335,8 +341,11 @@ public class LandingPageController implements Initializable {
         Item item = (Item) o.getValue();
 
         try {
-            File f = !pathFile.getAbsolutePath().contains(".") ? new File(pathFile.toPath() + ".html") : pathFile;
-            Files.writeString(f.toPath(), item.exportItem(), StandardOpenOption.CREATE);
+            File f;
+            if (pathFile != null) {
+                f = !pathFile.getAbsolutePath().contains(".") ? new File(pathFile.toPath() + ".html") : pathFile;
+                Files.writeString(f.toPath(), item.exportItem(), StandardOpenOption.CREATE);
+            }
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -344,6 +353,7 @@ public class LandingPageController implements Initializable {
 
     @FXML
     private void printPDF() {
+
         Item printItem = (Item) o.getValue();
         AnchorPane pane  = new AnchorPane();
         WebView webView = new WebView();
@@ -808,8 +818,6 @@ public class LandingPageController implements Initializable {
 
     public void createDefaultAttributeAction(ActionEvent event) {
 
-
-
         if (!typeNameInput.getText().isBlank()) createTypeButtonAction(event);
 
 
@@ -825,7 +833,7 @@ public class LandingPageController implements Initializable {
             } else {
                 if (lastCreated.getDefaultAttributes().toString().contains(typeDefaultAttributeNameInput.getText())) {
                 } else {
-                    lastCreated.addDefaultAttributes(new Attribute(typeDefaultAttributeNameInput.getText(), typeDefaultAttributeValueInput.getText()));
+                    lastCreated.addAttribute(new Attribute(typeDefaultAttributeNameInput.getText(), typeDefaultAttributeValueInput.getText()));
                     typeDefaultAttributeNameInput.clear();
                     typeDefaultAttributeValueInput.clear();
                 }
@@ -840,6 +848,8 @@ public class LandingPageController implements Initializable {
             if (o.getValue().getClass().getName().equals("com.example.ce216.Type")) {
                 itemPane.setVisible(false);
                 typePane.setVisible(true);
+                printer.setVisible(false);
+                export.setVisible(false);
                 Type t = (Type) o.getValue();
                 name.setText(t.getName());
                 typeDefaultAttribute.setText(t.getDefaultAttributes().toString());
@@ -847,6 +857,8 @@ public class LandingPageController implements Initializable {
             } else if (o.getValue().getClass().getName().equals("com.example.ce216.Item")) {
                 typePane.setVisible(false);
                 itemPane.setVisible(true);
+                printer.setVisible(true);
+                export.setVisible(true);
                 Item i = (Item) o.getValue();
                 typeName.setText(i.getName());
                 itemAttributes.setText(i.getAttributes().toString());
@@ -931,7 +943,7 @@ public class LandingPageController implements Initializable {
                     a.show();
                 } else {
                     Attribute att = new Attribute(newTypeAttribute.getText(), "");
-                    target.addDefaultAttributes(att);
+                    target.addAttribute(att);
                     typeAttributes.getItems().add(att);
 
                     for (Item item : target.getItems()) {
@@ -1097,6 +1109,7 @@ public class LandingPageController implements Initializable {
             Type type = (Type) typeBox.getValue();
             for (Item i : type.getItems()) {
                 Catalog.itemList.remove(i);
+                itemBox.getItems().remove(i);
             }
 
             typeBox.getItems().remove(typeBox.getValue());

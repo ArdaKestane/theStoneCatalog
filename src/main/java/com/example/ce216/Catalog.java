@@ -2,7 +2,6 @@ package com.example.ce216;
 
 import java.io.*;
 import java.util.ArrayList;
-import java.util.Scanner;
 
 public class Catalog{
 

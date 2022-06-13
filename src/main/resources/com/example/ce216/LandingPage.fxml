@@ -118,7 +118,16 @@
                         <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                      </padding>
                      <children>
-                        <Button mnemonicParsing="false" onAction="#printPDF" prefHeight="0.0" prefWidth="0.0" style="-fx-background-color: transparent;">
+                        <Button fx:id="export" mnemonicParsing="false" onAction="#exportItem" prefHeight="0.0" prefWidth="0.0" style="-fx-background-color: transparent;" visible="false">
+                           <graphic>
+                              <ImageView fitHeight="33.0" fitWidth="39.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../../Images/export.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </Button>
+                        <Button fx:id="printer" mnemonicParsing="false" onAction="#printPDF" prefHeight="0.0" prefWidth="0.0" style="-fx-background-color: transparent;" visible="false">
                            <graphic>
                               <ImageView fitHeight="33.0" fitWidth="39.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
@@ -130,7 +139,7 @@
                               <Insets right="5.0" />
                            </HBox.margin>
                         </Button>
-                        <Button fx:id="search" mnemonicParsing="false" onAction="#searchPane" prefHeight="0.0" prefWidth="0.0" style="-fx-background-color: transparent;">
+                        <Button fx:id="search" mnemonicParsing="false" onAction="#searchPane" prefHeight="0.0" prefWidth="0.0" style="-fx-background-color: transparent;" visible="false">
                            <graphic>
                               <ImageView fitHeight="33.0" fitWidth="39.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
@@ -454,7 +463,7 @@
                                                                <children>
                                                                   <StackPane alignment="CENTER_LEFT" prefHeight="150.0" prefWidth="245.0">
                                                                      <children>
-                                                                        <Button fx:id="prevPage" mnemonicParsing="false" onAction="#previousPage" onMouseEntered="#onHoverColor2" onMouseExited="#onHoverColorExit2" prefHeight="25.0" prefWidth="55.0" style="-fx-background-color: transparent;">
+                                                                        <Button fx:id="prevPage" mnemonicParsing="false" onAction="#previousPage" onMouseEntered="#onHoverColor2" onMouseExited="#onHoverColorExit2" prefHeight="25.0" prefWidth="64.0" style="-fx-background-color: transparent;">
                                                                            <graphic>
                                                                               <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
                                                                                  <image>
