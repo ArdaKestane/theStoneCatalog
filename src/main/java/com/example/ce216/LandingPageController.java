@@ -214,6 +214,10 @@ public class LandingPageController implements Initializable {
             typeChoice.getItems().add(type);
         }
 
+        for (Tag tag : Catalog.tagList) {
+            tags.getItems().add(tag);
+        }
+
 
     }
 
@@ -714,8 +718,7 @@ public class LandingPageController implements Initializable {
     public void createDefaultAttributeAction(ActionEvent event) {
 
 
-        if (!typeNameInput.getText().isBlank())
-            createTypeButtonAction(event);
+        if (!typeNameInput.getText().isBlank()) createTypeButtonAction(event);
 
 
         if (!Catalog.typeList.isEmpty()) {
@@ -731,8 +734,7 @@ public class LandingPageController implements Initializable {
                 if (lastCreated.getDefaultAttributes().toString().contains(typeDefaultAttributeNameInput.getText())) {
                     System.out.println("heööl");
                 } else {
-                    lastCreated.addDefaultAttributes(
-                            new Attribute(typeDefaultAttributeNameInput.getText(), typeDefaultAttributeValueInput.getText()));
+                    lastCreated.addDefaultAttributes(new Attribute(typeDefaultAttributeNameInput.getText(), typeDefaultAttributeValueInput.getText()));
                     typeDefaultAttributeNameInput.clear();
                     typeDefaultAttributeValueInput.clear();
                 }
@@ -773,41 +775,84 @@ public class LandingPageController implements Initializable {
     }
 
     public void newTypeName() {
-        typeChoice2.getItems().remove(target);
-        target.setName(newTypeName.getText());
+        target = (Type) typeChoice2.getValue();
+        if (target != null) {
+            if (newTypeName.getText().isBlank()) {
+                Alert a = new Alert(Alert.AlertType.ERROR);
+                a.setContentText("Type name can not be blank.");
+                a.show();
+            } else {
+                typeChoice2.getItems().remove(target);
+                target.setName(newTypeName.getText());
 
-        treeMaker();
-        typeChoice2.getItems().add(target);
+                treeMaker();
+                typeChoice2.getItems().add(target);
 
+            }
+        } else {
+            Alert a = new Alert(Alert.AlertType.ERROR);
+            a.setContentText("Select a Type to edit.");
+            a.show();
+        }
     }
 
+
     public void changeTypeAttNameAndValue() {
+        target = (Type) typeChoice2.getValue();
         targetAtt = (Attribute) typeAttributes.getValue();
-
-        typeAttributes.getItems().remove(targetAtt);
-        if (!newTypeAttName.getText().isBlank()) targetAtt.setName(newTypeAttName.getText());
-
-        targetAtt.setValue(newTypeAttValue.getText());
-        treeMaker();
-        typeAttributes.getItems().add(targetAtt);
+        if (target != null) {
+            if (newTypeAttName.getText().isBlank()) {
+                Alert a = new Alert(Alert.AlertType.ERROR);
+                a.setContentText("Attribute name can not be blank.");
+                a.show();
+            } else {
+                if (targetAtt != null) {
+                    typeAttributes.getItems().remove(targetAtt);
+                    targetAtt.setName(newTypeAttName.getText());
+                    targetAtt.setValue(newTypeAttValue.getText());
+                    treeMaker();
+                    typeAttributes.getItems().add(targetAtt);
+                } else {
+                    Alert a = new Alert(Alert.AlertType.ERROR);
+                    a.setContentText("Select an attribute to edit.");
+                    a.show();
+                }
+            }
+        } else {
+            Alert a = new Alert(Alert.AlertType.ERROR);
+            a.setContentText("Select a Type to edit.");
+            a.show();
+        }
     }
 
     public void newTypeAttribute() {
+        target = (Type) typeChoice2.getValue();
 
-        if (target.getDefaultAttributes().toString().contains(newTypeAttribute.getText())) {
-            Alert a = new Alert(Alert.AlertType.ERROR);
-            a.setContentText("An attribute with the same name is already defined.");
-            a.show();
-        } else {
-            Attribute att = new Attribute(newTypeAttribute.getText(), "");
-            target.addDefaultAttributes(att);
-            typeAttributes.getItems().add(att);
+        if (target != null) {
+            if (newTypeAttribute.getText().isBlank()) {
+                Alert a = new Alert(Alert.AlertType.ERROR);
+                a.setContentText("Attribute name can not be blank.");
+                a.show();
+            } else {
+                if (target.getDefaultAttributes().toString().contains(newTypeAttribute.getText())) {
+                    Alert a = new Alert(Alert.AlertType.ERROR);
+                    a.setContentText("An attribute with the same name is already defined.");
+                    a.show();
+                } else {
+                    Attribute att = new Attribute(newTypeAttribute.getText(), "");
+                    target.addDefaultAttributes(att);
+                    typeAttributes.getItems().add(att);
 
-            for (Item item : target.getItems()) {
-                item.addAttribute(att);
+                    for (Item item : target.getItems()) {
+                        item.addAttribute(att);
+                    }
+                }
             }
+        } else {
+            Alert a = new Alert(Alert.AlertType.ERROR);
+            a.setContentText("Select a Type to edit.");
+            a.show();
         }
-
     }
 
     public void itemToEdit() {
@@ -853,67 +898,106 @@ public class LandingPageController implements Initializable {
             Alert a = new Alert(Alert.AlertType.ERROR);
             a.setContentText("Select an Attribute to edit.");
             a.show();
-        }
-
-        if (!newItemAttName.getText().isBlank())
-            targetItemAtt.setName(newItemAttName.getText());
-
-        if (targetItemAtt != null && !newItemAttValue.getText().isBlank()) {
-            targetItemAtt.setValue(newItemAttValue.getText());
-            treeMaker();
-            itemAttribute.getItems().remove(targetItemAtt);
-            itemAttribute.getItems().add(targetItemAtt);
         } else {
-            Alert a = new Alert(Alert.AlertType.ERROR);
-            a.setContentText("Select an Attribute to edit.");
-            a.show();
+            if (newItemAttName.getText().isBlank()) {
+                Alert a = new Alert(Alert.AlertType.ERROR);
+                a.setContentText("New name of the attribute can not be blank");
+                a.show();
+            } else {
+                targetItemAtt.setName(newItemAttName.getText());
+                targetItemAtt.setValue(newItemAttValue.getText());
+                treeMaker();
+                itemAttribute.getItems().remove(targetItemAtt);
+                itemAttribute.getItems().add(targetItemAtt);
+            }
         }
     }
 
+
     public void newItemAttribute() {
 
-        if (targetItem.getAttributes().toString().contains(newItemAttName2.getText())) {
-            Alert a = new Alert(Alert.AlertType.ERROR);
-            a.setContentText("An attribute with the same name is already defined.");
-            a.show();
+        if (targetItem != null) {
+            if (newItemAttName2.getText().isBlank()) {
+                Alert a = new Alert(Alert.AlertType.ERROR);
+                a.setContentText("Name of an attribute can not be blank.");
+                a.show();
+            } else {
+                if (targetItem.getAttributes().toString().contains(newItemAttName2.getText())) {
+                    Alert a = new Alert(Alert.AlertType.ERROR);
+                    a.setContentText("An attribute with the same name is already defined.");
+                    a.show();
+                } else {
+                    Attribute att = new Attribute(newItemAttName2.getText(), newItemAttValue2.getText());
+                    targetItem.addAttribute(att);
+                    itemAttribute.getItems().add(att);
+                }
+            }
         } else {
-            Attribute att = new Attribute(newItemAttName2.getText(), newItemAttValue2.getText());
-            targetItem.addAttribute(att);
-            itemAttribute.getItems().add(att);
+            Alert a = new Alert(Alert.AlertType.ERROR);
+            a.setContentText("Select an Item to edit.");
+            a.show();
         }
     }
 
     public void addTag() {
 
-        if (targetItem.getTags().toString().contains(tagName.getText())) {
-            Alert a = new Alert(Alert.AlertType.ERROR);
-            a.setContentText("A tag with the same name is already defined.");
-            a.show();
-        } else {
-            boolean checker = true;
-            for (Tag tag : Catalog.tagList) {
-                if (tagName.getText().equals(tag.getName())) {
-                    checker = false;
-                    targetItem.addTag(tag);
-                    tag.addAttachedItems(targetItem);
-                    break;
+        if (targetItem != null) {
+            if (tagName.getText().isBlank()) {
+                Alert a = new Alert(Alert.AlertType.ERROR);
+                a.setContentText("A tag name can not be blank.");
+                a.show();
+            } else {
+                if (targetItem.getTags().toString().contains(tagName.getText())) {
+                    Alert a = new Alert(Alert.AlertType.ERROR);
+                    a.setContentText("A tag with the same name is already defined.");
+                    a.show();
+                } else {
+                    boolean checker = true;
+                    for (Tag tag : Catalog.tagList) {
+                        if (tagName.getText().equals(tag.getName())) {
+                            checker = false;
+                            targetItem.addTag(tag);
+                            tag.addAttachedItems(targetItem);
+                            break;
+                        }
+                    }
+                    if (checker == true) {
+                        Tag tag = new Tag(tagName.getText());
+                        targetItem.addTag(tag);
+                        tags.getItems().add(tag);
+                        Catalog.tagList.add(tag);
+                        tag.addAttachedItems(targetItem);
+                        tagFilter.getItems().add(tag);
+                        tagName.clear();
+                    }
+
                 }
             }
-            if (checker == true) {
-                Tag tag = new Tag(tagName.getText());
-                targetItem.addTag(tag);
-                tags.getItems().add(tag);
-                Catalog.tagList.add(tag);
-                tag.addAttachedItems(targetItem);
-                tagFilter.getItems().add(tag);
-            }
+        } else {
+            Alert a = new Alert(Alert.AlertType.ERROR);
+            a.setContentText("Select an Item to edit.");
+            a.show();
 
         }
     }
 
     public void deleteTag() {
-        targetItem.removeTag((Tag) tags.getValue());
-        tags.getItems().remove(tags.getValue());
+        if (targetItem != null) {
+            if (tags.getSelectionModel().getSelectedIndex() == -1) {
+                Alert a = new Alert(Alert.AlertType.ERROR);
+                a.setContentText("Select a Tag to delete.");
+                a.show();
+            } else {
+                Catalog.tagList.remove(tags.getValue());
+                targetItem.removeTag((Tag) tags.getValue());
+                tags.getItems().remove(tags.getValue());
+            }
+        } else {
+            Alert a = new Alert(Alert.AlertType.ERROR);
+            a.setContentText("Select an Item to edit.");
+            a.show();
+
+        }
     }
 
     public void deleteType() {
@@ -942,12 +1026,28 @@ public class LandingPageController implements Initializable {
 
         target.removeAttribute(attribute);
         typeAttributes.getItems().remove(attribute);
+
+        for (Item item : target.getItems()) {
+            item.removeAttribute(attribute);
+        }
     }
 
     public void deleteItemAttribute() {
-        Attribute attribute = (Attribute) itemAttribute.getValue();
-        targetItem.removeAttribute(attribute);
-        itemAttribute.getItems().remove(attribute);
+
+        if (targetItem == null) {
+            Alert a = new Alert(Alert.AlertType.ERROR);
+            a.setContentText("Choose an item to edit.");
+            a.show();
+        } else if (itemAttribute.getValue() == null) {
+            Alert a = new Alert(Alert.AlertType.ERROR);
+            a.setContentText("Choose an attribute to edit.");
+            a.show();
+        } else {
+
+            Attribute attribute = (Attribute) itemAttribute.getValue();
+            targetItem.removeAttribute(attribute);
+            itemAttribute.getItems().remove(attribute);
+        }
     }
 
     public void search(KeyEvent event) {

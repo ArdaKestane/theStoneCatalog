@@ -19,114 +19,119 @@
 <?import javafx.scene.text.Text?>
 <?import org.controlsfx.control.CheckComboBox?>
 
-<VBox fx:id="root" minHeight="-Infinity" minWidth="-Infinity" prefHeight="784.0" prefWidth="1243.0" style="-fx-border-color: black;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.ce216.LandingPageController">
+
+<VBox fx:id="root" prefHeight="784.0" prefWidth="1243.0" style="-fx-border-color: black;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.ce216.LandingPageController">
    <children>
-      <HBox prefHeight="100.0" prefWidth="200.0" style="-fx-border-color: black; -fx-border-width: 2;">
+      <HBox maxWidth="1.7976931348623157E308" VBox.vgrow="NEVER">
          <children>
-            <HBox alignment="BOTTOM_LEFT" prefHeight="156.0" prefWidth="653.0">
+            <HBox alignment="CENTER" maxWidth="1.7976931348623157E308" prefHeight="145.0" prefWidth="1278.0" style="-fx-border-color: black; -fx-border-width: 2;" HBox.hgrow="ALWAYS">
                <children>
-                  <VBox alignment="TOP_CENTER" prefHeight="150.0" prefWidth="160.0" style="-fx-spacing: 10;">
+                  <HBox alignment="BOTTOM_LEFT" maxWidth="1.7976931348623157E308" prefHeight="156.0" prefWidth="653.0" HBox.hgrow="ALWAYS">
                      <children>
-                        <ImageView fitHeight="109.0" fitWidth="108.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../../../Images/head.png" />
-                           </image>
-                        </ImageView>
-                        <Text fontSmoothingType="LCD" nodeOrientation="LEFT_TO_RIGHT" strokeType="OUTSIDE" strokeWidth="0.0" text="Arda Kestane">
-                           <font>
-                              <Font name="Consolas" size="18.0" />
-                           </font>
-                        </Text>
-                     </children>
-                     <HBox.margin>
-                        <Insets top="5.0" />
-                     </HBox.margin>
-                  </VBox>
-                  <HBox alignment="BOTTOM_CENTER" style="-fx-padding: 5;">
-                     <children>
-                        <Button fx:id="add" mnemonicParsing="false" onAction="#addPane" prefHeight="0.0" prefWidth="0.0" style="-fx-background-color: transparent;" visible="false">
-                           <graphic>
-                              <ImageView fitHeight="33.0" fitWidth="39.0" pickOnBounds="true" preserveRatio="true">
+                        <VBox alignment="TOP_CENTER" prefHeight="150.0" prefWidth="160.0" style="-fx-spacing: 10;" HBox.hgrow="NEVER">
+                           <children>
+                              <ImageView fitHeight="109.0" fitWidth="108.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
-                                    <Image url="@../../../Images/add.png" />
+                                    <Image url="@../../../Images/head.png" />
                                  </image>
                               </ImageView>
-                           </graphic>
+                              <Text fontSmoothingType="LCD" nodeOrientation="LEFT_TO_RIGHT" strokeType="OUTSIDE" strokeWidth="0.0" text="Arda Kestane">
+                                 <font>
+                                    <Font name="Consolas" size="18.0" />
+                                 </font>
+                              </Text>
+                           </children>
+                           <HBox.margin>
+                              <Insets top="5.0" />
+                           </HBox.margin>
+                        </VBox>
+                        <HBox alignment="BOTTOM_CENTER" style="-fx-padding: 5;" HBox.hgrow="NEVER">
+                           <children>
+                              <Button fx:id="add" mnemonicParsing="false" onAction="#addPane" prefHeight="0.0" prefWidth="0.0" style="-fx-background-color: transparent;" visible="false">
+                                 <graphic>
+                                    <ImageView fitHeight="33.0" fitWidth="39.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../../../Images/add.png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                                 <HBox.margin>
+                                    <Insets />
+                                 </HBox.margin>
+                              </Button>
+                              <Button fx:id="edit" mnemonicParsing="false" onAction="#editPane" prefHeight="0.0" prefWidth="0.0" style="-fx-background-color: transparent;" visible="false">
+                                 <graphic>
+                                    <ImageView fitHeight="33.0" fitWidth="39.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../../../Images/edit.png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                              </Button>
+                              <Button fx:id="delete" mnemonicParsing="false" onAction="#deletePane" prefHeight="44.0" prefWidth="43.0" style="-fx-background-color: transparent;" visible="false">
+                                 <graphic>
+                                    <ImageView fitHeight="46.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../../../Images/delete.png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                                 <padding>
+                                    <Insets bottom="-4.0" left="-4.0" />
+                                 </padding>
+                              </Button>
+                           </children>
+                        </HBox>
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER_RIGHT" maxWidth="1.7976931348623157E308" prefHeight="145.0" prefWidth="830.0" style="-fx-spacing: 30;" HBox.hgrow="ALWAYS">
+                     <children>
+                        <Button maxWidth="1.7976931348623157E308" minWidth="-Infinity" mnemonicParsing="false" onAction="#help" prefHeight="41.0" prefWidth="0.0" style="-fx-background-color: transparent;" text="HELP" textAlignment="JUSTIFY" HBox.hgrow="ALWAYS">
                            <HBox.margin>
                               <Insets />
                            </HBox.margin>
-                        </Button>
-                        <Button fx:id="edit" mnemonicParsing="false" onAction="#editPane" prefHeight="0.0" prefWidth="0.0" style="-fx-background-color: transparent;" visible="false">
-                           <graphic>
-                              <ImageView fitHeight="33.0" fitWidth="39.0" pickOnBounds="true" preserveRatio="true">
-                                 <image>
-                                    <Image url="@../../../Images/edit.png" />
-                                 </image>
-                              </ImageView>
-                           </graphic>
-                        </Button>
-                        <Button fx:id="delete" mnemonicParsing="false" onAction="#deletePane" prefHeight="44.0" prefWidth="43.0" style="-fx-background-color: transparent;" visible="false">
-                           <graphic>
-                              <ImageView fitHeight="46.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
-                                 <image>
-                                    <Image url="@../../../Images/delete.png" />
-                                 </image>
-                              </ImageView>
-                           </graphic>
-                           <padding>
-                              <Insets bottom="-4.0" left="-4.0" />
-                           </padding>
-                        </Button>
-                     </children>
-                  </HBox>
-               </children>
-            </HBox>
-            <HBox alignment="CENTER" prefHeight="145.0" prefWidth="830.0" style="-fx-spacing: 30;">
-               <children>
-                  <Button mnemonicParsing="false" onAction="#help" prefHeight="41.0" prefWidth="135.0" style="-fx-background-color: transparent;" text="HELP" textAlignment="JUSTIFY">
-                     <HBox.margin>
-                        <Insets />
-                     </HBox.margin>
-                     <font>
-                        <Font name="Arial Black" size="16.0" />
-                     </font>
-                  </Button>
-                  <Button mnemonicParsing="false" onAction="#setLandingPage" prefHeight="34.0" prefWidth="170.0" style="-fx-background-color: transparent;" text="LANDING PAGE" textAlignment="JUSTIFY">
-                     <font>
-                        <Font name="Arial Black" size="16.0" />
-                     </font>
-                     <HBox.margin>
-                        <Insets />
-                     </HBox.margin>
-                  </Button>
-                  <StackPane onMouseEntered="#contact" onMouseExited="#contact2" prefHeight="80.0" prefWidth="188.0">
-                     <children>
-                        <Label fx:id="mailLabel" prefHeight="24.0" prefWidth="189.0" text="ardakestane@hotmail.com" visible="false">
-                           <font>
-                              <Font name="Arial Black" size="13.0" />
-                           </font>
-                        </Label>
-                        <Button fx:id="contact" mnemonicParsing="false" prefHeight="34.0" prefWidth="145.0" style="-fx-background-color: transparent;" text="CONTACT">
                            <font>
                               <Font name="Arial Black" size="16.0" />
                            </font>
                         </Button>
-                     </children>
-                  </StackPane>
-                  <HBox alignment="BOTTOM_RIGHT" prefHeight="141.0" prefWidth="125.0">
-                     <padding>
-                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
-                     </padding>
-                     <children>
-                        <Button fx:id="search" mnemonicParsing="false" onAction="#searchPane" prefHeight="0.0" prefWidth="0.0" style="-fx-background-color: transparent;" visible="false">
-                           <graphic>
-                              <ImageView fitHeight="33.0" fitWidth="39.0" pickOnBounds="true" preserveRatio="true">
-                                 <image>
-                                    <Image url="@../../../Images/search.png" />
-                                 </image>
-                              </ImageView>
-                           </graphic>
+                        <Button maxWidth="1.7976931348623157E308" minWidth="-Infinity" mnemonicParsing="false" onAction="#setLandingPage" prefHeight="34.0" prefWidth="6.0" style="-fx-background-color: transparent;" text="LANDING PAGE" textAlignment="JUSTIFY" HBox.hgrow="ALWAYS">
+                           <font>
+                              <Font name="Arial Black" size="16.0" />
+                           </font>
+                           <HBox.margin>
+                              <Insets />
+                           </HBox.margin>
                         </Button>
+                        <StackPane maxWidth="1.7976931348623157E308" minWidth="-Infinity" onMouseEntered="#contact" onMouseExited="#contact2" prefHeight="141.0" prefWidth="0.0" HBox.hgrow="ALWAYS">
+                           <children>
+                              <Label fx:id="mailLabel" prefHeight="24.0" prefWidth="189.0" text="ardakestane@hotmail.com" visible="false">
+                                 <font>
+                                    <Font name="Arial Black" size="13.0" />
+                                 </font>
+                              </Label>
+                              <Button fx:id="contact" mnemonicParsing="false" prefHeight="34.0" prefWidth="145.0" style="-fx-background-color: transparent;" text="CONTACT">
+                                 <font>
+                                    <Font name="Arial Black" size="16.0" />
+                                 </font>
+                              </Button>
+                           </children>
+                        </StackPane>
+                        <HBox alignment="BOTTOM_RIGHT" maxHeight="-Infinity" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="141.0" prefWidth="0.0" HBox.hgrow="ALWAYS">
+                           <padding>
+                              <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                           </padding>
+                           <children>
+                              <Button fx:id="search" mnemonicParsing="false" onAction="#searchPane" prefHeight="0.0" prefWidth="0.0" style="-fx-background-color: transparent;" visible="false">
+                                 <graphic>
+                                    <ImageView fitHeight="33.0" fitWidth="39.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../../../Images/search.png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                              </Button>
+                           </children>
+                        </HBox>
                      </children>
                   </HBox>
                </children>
@@ -135,7 +140,7 @@
       </HBox>
       <StackPane prefHeight="660.0" prefWidth="1241.0" VBox.vgrow="ALWAYS">
          <children>
-            <StackPane fx:id="stackPane3" prefHeight="150.0" prefWidth="200.0">
+            <StackPane fx:id="stackPane3" prefHeight="150.0" prefWidth="200.0" StackPane.alignment="CENTER">
                <children>
                   <Pane fx:id="itemEditPane2" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="575.0" prefWidth="481.0" style="-fx-border-width: 2; -fx-border-color: black; -fx-border-radius: 8; -fx-background-color: black; -fx-background-radius: 8;" visible="false">
                      <children>
@@ -1142,29 +1147,29 @@
                   </HBox>
                </children>
             </VBox>
-            <HBox fx:id="hBoxClose" prefHeight="643.0" prefWidth="1241.0" style="-fx-border-color: black; -fx-border-width: 2;">
+            <HBox fx:id="hBoxClose" alignment="CENTER" prefHeight="643.0" prefWidth="1241.0" style="-fx-border-color: black; -fx-border-width: 2;">
                <children>
-                  <StackPane fx:id="stackPane" alignment="TOP_LEFT" prefHeight="150.0" prefWidth="708.0">
+                  <StackPane fx:id="stackPane" alignment="TOP_LEFT" HBox.hgrow="ALWAYS">
                      <children>
                         <VBox fx:id="vBox2">
                            <children>
-                              <VBox prefHeight="200.0" prefWidth="717.0">
+                              <VBox alignment="TOP_CENTER" maxWidth="-Infinity" prefHeight="234.0" prefWidth="730.0">
                                  <children>
-                                    <HBox prefHeight="222.0" prefWidth="655.0">
+                                    <HBox maxHeight="1.7976931348623157E308" maxWidth="-Infinity" prefHeight="234.0" prefWidth="755.0" VBox.vgrow="ALWAYS">
                                        <children>
-                                          <Text strokeType="OUTSIDE" strokeWidth="0.0" text="THE CATALOG PROJECT" wrappingWidth="655.0">
+                                          <Text strokeType="OUTSIDE" strokeWidth="0.0" text="THE CATALOG PROJECT" wrappingWidth="638.0" HBox.hgrow="ALWAYS">
                                              <font>
                                                 <Font name="Arial Black" size="72.0" />
                                              </font>
                                           </Text>
                                        </children>
                                        <padding>
-                                          <Insets left="50.0" top="30.0" />
+                                          <Insets left="30.0" top="20.0" />
                                        </padding>
                                     </HBox>
                                  </children>
                               </VBox>
-                              <HBox prefHeight="389.0" prefWidth="699.0">
+                              <HBox prefHeight="120.0" prefWidth="688.0">
                                  <children>
                                     <Text strokeType="OUTSIDE" strokeWidth="0.0" text="This is the most modern looking catalog application that you can find on this planet. Yes, it can have some deal braker errors and bugs but who cares as long as it looks sharp and nice." textAlignment="JUSTIFY" wrappingWidth="681.224365234375">
                                        <font>
@@ -1221,7 +1226,7 @@
                         </Pane>
                      </children>
                   </StackPane>
-                  <StackPane fx:id="stackPaneClose">
+                  <StackPane fx:id="stackPaneClose" HBox.hgrow="ALWAYS">
                      <HBox.margin>
                         <Insets />
                      </HBox.margin>
@@ -1238,335 +1243,334 @@
                                     </HBox>
                                  </children>
                               </VBox>
-                           </children></Pane>
-                        <VBox fx:id="vBox" prefHeight="639.0" prefWidth="521.0">
+                           </children>
+                        </Pane>
+                        <VBox fx:id="vBox">
                            <children>
-                              <HBox alignment="CENTER_RIGHT" prefHeight="551.0" prefWidth="600.0">
+                              <VBox>
                                  <children>
-                                    <StackPane prefHeight="493.0" prefWidth="482.0">
+                                    <HBox alignment="CENTER_RIGHT" prefHeight="551.0" prefWidth="600.0">
                                        <children>
-                                          <Region fx:id="region" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="485.0" prefWidth="465.0" style="-fx-background-color: black; -fx-background-radius: 10;">
-                                             <StackPane.margin>
-                                                <Insets />
-                                             </StackPane.margin>
-                                          </Region>
-                                          <StackPane fx:id="stackPane2" prefHeight="485.0" prefWidth="486.0">
+                                          <StackPane prefHeight="493.0" prefWidth="482.0" HBox.hgrow="ALWAYS">
                                              <children>
-                                                <Pane fx:id="pane3" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="485.0" prefWidth="465.0" style="-fx-border-width: 2; -fx-border-color: black; -fx-border-radius: 8;" visible="false">
-                                                   <children>
-                                                      <Region layoutX="-26.0" layoutY="-22.0" prefHeight="491.0" prefWidth="475.0" style="-fx-background-color: #e6e1d5; -fx-background-radius: 10; -fx-border-color: black; -fx-border-width: 2; -fx-border-radius: 8;" />
-                                                      <VBox prefHeight="464.0" prefWidth="449.0" spacing="20.0">
-                                                         <children>
-                                                            <HBox alignment="CENTER">
-                                                               <VBox.margin>
-                                                                  <Insets top="10.0" />
-                                                               </VBox.margin>
-                                                               <children>
-                                                                  <Text disable="true" strokeType="OUTSIDE" strokeWidth="0.0" text="INFORMATION TAB">
-                                                                     <font>
-                                                                        <Font name="MS Gothic" size="38.0" />
-                                                                     </font>
-                                                                  </Text>
-                                                               </children>
-                                                            </HBox>
-                                                            <HBox alignment="CENTER">
-                                                               <children>
-                                                                  <Label fx:id="name">
-                                                                     <font>
-                                                                        <Font size="24.0" />
-                                                                     </font>
-                                                                  </Label>
-                                                               </children>
-                                                            </HBox>
-                                                            <HBox prefHeight="359.0" prefWidth="449.0">
-                                                               <children>
-                                                                  <StackPane prefHeight="263.0" prefWidth="449.0" HBox.hgrow="ALWAYS">
-                                                                     <HBox.margin>
-                                                                        <Insets />
-                                                                     </HBox.margin>
-                                                                     <children>
-                                                                        <Pane fx:id="typePane" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #e6e1d5 #e6e1d5;" visible="false">
-                                                                           <children>
-                                                                              <VBox prefHeight="342.0" prefWidth="445.0">
-                                                                                 <children>
-                                                                                    <HBox prefHeight="37.0" prefWidth="445.0">
-                                                                                       <children>
-                                                                                          <Label fx:id="typeName1" prefHeight="29.0" prefWidth="255.0" text="DEFAULT ATTRIBUTES:">
-                                                                                             <font>
-                                                                                                <Font size="24.0" />
-                                                                                             </font>
-                                                                                          </Label>
-                                                                                       </children>
-                                                                                    </HBox>
-                                                                                    <HBox prefHeight="100.0" prefWidth="200.0">
-                                                                                       <children>
-                                                                                          <Label fx:id="typeDefaultAttribute" alignment="TOP_LEFT" prefHeight="123.0" prefWidth="446.0" wrapText="true" HBox.hgrow="ALWAYS">
-                                                                                             <font>
-                                                                                                <Font size="24.0" />
-                                                                                             </font>
-                                                                                          </Label>
-                                                                                       </children>
-                                                                                    </HBox>
-                                                                                    <HBox prefHeight="30.0" prefWidth="445.0">
-                                                                                       <children>
-                                                                                          <Label prefHeight="29.0" prefWidth="255.0" text="ITEMS:">
-                                                                                             <font>
-                                                                                                <Font size="24.0" />
-                                                                                             </font>
-                                                                                          </Label>
-                                                                                       </children>
-                                                                                    </HBox>
-                                                                                    <HBox prefHeight="100.0" prefWidth="200.0">
-                                                                                       <children>
-                                                                                          <Label fx:id="typeItems" alignment="TOP_LEFT" prefHeight="112.0" prefWidth="453.0">
-                                                                                             <font>
-                                                                                                <Font size="24.0" />
-                                                                                             </font>
-                                                                                          </Label>
-                                                                                       </children>
-                                                                                    </HBox>
-                                                                                 </children>
-                                                                              </VBox>
-                                                                           </children>
-                                                                        </Pane>
-                                                                        <Pane fx:id="itemPane" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #e6e1d5 #e6e1d5;" visible="false">
-                                                                           <children>
-                                                                              <VBox prefHeight="342.0" prefWidth="445.0">
-                                                                                 <children>
-                                                                                    <HBox prefHeight="37.0" prefWidth="445.0">
-                                                                                       <children>
-                                                                                          <Label prefHeight="37.0" prefWidth="64.0" text="Type:">
-                                                                                             <font>
-                                                                                                <Font size="24.0" />
-                                                                                             </font>
-                                                                                          </Label>
-                                                                                          <Label fx:id="typeName" prefHeight="37.0" prefWidth="273.0">
-                                                                                             <font>
-                                                                                                <Font size="24.0" />
-                                                                                             </font>
-                                                                                             <HBox.margin>
-                                                                                                <Insets left="10.0" />
-                                                                                             </HBox.margin>
-                                                                                          </Label>
-                                                                                       </children>
-                                                                                    </HBox>
-                                                                                    <HBox prefHeight="30.0" prefWidth="445.0">
-                                                                                       <children>
-                                                                                          <Label prefHeight="29.0" prefWidth="255.0" text="Attributes:">
-                                                                                             <font>
-                                                                                                <Font size="24.0" />
-                                                                                             </font>
-                                                                                          </Label>
-                                                                                       </children>
-                                                                                    </HBox>
-                                                                                    <HBox prefHeight="100.0" prefWidth="200.0">
-                                                                                       <children>
-                                                                                          <Label fx:id="itemAttributes" alignment="TOP_LEFT" prefHeight="112.0" prefWidth="453.0">
-                                                                                             <font>
-                                                                                                <Font size="24.0" />
-                                                                                             </font>
-                                                                                          </Label>
-                                                                                       </children>
-                                                                                    </HBox>
-                                                                                    <HBox prefHeight="30.0" prefWidth="445.0">
-                                                                                       <children>
-                                                                                          <Label prefHeight="29.0" prefWidth="255.0" text="Tags:">
-                                                                                             <font>
-                                                                                                <Font size="24.0" />
-                                                                                             </font>
-                                                                                          </Label>
-                                                                                       </children>
-                                                                                    </HBox>
-                                                                                    <HBox prefHeight="100.0" prefWidth="200.0">
-                                                                                       <children>
-                                                                                          <Label fx:id="itemTags" alignment="TOP_LEFT" prefHeight="112.0" prefWidth="453.0">
-                                                                                             <font>
-                                                                                                <Font size="24.0" />
-                                                                                             </font>
-                                                                                          </Label>
-                                                                                       </children>
-                                                                                    </HBox>
-                                                                                 </children>
-                                                                              </VBox>
-                                                                           </children>
-                                                                        </Pane>
-                                                                     </children>
-                                                                  </StackPane>
-                                                               </children>
-                                                            </HBox>
-                                                         </children>
-                                                      </VBox>
-                                                   </children>
-                                                </Pane>
-                                                <Pane fx:id="pane2" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="485.0" prefWidth="465.0" style="-fx-border-width: 2; -fx-border-color: black; -fx-border-radius: 8;" visible="false">
-                                                   <children>
-                                                      <Region layoutX="-26.0" layoutY="-22.0" prefHeight="491.0" prefWidth="475.0" style="-fx-background-color: #e6e1d5; -fx-background-radius: 10; -fx-border-color: black; -fx-border-width: 2; -fx-border-radius: 8;" />
-                                                      <VBox alignment="TOP_CENTER" prefHeight="255.0" prefWidth="444.0">
-                                                         <children>
-                                                            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="CATALOG" wrappingWidth="178.04901123046875">
-                                                               <font>
-                                                                  <Font name="MS Gothic" size="38.0" />
-                                                               </font>
-                                                               <VBox.margin>
-                                                                  <Insets bottom="10.0" />
-                                                               </VBox.margin>
-                                                            </Text>
-                                                            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Merhaba ben bir kataloğum" wrappingWidth="400.0">
-                                                               <font>
-                                                                  <Font name="Consolas" size="17.0" />
-                                                               </font>
-                                                            </Text>
-                                                         </children>
-                                                      </VBox>
-                                                      <VBox alignment="BOTTOM_CENTER" layoutX="2.0" layoutY="260.0" prefHeight="205.0" prefWidth="444.0">
-                                                         <children>
-                                                            <ImageView fitHeight="159.0" fitWidth="367.0" pickOnBounds="true" preserveRatio="true">
-                                                               <image>
-                                                                  <Image url="@../../../Images/retro2.png" />
-                                                               </image>
-                                                               <VBox.margin>
-                                                                  <Insets bottom="10.0" />
-                                                               </VBox.margin>
-                                                            </ImageView>
-                                                         </children>
-                                                      </VBox>
-                                                      <VBox alignment="CENTER_LEFT" layoutX="9.0" layoutY="429.0" prefHeight="46.0" prefWidth="223.0">
-                                                         <children>
-                                                            <StackPane alignment="CENTER_LEFT" prefHeight="150.0" prefWidth="245.0">
-                                                               <children>
-                                                                  <Button fx:id="prevPage" mnemonicParsing="false" onAction="#previousPage" onMouseEntered="#onHoverColor2" onMouseExited="#onHoverColorExit2" prefHeight="25.0" prefWidth="55.0" style="-fx-background-color: transparent;">
-                                                                     <graphic>
-                                                                        <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
-                                                                           <image>
-                                                                              <Image url="@../../../Images/prev.png" />
-                                                                           </image>
-                                                                        </ImageView>
-                                                                     </graphic>
-                                                                     <padding>
-                                                                        <Insets bottom="5.0" left="-80.0" right="-10.0" top="-10.0" />
-                                                                     </padding>
-                                                                  </Button>
-                                                                  <Button fx:id="prevPage2" mnemonicParsing="false" onAction="#previousPage" onMouseEntered="#onHoverColor2" onMouseExited="#onHoverColorExit2" prefHeight="25.0" prefWidth="55.0" style="-fx-background-color: transparent;" visible="false">
-                                                                     <graphic>
-                                                                        <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
-                                                                           <image>
-                                                                              <Image url="@../../../Images/prev2.png" />
-                                                                           </image>
-                                                                        </ImageView>
-                                                                     </graphic>
-                                                                     <padding>
-                                                                        <Insets bottom="5.0" left="-80.0" right="-10.0" top="-10.0" />
-                                                                     </padding>
-                                                                  </Button>
-                                                               </children>
-                                                            </StackPane>
-                                                         </children>
-                                                      </VBox>
-                                                      <VBox alignment="CENTER_RIGHT" layoutX="232.0" layoutY="429.0" prefHeight="46.0" prefWidth="223.0">
-                                                         <padding>
-                                                            <Insets bottom="15.0" left="10.0" right="10.0" top="10.0" />
-                                                         </padding>
-                                                      </VBox>
-                                                   </children>
+                                                <Region fx:id="region" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="485.0" prefWidth="465.0" style="-fx-background-color: black; -fx-background-radius: 10;">
                                                    <StackPane.margin>
                                                       <Insets />
                                                    </StackPane.margin>
-                                                </Pane>
-                                                <Pane fx:id="pane1" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="485.0" prefWidth="465.0" style="-fx-border-width: 2; -fx-border-color: black; -fx-border-radius: 8;">
+                                                </Region>
+                                                <StackPane fx:id="stackPane2" prefHeight="485.0" prefWidth="486.0">
                                                    <children>
-                                                      <Region layoutX="-26.0" layoutY="-22.0" prefHeight="491.0" prefWidth="475.0" style="-fx-background-color: #e6e1d5; -fx-background-radius: 10; -fx-border-color: black; -fx-border-width: 2; -fx-border-radius: 8;" />
-                                                      <VBox alignment="TOP_CENTER" prefHeight="59.0" prefWidth="449.0">
+                                                      <Pane fx:id="pane3" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="485.0" prefWidth="465.0" style="-fx-border-width: 2; -fx-border-color: black; -fx-border-radius: 8;" visible="false">
                                                          <children>
-                                                            <Text disable="true" strokeType="OUTSIDE" strokeWidth="0.0" text="INTRODUCTION">
-                                                               <font>
-                                                                  <Font name="MS Gothic" size="38.0" />
-                                                               </font>
-                                                               <VBox.margin>
-                                                                  <Insets top="10.0" />
-                                                               </VBox.margin>
-                                                            </Text>
-                                                         </children>
-                                                      </VBox>
-                                                      <VBox alignment="CENTER_RIGHT" layoutX="192.0" layoutY="80.0" prefHeight="234.0" prefWidth="249.0">
-                                                         <children>
-                                                            <Text strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-line-spacing: 5;" text="This application allows you to store types and items. You can also give tags to the items to identify them. You can search and filter every type, item or even tags! You can use the dots below to check the next card out." textAlignment="JUSTIFY" wrappingWidth="242.6171875">
-                                                               <font>
-                                                                  <Font name="Consolas" size="15.0" />
-                                                               </font>
-                                                            </Text>
-                                                         </children>
-                                                      </VBox>
-                                                      <VBox layoutX="10.0" layoutY="69.0" prefHeight="371.0" prefWidth="154.0">
-                                                         <children>
-                                                            <ImageView fitHeight="371.0" fitWidth="173.0" pickOnBounds="true" preserveRatio="true">
-                                                               <image>
-                                                                  <Image url="@../../../Images/retro.png" />
-                                                               </image>
-                                                            </ImageView>
-                                                         </children>
-                                                      </VBox>
-                                                      <VBox alignment="CENTER_LEFT" layoutX="-1.0" layoutY="419.0" prefHeight="46.0" prefWidth="223.0" />
-                                                      <VBox alignment="CENTER_RIGHT" layoutX="222.0" layoutY="419.0" prefHeight="46.0" prefWidth="223.0">
-                                                         <children>
-                                                            <StackPane alignment="CENTER_RIGHT" prefHeight="150.0" prefWidth="200.0">
+                                                            <Region layoutX="-26.0" layoutY="-22.0" prefHeight="491.0" prefWidth="475.0" style="-fx-background-color: #e6e1d5; -fx-background-radius: 10; -fx-border-color: black; -fx-border-width: 2; -fx-border-radius: 8;" />
+                                                            <VBox prefHeight="464.0" prefWidth="449.0" spacing="20.0">
                                                                <children>
-                                                                  <Button fx:id="nextPage2" mnemonicParsing="false" onAction="#nextPage" onMouseEntered="#onHoverColor" onMouseExited="#onHoverColorExit" prefHeight="25.0" prefWidth="55.0" style="-fx-background-color: transparent;" visible="false">
-                                                                     <graphic>
-                                                                        <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
-                                                                           <image>
-                                                                              <Image url="@../../../Images/next2.png" />
-                                                                           </image>
-                                                                        </ImageView>
-                                                                     </graphic>
-                                                                     <padding>
-                                                                        <Insets bottom="-10.0" left="-10.0" right="-10.0" top="-10.0" />
-                                                                     </padding>
-                                                                  </Button>
-                                                                  <Button fx:id="nextPage" mnemonicParsing="false" onAction="#nextPage" onMouseEntered="#onHoverColor" onMouseExited="#onHoverColorExit" prefHeight="25.0" prefWidth="55.0" style="-fx-background-color: transparent;">
-                                                                     <graphic>
-                                                                        <ImageView fx:id="next1" fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
-                                                                           <image>
-                                                                              <Image url="@../../../Images/next.png" />
-                                                                           </image>
-                                                                        </ImageView>
-                                                                     </graphic>
-                                                                     <padding>
-                                                                        <Insets bottom="-10.0" left="-10.0" right="-10.0" top="-10.0" />
-                                                                     </padding>
-                                                                  </Button>
+                                                                  <HBox alignment="CENTER">
+                                                                     <VBox.margin>
+                                                                        <Insets top="10.0" />
+                                                                     </VBox.margin>
+                                                                     <children>
+                                                                        <Text disable="true" strokeType="OUTSIDE" strokeWidth="0.0" text="INFORMATION TAB">
+                                                                           <font>
+                                                                              <Font name="MS Gothic" size="38.0" />
+                                                                           </font>
+                                                                        </Text>
+                                                                     </children>
+                                                                  </HBox>
+                                                                  <HBox alignment="CENTER">
+                                                                     <children>
+                                                                        <Label fx:id="name">
+                                                                           <font>
+                                                                              <Font size="24.0" />
+                                                                           </font>
+                                                                        </Label>
+                                                                     </children>
+                                                                  </HBox>
+                                                                  <HBox prefHeight="359.0" prefWidth="449.0">
+                                                                     <children>
+                                                                        <StackPane prefHeight="263.0" prefWidth="449.0" HBox.hgrow="ALWAYS">
+                                                                           <HBox.margin>
+                                                                              <Insets />
+                                                                           </HBox.margin>
+                                                                           <children>
+                                                                              <Pane fx:id="typePane" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #e6e1d5 #e6e1d5;" visible="false">
+                                                                                 <children>
+                                                                                    <VBox prefHeight="342.0" prefWidth="445.0">
+                                                                                       <children>
+                                                                                          <HBox prefHeight="37.0" prefWidth="445.0">
+                                                                                             <children>
+                                                                                                <Label fx:id="typeName1" prefHeight="29.0" prefWidth="255.0" text="DEFAULT ATTRIBUTES:">
+                                                                                                   <font>
+                                                                                                      <Font size="24.0" />
+                                                                                                   </font>
+                                                                                                </Label>
+                                                                                             </children>
+                                                                                          </HBox>
+                                                                                          <HBox prefHeight="100.0" prefWidth="200.0">
+                                                                                             <children>
+                                                                                                <Label fx:id="typeDefaultAttribute" alignment="TOP_LEFT" prefHeight="123.0" prefWidth="446.0" wrapText="true" HBox.hgrow="ALWAYS">
+                                                                                                   <font>
+                                                                                                      <Font size="24.0" />
+                                                                                                   </font>
+                                                                                                </Label>
+                                                                                             </children>
+                                                                                          </HBox>
+                                                                                          <HBox prefHeight="30.0" prefWidth="445.0">
+                                                                                             <children>
+                                                                                                <Label prefHeight="29.0" prefWidth="255.0" text="ITEMS:">
+                                                                                                   <font>
+                                                                                                      <Font size="24.0" />
+                                                                                                   </font>
+                                                                                                </Label>
+                                                                                             </children>
+                                                                                          </HBox>
+                                                                                          <HBox prefHeight="100.0" prefWidth="200.0">
+                                                                                             <children>
+                                                                                                <Label fx:id="typeItems" alignment="TOP_LEFT" prefHeight="112.0" prefWidth="453.0">
+                                                                                                   <font>
+                                                                                                      <Font size="24.0" />
+                                                                                                   </font>
+                                                                                                </Label>
+                                                                                             </children>
+                                                                                          </HBox>
+                                                                                       </children>
+                                                                                    </VBox>
+                                                                                 </children>
+                                                                              </Pane>
+                                                                              <Pane fx:id="itemPane" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #e6e1d5 #e6e1d5;" visible="false">
+                                                                                 <children>
+                                                                                    <VBox prefHeight="342.0" prefWidth="445.0">
+                                                                                       <children>
+                                                                                          <HBox prefHeight="37.0" prefWidth="445.0">
+                                                                                             <children>
+                                                                                                <Label prefHeight="37.0" prefWidth="64.0" text="Type:">
+                                                                                                   <font>
+                                                                                                      <Font size="24.0" />
+                                                                                                   </font>
+                                                                                                </Label>
+                                                                                                <Label fx:id="typeName" prefHeight="37.0" prefWidth="273.0">
+                                                                                                   <font>
+                                                                                                      <Font size="24.0" />
+                                                                                                   </font>
+                                                                                                   <HBox.margin>
+                                                                                                      <Insets left="10.0" />
+                                                                                                   </HBox.margin>
+                                                                                                </Label>
+                                                                                             </children>
+                                                                                          </HBox>
+                                                                                          <HBox prefHeight="30.0" prefWidth="445.0">
+                                                                                             <children>
+                                                                                                <Label prefHeight="29.0" prefWidth="255.0" text="Attributes:">
+                                                                                                   <font>
+                                                                                                      <Font size="24.0" />
+                                                                                                   </font>
+                                                                                                </Label>
+                                                                                             </children>
+                                                                                          </HBox>
+                                                                                          <HBox prefHeight="100.0" prefWidth="200.0">
+                                                                                             <children>
+                                                                                                <Label fx:id="itemAttributes" alignment="TOP_LEFT" prefHeight="112.0" prefWidth="453.0">
+                                                                                                   <font>
+                                                                                                      <Font size="24.0" />
+                                                                                                   </font>
+                                                                                                </Label>
+                                                                                             </children>
+                                                                                          </HBox>
+                                                                                          <HBox prefHeight="30.0" prefWidth="445.0">
+                                                                                             <children>
+                                                                                                <Label prefHeight="29.0" prefWidth="255.0" text="Tags:">
+                                                                                                   <font>
+                                                                                                      <Font size="24.0" />
+                                                                                                   </font>
+                                                                                                </Label>
+                                                                                             </children>
+                                                                                          </HBox>
+                                                                                          <HBox prefHeight="100.0" prefWidth="200.0">
+                                                                                             <children>
+                                                                                                <Label fx:id="itemTags" alignment="TOP_LEFT" prefHeight="112.0" prefWidth="453.0">
+                                                                                                   <font>
+                                                                                                      <Font size="24.0" />
+                                                                                                   </font>
+                                                                                                </Label>
+                                                                                             </children>
+                                                                                          </HBox>
+                                                                                       </children>
+                                                                                    </VBox>
+                                                                                 </children>
+                                                                              </Pane>
+                                                                           </children>
+                                                                        </StackPane>
+                                                                     </children>
+                                                                  </HBox>
                                                                </children>
-                                                            </StackPane>
+                                                            </VBox>
                                                          </children>
-                                                      </VBox>
+                                                      </Pane>
+                                                      <Pane fx:id="pane2" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="485.0" prefWidth="465.0" style="-fx-border-width: 2; -fx-border-color: black; -fx-border-radius: 8;" visible="false">
+                                                         <children>
+                                                            <Region layoutX="-26.0" layoutY="-22.0" prefHeight="491.0" prefWidth="475.0" style="-fx-background-color: #e6e1d5; -fx-background-radius: 10; -fx-border-color: black; -fx-border-width: 2; -fx-border-radius: 8;" />
+                                                            <VBox alignment="TOP_CENTER" prefHeight="255.0" prefWidth="444.0">
+                                                               <children>
+                                                                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="CATALOG" wrappingWidth="178.04901123046875">
+                                                                     <font>
+                                                                        <Font name="MS Gothic" size="38.0" />
+                                                                     </font>
+                                                                     <VBox.margin>
+                                                                        <Insets bottom="10.0" />
+                                                                     </VBox.margin>
+                                                                  </Text>
+                                                                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Merhaba ben bir kataloğum" wrappingWidth="400.0">
+                                                                     <font>
+                                                                        <Font name="Consolas" size="17.0" />
+                                                                     </font>
+                                                                  </Text>
+                                                               </children>
+                                                            </VBox>
+                                                            <VBox alignment="BOTTOM_CENTER" layoutX="2.0" layoutY="260.0" prefHeight="205.0" prefWidth="444.0">
+                                                               <children>
+                                                                  <ImageView fitHeight="159.0" fitWidth="367.0" pickOnBounds="true" preserveRatio="true">
+                                                                     <image>
+                                                                        <Image url="@../../../Images/retro2.png" />
+                                                                     </image>
+                                                                     <VBox.margin>
+                                                                        <Insets bottom="10.0" />
+                                                                     </VBox.margin>
+                                                                  </ImageView>
+                                                               </children>
+                                                            </VBox>
+                                                            <VBox alignment="CENTER_LEFT" layoutX="9.0" layoutY="429.0" prefHeight="46.0" prefWidth="223.0">
+                                                               <children>
+                                                                  <StackPane alignment="CENTER_LEFT" prefHeight="150.0" prefWidth="245.0">
+                                                                     <children>
+                                                                        <Button fx:id="prevPage" mnemonicParsing="false" onAction="#previousPage" onMouseEntered="#onHoverColor2" onMouseExited="#onHoverColorExit2" prefHeight="25.0" prefWidth="55.0" style="-fx-background-color: transparent;">
+                                                                           <graphic>
+                                                                              <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+                                                                                 <image>
+                                                                                    <Image url="@../../../Images/prev.png" />
+                                                                                 </image>
+                                                                              </ImageView>
+                                                                           </graphic>
+                                                                           <padding>
+                                                                              <Insets bottom="5.0" left="-80.0" right="-10.0" top="-10.0" />
+                                                                           </padding>
+                                                                        </Button>
+                                                                        <Button fx:id="prevPage2" mnemonicParsing="false" onAction="#previousPage" onMouseEntered="#onHoverColor2" onMouseExited="#onHoverColorExit2" prefHeight="25.0" prefWidth="55.0" style="-fx-background-color: transparent;" visible="false">
+                                                                           <graphic>
+                                                                              <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+                                                                                 <image>
+                                                                                    <Image url="@../../../Images/prev2.png" />
+                                                                                 </image>
+                                                                              </ImageView>
+                                                                           </graphic>
+                                                                           <padding>
+                                                                              <Insets bottom="5.0" left="-80.0" right="-10.0" top="-10.0" />
+                                                                           </padding>
+                                                                        </Button>
+                                                                     </children>
+                                                                  </StackPane>
+                                                               </children>
+                                                            </VBox>
+                                                            <VBox alignment="CENTER_RIGHT" layoutX="232.0" layoutY="429.0" prefHeight="46.0" prefWidth="223.0">
+                                                               <padding>
+                                                                  <Insets bottom="15.0" left="10.0" right="10.0" top="10.0" />
+                                                               </padding>
+                                                            </VBox>
+                                                         </children>
+                                                         <StackPane.margin>
+                                                            <Insets />
+                                                         </StackPane.margin>
+                                                      </Pane>
+                                                      <Pane fx:id="pane1" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="485.0" prefWidth="465.0" style="-fx-border-width: 2; -fx-border-color: black; -fx-border-radius: 8;">
+                                                         <children>
+                                                            <Region layoutX="-26.0" layoutY="-22.0" prefHeight="491.0" prefWidth="475.0" style="-fx-background-color: #e6e1d5; -fx-background-radius: 10; -fx-border-color: black; -fx-border-width: 2; -fx-border-radius: 8;" />
+                                                            <VBox alignment="TOP_CENTER" prefHeight="59.0" prefWidth="449.0">
+                                                               <children>
+                                                                  <Text disable="true" strokeType="OUTSIDE" strokeWidth="0.0" text="INTRODUCTION">
+                                                                     <font>
+                                                                        <Font name="MS Gothic" size="38.0" />
+                                                                     </font>
+                                                                     <VBox.margin>
+                                                                        <Insets top="10.0" />
+                                                                     </VBox.margin>
+                                                                  </Text>
+                                                               </children>
+                                                            </VBox>
+                                                            <VBox alignment="CENTER_RIGHT" layoutX="192.0" layoutY="80.0" prefHeight="234.0" prefWidth="249.0">
+                                                               <children>
+                                                                  <Text strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-line-spacing: 5;" text="This application allows you to store types and items. You can also give tags to the items to identify them. You can search and filter every type, item or even tags! You can use the dots below to check the next card out." textAlignment="JUSTIFY" wrappingWidth="242.6171875">
+                                                                     <font>
+                                                                        <Font name="Consolas" size="15.0" />
+                                                                     </font>
+                                                                  </Text>
+                                                               </children>
+                                                            </VBox>
+                                                            <VBox layoutX="10.0" layoutY="69.0" prefHeight="371.0" prefWidth="154.0">
+                                                               <children>
+                                                                  <ImageView fitHeight="371.0" fitWidth="173.0" pickOnBounds="true" preserveRatio="true">
+                                                                     <image>
+                                                                        <Image url="@../../../Images/retro.png" />
+                                                                     </image>
+                                                                  </ImageView>
+                                                               </children>
+                                                            </VBox>
+                                                            <VBox alignment="CENTER_LEFT" layoutX="-1.0" layoutY="419.0" prefHeight="46.0" prefWidth="223.0" />
+                                                            <VBox alignment="CENTER_RIGHT" layoutX="222.0" layoutY="419.0" prefHeight="46.0" prefWidth="223.0">
+                                                               <children>
+                                                                  <StackPane alignment="CENTER_RIGHT" prefHeight="150.0" prefWidth="200.0">
+                                                                     <children>
+                                                                        <Button fx:id="nextPage2" mnemonicParsing="false" onAction="#nextPage" onMouseEntered="#onHoverColor" onMouseExited="#onHoverColorExit" prefHeight="25.0" prefWidth="55.0" style="-fx-background-color: transparent;" visible="false">
+                                                                           <graphic>
+                                                                              <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+                                                                                 <image>
+                                                                                    <Image url="@../../../Images/next2.png" />
+                                                                                 </image>
+                                                                              </ImageView>
+                                                                           </graphic>
+                                                                           <padding>
+                                                                              <Insets bottom="-10.0" left="-10.0" right="-10.0" top="-10.0" />
+                                                                           </padding>
+                                                                        </Button>
+                                                                        <Button fx:id="nextPage" mnemonicParsing="false" onAction="#nextPage" onMouseEntered="#onHoverColor" onMouseExited="#onHoverColorExit" prefHeight="25.0" prefWidth="55.0" style="-fx-background-color: transparent;">
+                                                                           <graphic>
+                                                                              <ImageView fx:id="next1" fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+                                                                                 <image>
+                                                                                    <Image url="@../../../Images/next.png" />
+                                                                                 </image>
+                                                                              </ImageView>
+                                                                           </graphic>
+                                                                           <padding>
+                                                                              <Insets bottom="-10.0" left="-10.0" right="-10.0" top="-10.0" />
+                                                                           </padding>
+                                                                        </Button>
+                                                                     </children>
+                                                                  </StackPane>
+                                                               </children>
+                                                            </VBox>
+                                                         </children>
+                                                      </Pane>
                                                    </children>
-                                                </Pane>
+                                                </StackPane>
                                              </children>
+                                             <HBox.margin>
+                                                <Insets left="10.0" right="5.0" top="8.0" />
+                                             </HBox.margin>
+                                             <padding>
+                                                <Insets left="7.0" right="7.0" top="7.0" />
+                                             </padding>
                                           </StackPane>
                                        </children>
-                                       <HBox.margin>
-                                          <Insets left="10.0" right="5.0" top="8.0" />
-                                       </HBox.margin>
                                        <padding>
-                                          <Insets left="7.0" right="7.0" top="7.0" />
+                                          <Insets bottom="15.0" left="15.0" top="15.0" />
                                        </padding>
-                                    </StackPane>
+                                    </HBox>
+                                    <HBox alignment="TOP_CENTER" prefHeight="129.0" prefWidth="495.0" style="-fx-spacing: 10;">
+                                       <children>
+                                          <Button fx:id="button" minHeight="0.0" minWidth="0.0" mnemonicParsing="false" onAction="#previousPage" prefHeight="20.0" prefWidth="20.0" style="-fx-background-radius: 100; -fx-background-color: black; -fx-border-color: black; -fx-border-radius: 100; -fx-border-width: 3;" />
+                                          <Button fx:id="button2" minHeight="0.0" minWidth="0.0" mnemonicParsing="false" onAction="#nextPage" prefHeight="20.0" prefWidth="20.0" style="-fx-background-radius: 100; -fx-background-color: white; -fx-border-color: black; -fx-border-radius: 100; -fx-border-width: 3;" />
+                                       </children>
+                                    </HBox>
                                  </children>
-                                 <VBox.margin>
-                                    <Insets />
-                                 </VBox.margin>
-                                 <padding>
-                                    <Insets bottom="15.0" left="15.0" top="15.0" />
-                                 </padding>
-                              </HBox>
-                              <HBox alignment="TOP_CENTER" prefHeight="129.0" prefWidth="495.0" style="-fx-spacing: 10;">
-                                 <children>
-                                    <Button fx:id="button" minHeight="0.0" minWidth="0.0" mnemonicParsing="false" onAction="#previousPage" prefHeight="20.0" prefWidth="20.0" style="-fx-background-radius: 100; -fx-background-color: black; -fx-border-color: black; -fx-border-radius: 100; -fx-border-width: 3;" />
-                                    <Button fx:id="button2" minHeight="0.0" minWidth="0.0" mnemonicParsing="false" onAction="#nextPage" prefHeight="20.0" prefWidth="20.0" style="-fx-background-radius: 100; -fx-background-color: white; -fx-border-color: black; -fx-border-radius: 100; -fx-border-width: 3;" />
-                                 </children>
-                                 <padding>
-                                    <Insets top="15.0" />
-                                 </padding>
-                              </HBox>
+                              </VBox>
                            </children>
                            <padding>
                               <Insets top="10.0" />
@@ -1576,7 +1580,7 @@
                   </StackPane>
                </children>
             </HBox>
-            <Pane fx:id="helpPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="485.0" prefWidth="465.0" style="-fx-border-width: 2; -fx-border-color: black; -fx-border-radius: 8; -fx-background-color: black; -fx-background-radius: 8;" visible="false" StackPane.alignment="CENTER">
+            <Pane fx:id="helpPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="485.0" prefWidth="465.0" style="-fx-border-width: 2; -fx-border-color: black; -fx-border-radius: 8; -fx-background-color: black; -fx-background-radius: 8;" visible="false">
                <children>
                   <Region layoutX="-26.0" layoutY="-22.0" prefHeight="491.0" prefWidth="475.0" style="-fx-background-color: #e6e1d5; -fx-background-radius: 10; -fx-border-color: black; -fx-border-width: 2; -fx-border-radius: 8;" />
                   <VBox alignment="TOP_CENTER" prefHeight="464.0" prefWidth="449.0">
