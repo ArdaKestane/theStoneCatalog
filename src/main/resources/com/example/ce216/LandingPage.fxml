@@ -216,8 +216,8 @@
                               </VBox>
                               <Pane fx:id="treeViewPane" maxWidth="-Infinity" prefHeight="630.0" prefWidth="360.0" visible="false">
                                  <children>
-                                    <TreeView fx:id="treeView" onContextMenuRequested="#onSelect" onMouseClicked="#onSelect" prefHeight="630.0" prefWidth="360.0" style="-fx-background-radius: 20; -fx-border-radius: 20; -fx-background-color: transparent; -fx-border-color: transparent;" />
-                                    <Region opacity="0.15" prefHeight="630.0" prefWidth="360.0" style="-fx-background-color: CC9C75; -fx-background-radius: 20; -fx-border-radius: 20;" />
+                                    <TreeView fx:id="treeView" onContextMenuRequested="#onSelect" onMouseClicked="#onSelect" prefHeight="637.0" prefWidth="360.0" style="-fx-background-radius: 20; -fx-border-radius: 20; -fx-background-color: transparent; -fx-border-color: transparent;" />
+                                    <Region fx:id="deneme" opacity="0.15" prefHeight="637.0" prefWidth="360.0" style="-fx-background-color: CC9C75; -fx-background-radius: 20; -fx-border-radius: 20;" />
                                  </children>
                               </Pane>
                            </children>

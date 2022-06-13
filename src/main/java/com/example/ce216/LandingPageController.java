@@ -200,6 +200,8 @@ public class LandingPageController implements Initializable {
     @FXML
     private TextField searchBar;
 
+    @FXML Region deneme;
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         treeMaker();
@@ -222,11 +224,13 @@ public class LandingPageController implements Initializable {
             tags.getItems().add(tag);
         }
 
+        deneme.mouseTransparentProperty().set(true);
 
     }
 
     @FXML
     public void starter() {
+
         TranslateTransition translateTransition = new TranslateTransition(Duration.seconds(2), vBox);
         translateTransition.setToX(-root.getPrefWidth() / 2 + vBox.getWidth() / 2);
         translateTransition.play();
@@ -267,6 +271,7 @@ public class LandingPageController implements Initializable {
         fadeTransition6.setFromValue(0);
         fadeTransition6.setToValue(1);
         fadeTransition6.play();
+        treeViewPane.toFront();
 
 
     }
@@ -749,6 +754,7 @@ public class LandingPageController implements Initializable {
     }
 
     public void createDefaultAttributeAction(ActionEvent event) {
+
 
 
         if (!typeNameInput.getText().isBlank()) createTypeButtonAction(event);
