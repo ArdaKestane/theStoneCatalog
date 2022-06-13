@@ -27,6 +27,7 @@ import java.util.ResourceBundle;
 public class LandingPageController implements Initializable {
 
     private final TreeItem treeRoot = new TreeItem();
+    private final TreeItem treeRoot2 = new TreeItem();
     Catalog catalog = Catalog.getCatalogInstance();
     Type lastCreated;
     Item lastCreatedItem;
@@ -122,6 +123,10 @@ public class LandingPageController implements Initializable {
     private Pane typeEdit;
     @FXML
     private TreeView<Object> treeView;
+
+    @FXML
+    private TreeView<Object> treeView2;
+
     @FXML
     private TextField typeNameInput;
     @FXML
@@ -198,7 +203,6 @@ public class LandingPageController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         treeMaker();
-
 
         tagFilter.setTitle("Tags");
 
@@ -443,10 +447,15 @@ public class LandingPageController implements Initializable {
         vBox.setVisible(false);
         addPane.setVisible(true);
         editPane.setVisible(false);
+        typeEdit.setVisible(false);
         itemEditPane1.setVisible(false);
         itemEditPane2.setVisible(false);
+        generalEditPane.setVisible(true);
+        generalAddPane.setVisible(true);
+        typeAddPane.setVisible(false);
+        itemAddPane.setVisible(false);
         addPane.toFront();
-        stackPaneClose.setOpacity(0.35);
+
         FadeTransition fadeTransition = new FadeTransition(Duration.seconds(0.6), addPane);
         fadeTransition.setFromValue(0);
         fadeTransition.setToValue(1);
@@ -458,7 +467,6 @@ public class LandingPageController implements Initializable {
     public void closeAddPane() {
         vBox.setVisible(true);
         addPane.setVisible(false);
-        stackPaneClose.setOpacity(1);
         FadeTransition fadeTransition = new FadeTransition(Duration.seconds(0.6), vBox);
         fadeTransition.setFromValue(0);
         fadeTransition.setToValue(1);
@@ -470,16 +478,21 @@ public class LandingPageController implements Initializable {
         typeChoice.getSelectionModel().clearSelection();
         attributeNameInput.clear();
         attributeValueInput.clear();
+        addPane.toBack();
     }
 
     public void editPane() {
         vBox.setVisible(false);
+        generalEditPane.setVisible(true);
+        typeEdit.setVisible(false);
         itemEditPane1.setVisible(false);
         itemEditPane2.setVisible(false);
         editPane.setVisible(true);
+        typeAddPane.setVisible(false);
+        itemAddPane.setVisible(false);
+        generalAddPane.setVisible(true);
         stackPane3.toFront();
         editPane.toFront();
-        stackPaneClose.setOpacity(0.35);
         FadeTransition fadeTransition = new FadeTransition(Duration.seconds(0.6), editPane);
         fadeTransition.setFromValue(0);
         fadeTransition.setToValue(1);
@@ -491,8 +504,6 @@ public class LandingPageController implements Initializable {
         for (Type type : Catalog.typeList) {
             typeChoice2.getItems().add(type);
         }
-
-
     }
 
     public void closeEditPane() {
@@ -502,7 +513,6 @@ public class LandingPageController implements Initializable {
         editPane.setVisible(false);
         stackPane3.toBack();
         editPane.toBack();
-        stackPaneClose.setOpacity(1);
         FadeTransition fadeTransition = new FadeTransition(Duration.seconds(0.6), vBox);
         fadeTransition.setFromValue(0);
         fadeTransition.setToValue(1);
@@ -512,8 +522,14 @@ public class LandingPageController implements Initializable {
     public void deletePane() {
         vBox.setVisible(false);
         deletePane.setVisible(true);
+        typeAddPane.setVisible(false);
+        itemAddPane.setVisible(false);
+        generalAddPane.setVisible(true);
+        typeEdit.setVisible(false);
+        itemEditPane1.setVisible(false);
+        itemEditPane2.setVisible(false);
+        generalEditPane.setVisible(true);
         deletePane.toFront();
-        stackPaneClose.setOpacity(0.35);
         FadeTransition fadeTransition = new FadeTransition(Duration.seconds(0.6), deletePane);
         fadeTransition.setFromValue(0);
         fadeTransition.setToValue(1);
@@ -529,17 +545,19 @@ public class LandingPageController implements Initializable {
     public void closeDeletePane() {
         vBox.setVisible(true);
         deletePane.setVisible(false);
-        stackPaneClose.setOpacity(1);
         FadeTransition fadeTransition = new FadeTransition(Duration.seconds(0.6), vBox);
         fadeTransition.setFromValue(0);
         fadeTransition.setToValue(1);
         fadeTransition.play();
+        deletePane.toBack();
     }
 
     public void help() {
         addPane.setVisible(false);
         editPane.setVisible(false);
         deletePane.setVisible(false);
+        itemEditPane1.setVisible(false);
+        itemEditPane2.setVisible(false);
         helpPane.setVisible(true);
         helpPane.toFront();
 
@@ -549,7 +567,6 @@ public class LandingPageController implements Initializable {
             public void handle(Event event) {
             }
         });
-
 
         hBoxClose.setOpacity(0.35);
         FadeTransition fadeTransition = new FadeTransition(Duration.seconds(0.6), helpPane);
@@ -578,8 +595,6 @@ public class LandingPageController implements Initializable {
         generalEditPane.setVisible(true);
         typeEdit.setVisible(false);
         editPane.setVisible(false);
-        hBoxClose.setOpacity(1);
-        stackPaneClose.setOpacity(1);
         FadeTransition fadeTransition = new FadeTransition(Duration.seconds(0.6), vBox);
         fadeTransition.setFromValue(0);
         fadeTransition.setToValue(1);
@@ -627,6 +642,24 @@ public class LandingPageController implements Initializable {
             }
         }
     }
+
+    public void treeMaker2() {
+        TreeItem<Object> treeRoot2 = new TreeItem<>("Types");
+        treeView2.setRoot(treeRoot2);
+        treeRoot2.setExpanded(true);
+        treeView2.setShowRoot(true);
+
+        for (Type type : Catalog.typeList) {
+            TreeItem<Object> treeTypeItem2 = new TreeItem<>(type);
+            treeRoot2.getChildren().add(treeTypeItem2);
+            treeTypeItem2.setExpanded(true);
+            for (Item item : type.getItems()) {
+                treeTypeItem2.getChildren().add(new TreeItem<>(item));
+            }
+        }
+    }
+
+
 
     public void createTypeButtonAction(ActionEvent event) {
         boolean checker = true;
@@ -732,7 +765,6 @@ public class LandingPageController implements Initializable {
                 a.show();
             } else {
                 if (lastCreated.getDefaultAttributes().toString().contains(typeDefaultAttributeNameInput.getText())) {
-                    System.out.println("heööl");
                 } else {
                     lastCreated.addDefaultAttributes(new Attribute(typeDefaultAttributeNameInput.getText(), typeDefaultAttributeValueInput.getText()));
                     typeDefaultAttributeNameInput.clear();
@@ -1001,23 +1033,38 @@ public class LandingPageController implements Initializable {
     }
 
     public void deleteType() {
-        Catalog.typeList.remove(typeBox.getValue());
-        Type type = (Type) typeBox.getValue();
-        for (Item i : type.getItems()) {
-            Catalog.itemList.remove(i);
-        }
+        if (typeBox.getValue() != null) {
+            Catalog.typeList.remove(typeBox.getValue());
+            Type type = (Type) typeBox.getValue();
+            for (Item i : type.getItems()) {
+                Catalog.itemList.remove(i);
+            }
 
-        typeBox.getItems().remove(typeBox.getValue());
-        treeMaker();
+            typeBox.getItems().remove(typeBox.getValue());
+            treeMaker();
+        }else {
+            Alert a = new Alert(Alert.AlertType.ERROR);
+            a.setContentText("Select a type to delete.");
+            a.show();
+
+        }
     }
 
     public void deleteItem() {
+        if (itemBox.getValue() != null) {
         Item item = (Item) itemBox.getValue();
         Catalog.itemList.remove(itemBox.getValue());
         item.getType().deleteItem(item);
 
         itemBox.getItems().remove(itemBox.getValue());
         treeMaker();
+    }
+        else {
+            Alert a = new Alert(Alert.AlertType.ERROR);
+            a.setContentText("Select an item to delete.");
+            a.show();
+
+        }
     }
 
     public void deleteTypeAttribute() {
@@ -1053,7 +1100,7 @@ public class LandingPageController implements Initializable {
     public void search(KeyEvent event) {
 
         if (searchBar.getText().isBlank()) {
-            treeMaker();
+            treeView2.setRoot(null);
         } else {
             String search = searchBar.getText();
 
@@ -1061,26 +1108,30 @@ public class LandingPageController implements Initializable {
         }
     }
 
+
+
     public void searchTreeMaker(String s) {
 
-        treeView.setRoot(treeRoot);
-        treeView.setShowRoot(false);
-        treeRoot.getChildren().clear();
+        s = s.toLowerCase();
+
+        treeView2.setRoot(treeRoot2);
+        treeView2.setShowRoot(false);
+        treeRoot2.getChildren().clear();
         for (Type type : Catalog.typeList) {
-            if (type.getName().contains(s)) {
+            if (type.getName().toLowerCase().contains(s)) {
                 TreeItem treeTypeItem = new TreeItem<>(type);
-                treeRoot.getChildren().add(treeTypeItem);
+                treeRoot2.getChildren().add(treeTypeItem);
             }
             for (Item item : type.getItems()) {
-                if (item.getName().contains(s)) {
+                if (item.getName().toLowerCase().contains(s)) {
                     TreeItem treeTypeItem = new TreeItem<>(item);
-                    treeRoot.getChildren().add(treeTypeItem);
+                    treeRoot2.getChildren().add(treeTypeItem);
                 }
             }
             for (Tag tag : Catalog.tagList) {
-                if (tag.getName().contains(s)) {
+                if (tag.getName().toLowerCase().contains(s)) {
                     TreeItem treeTypeItem = new TreeItem<>(tag);
-                    treeRoot.getChildren().add(treeTypeItem);
+                    treeRoot2.getChildren().add(treeTypeItem);
                 }
             }
         }
@@ -1091,8 +1142,8 @@ public class LandingPageController implements Initializable {
         ObservableList<Tag> l = tagFilter.getCheckModel().getCheckedItems();
         if (l.size() != 0) {
             TreeItem<Object> root = new TreeItem<>();
-            treeView.setRoot(root);
-            treeView.setShowRoot(false);
+            treeView2.setRoot(root);
+            treeView2.setShowRoot(false);
 
             for (Tag tag : l) {
                 for (Item item : tag.getAttachedItems()) {
@@ -1111,9 +1162,7 @@ public class LandingPageController implements Initializable {
                     }
                 }
             }
-        } else treeMaker();
+        } else treeView2.setRoot(null);
 
     }
-
-
 }
