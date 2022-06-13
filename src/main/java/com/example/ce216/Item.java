@@ -110,7 +110,7 @@ public class Item implements Serializable {
                 "            font-size: large;" +
                 "        }\n" +
                 "        h1{\n" +
-                "            color: #66BFBF;\n" +
+                "            color: black;\n" +
                 "            margin: 0px auto 10px auto;\n" +
                 "            display: block;\n" +
                 "            font-size: 3em;\n" +

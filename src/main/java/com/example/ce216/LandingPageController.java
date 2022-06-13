@@ -340,14 +340,20 @@ public class LandingPageController implements Initializable {
         File pathFile = fileChooser.showSaveDialog(pane1.getScene().getWindow());
         Item item = (Item) o.getValue();
 
-        try {
-            File f;
-            if (pathFile != null) {
-                f = !pathFile.getAbsolutePath().contains(".") ? new File(pathFile.toPath() + ".html") : pathFile;
-                Files.writeString(f.toPath(), item.exportItem(), StandardOpenOption.CREATE);
+        if (item != null) {
+            try {
+                File f;
+                if (pathFile != null) {
+                    f = !pathFile.getAbsolutePath().contains(".") ? new File(pathFile.toPath() + ".html") : pathFile;
+                    Files.writeString(f.toPath(), item.exportItem(), StandardOpenOption.CREATE);
+                }
+            } catch (IOException e) {
+                e.printStackTrace();
             }
-        } catch (IOException e) {
-            e.printStackTrace();
+        } else {
+            Alert a = new Alert(Alert.AlertType.ERROR);
+            a.setContentText("Select an Item to export.");
+            a.show();
         }
     }
 
@@ -355,32 +361,49 @@ public class LandingPageController implements Initializable {
     private void printPDF() {
 
         Item printItem = (Item) o.getValue();
-        AnchorPane pane  = new AnchorPane();
-        WebView webView = new WebView();
-        pane.getChildren().add(webView);
+        if (printItem != null) {
+            AnchorPane pane = new AnchorPane();
+            WebView webView = new WebView();
+            pane.getChildren().add(webView);
 
-        Stage stage = (Stage) pane1.getScene().getWindow();
-        printItem.printFile();
-        WebEngine webEngine = webView.getEngine();
-        File f = new File("src/main/resources/Files/template.html");
-        if (f.exists()) {
-            try {
-                webEngine.load(f.toURI().toURL().toString());
-            } catch (MalformedURLException e) {
-                e.printStackTrace();
+            Stage stage = (Stage) pane1.getScene().getWindow();
+            printItem.printFile();
+            WebEngine webEngine = webView.getEngine();
+            File f = new File("template.html");
+            if(!f.exists()){
+                try {
+                    f.createNewFile();
+                } catch (IOException e) {
+                    throw new RuntimeException(e);
+                }
+                try {
+                    Files.writeString(f.toPath(),printItem.exportItem(), StandardOpenOption.CREATE);
+                } catch (IOException e) {
+                    throw new RuntimeException(e);
+                }
             }
-        }
-        PrinterJob job = PrinterJob.createPrinterJob();
-        if (job == null) {
-            Alert a = new Alert(Alert.AlertType.ERROR);
-            a.setContentText("There is no printer in your device. Please add a printer to your device.");
-            a.show();
+            if (f.exists()) {
+                try {
+                    webEngine.load(f.toURI().toURL().toString());
+                } catch (MalformedURLException e) {
+                    e.printStackTrace();
+                }
+            }
+            PrinterJob job = PrinterJob.createPrinterJob();
+            if (job == null) {
+                Alert a = new Alert(Alert.AlertType.ERROR);
+                a.setContentText("There is no printer in your device. Please add a printer to your device.");
+                a.show();
 
-        }
-        else if(job.showPrintDialog(stage)) {
-            boolean success = job.printPage(pane);
-            if (success)
-                job.endJob();
+            } else if (job.showPrintDialog(stage)) {
+                boolean success = job.printPage(pane);
+                if (success)
+                    job.endJob();
+            }
+        } else {
+            Alert a = new Alert(Alert.AlertType.ERROR);
+            a.setContentText("Select an item to print.");
+            a.show();
         }
     }
 
@@ -868,10 +891,12 @@ public class LandingPageController implements Initializable {
                 itemAttributes.setText(i.getAttributes().toString());
                 itemTags.setText(i.getTags().toString());
             }
-        } else if(Catalog.typeList.size()==0) {
+        } if(o==null)  {
             typePane.setVisible(false);
             itemPane.setVisible(false);
             name.setText("");
+            printer.setVisible(false);
+            search.setVisible(false);
         }
     }
 

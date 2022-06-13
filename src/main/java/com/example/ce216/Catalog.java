@@ -46,14 +46,14 @@ public class Catalog{
     }
 
     public void readFromFile(ArrayList<Type> types, ArrayList<Item> items, ArrayList<Tag> tags) {
-        File file = new File("src/main/resources/Files/Objects.txt");
+        File file = new File("Objects.txt");
         if (file.exists()) {
             ObjectInputStream ois;
             FileInputStream fis;
 
             try {
 
-                fis = new FileInputStream("src/main/resources/Files/Objects.txt");
+                fis = new FileInputStream("Objects.txt");
                 ois = new ObjectInputStream(fis);
                 try {
                     while (true) {
@@ -78,11 +78,18 @@ public class Catalog{
 
 
     public void writeToFile(ArrayList<Type> arrayList) {
-        File file = new File("src/main/resources/Files/Objects.txt");
+        File file = new File("Objects.txt");
+        if(!file.exists()){
+            try {
+                file.createNewFile();
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+        }
         if (file.exists()) {
             ObjectOutputStream oos = null;
             try {
-                FileOutputStream fos = new FileOutputStream("src/main/resources/Files/Objects.txt");
+                FileOutputStream fos = new FileOutputStream("Objects.txt");
                 oos = new ObjectOutputStream(fos);
                 try {
                     for (Object item : arrayList)
