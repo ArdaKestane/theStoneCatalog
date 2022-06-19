@@ -27,11 +27,20 @@
                <children>
                   <VBox alignment="TOP_CENTER" prefHeight="150.0" prefWidth="160.0" style="-fx-spacing: 10;" HBox.hgrow="NEVER">
                      <children>
-                        <ImageView fitHeight="109.0" fitWidth="108.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../../../Images/head.png" />
-                           </image>
-                        </ImageView>
+                        <StackPane onMouseExited="#onHoverStone2" prefHeight="150.0" prefWidth="200.0">
+                           <children>
+                              <ImageView fx:id="stone" fitHeight="107.0" fitWidth="150.0" pickOnBounds="true" preserveRatio="true" visible="false">
+                                 <image>
+                                    <Image url="@../../../Images/theStones.gif" />
+                                 </image>
+                              </ImageView>
+                              <ImageView fx:id="arda" fitHeight="109.0" fitWidth="108.0" onContextMenuRequested="#onHoverStone" onMouseEntered="#onHoverStone" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../../Images/head.png" />
+                                 </image>
+                              </ImageView>
+                           </children>
+                        </StackPane>
                         <Text fontSmoothingType="LCD" nodeOrientation="LEFT_TO_RIGHT" strokeType="OUTSIDE" strokeWidth="0.0" text="Arda Kestane">
                            <font>
                               <Font name="Consolas" size="18.0" />

@@ -215,6 +215,12 @@ public class LandingPageController implements Initializable {
     @FXML
     private Button export;
 
+    @FXML
+    private ImageView stone;
+
+    @FXML
+    private ImageView arda;
+
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -241,6 +247,17 @@ public class LandingPageController implements Initializable {
         deneme.mouseTransparentProperty().set(true);
 
     }
+
+    public void onHoverStone(){
+        arda.setVisible(false);
+        stone.setVisible(true);
+    }
+
+    public void onHoverStone2(){
+        arda.setVisible(true);
+        stone.setVisible(false);
+    }
+
 
     @FXML
     public void starter() {
@@ -353,6 +370,7 @@ public class LandingPageController implements Initializable {
         } else {
             Alert a = new Alert(Alert.AlertType.ERROR);
             a.setContentText("Select an Item to export.");
+             
             a.show();
         }
     }
@@ -393,6 +411,7 @@ public class LandingPageController implements Initializable {
             if (job == null) {
                 Alert a = new Alert(Alert.AlertType.ERROR);
                 a.setContentText("There is no printer in your device. Please add a printer to your device.");
+                 
                 a.show();
 
             } else if (job.showPrintDialog(stage)) {
@@ -403,6 +422,7 @@ public class LandingPageController implements Initializable {
         } else {
             Alert a = new Alert(Alert.AlertType.ERROR);
             a.setContentText("Select an item to print.");
+             
             a.show();
         }
     }
@@ -764,6 +784,7 @@ public class LandingPageController implements Initializable {
                 if (typeNameInput.getText().equalsIgnoreCase(type.getName())) {
                     Alert a = new Alert(Alert.AlertType.ERROR);
                     a.setContentText("A type with the same name is already defined.");
+                     
                     a.show();
                     checker = false;
                     break;
@@ -789,6 +810,7 @@ public class LandingPageController implements Initializable {
         if (itemNameInput.getText().isBlank() || typeChoice.getValue() == null) {
             Alert a = new Alert(Alert.AlertType.ERROR);
             a.setContentText("Item name can not be blank and every item must belong to a type.");
+            a.setGraphic(new ImageView("TheStone.png"));
             a.show();
         } else {
             if (Catalog.itemList.size() != 0) {
@@ -796,6 +818,7 @@ public class LandingPageController implements Initializable {
                     if (itemNameInput.getText().equals(type.getName())) {
                         Alert a = new Alert(Alert.AlertType.ERROR);
                         a.setContentText("An item with the same name is already defined.");
+                         
                         a.show();
                         checker = false;
                         break;
@@ -825,6 +848,7 @@ public class LandingPageController implements Initializable {
         if (attributeNameInput.getText().isBlank()) {
             Alert a = new Alert(Alert.AlertType.ERROR);
             a.setContentText("Name can not be blank.");
+             
             a.show();
         } else {
             if (lastCreatedItem != null && !lastCreatedItem.getAttributes().toString().contains(attributeNameInput.getText())) {
@@ -852,10 +876,12 @@ public class LandingPageController implements Initializable {
             if (lastCreated == null) {
                 Alert a = new Alert(Alert.AlertType.ERROR);
                 a.setContentText("There must be an Item selected priorly (last created Item is selected) in order to create any attributes.");
+                 
                 a.show();
             } else if (typeDefaultAttributeNameInput.getText().isBlank()) {
                 Alert a = new Alert(Alert.AlertType.ERROR);
                 a.setContentText("The attribute name can not be blank.");
+                 
                 a.show();
             } else {
                 if (lastCreated.getDefaultAttributes().toString().contains(typeDefaultAttributeNameInput.getText())) {
